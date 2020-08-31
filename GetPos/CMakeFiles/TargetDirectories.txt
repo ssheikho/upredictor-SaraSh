@@ -1,0 +1,3 @@
+/home/sara/Documents/upredictor/uPredictor/GetPos/CMakeFiles/rebuild_cache.dir
+/home/sara/Documents/upredictor/uPredictor/GetPos/CMakeFiles/edit_cache.dir
+/home/sara/Documents/upredictor/uPredictor/GetPos/CMakeFiles/GetPos.dir

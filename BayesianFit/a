@@ -1,0 +1,21 @@
+Scanning dependencies of target BayesianFit
+[ 33%] Building CXX object CMakeFiles/BayesianFit.dir/BayesianFit.cpp.o
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp: In function ‘int main(int, char**)’:
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp:37:2: error: ‘Ellipse3D::Ellipse3D’ names the constructor, not the type
+  Ellipse3D::Ellipse3D e3d(cartToHom(inWPtsAlongCols));
+  ^
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp:37:23: error: expected ‘;’ before ‘e3d’
+  Ellipse3D::Ellipse3D e3d(cartToHom(inWPtsAlongCols));
+                       ^
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp:37:54: error: statement cannot resolve address of overloaded function
+  Ellipse3D::Ellipse3D e3d(cartToHom(inWPtsAlongCols));
+                                                      ^
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp:38:34: error: ‘e3D’ was not declared in this scope
+  MatrixXd inPts2dAlongColsHom =  e3D->getEIF().getPtsXYAlongCols();
+                                  ^
+CMakeFiles/BayesianFit.dir/build.make:86: recipe for target 'CMakeFiles/BayesianFit.dir/BayesianFit.cpp.o' failed
+make[2]: *** [CMakeFiles/BayesianFit.dir/BayesianFit.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/BayesianFit.dir/all' failed
+make[1]: *** [CMakeFiles/BayesianFit.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2

@@ -1,0 +1,50 @@
+f (in3dPosI, in3dPosF){
+	3d cart path points interpolated as part of an ellipse. 
+	Different ways of defining the ellipse. 
+	
+	If A and B are the major and minor axes of the fitted ellipse, respectively, and
+  Theta is the angle from the A axis to each 3d wrist positions on the ellipse:
+
+		1) Assume the wrist travels the entire major arc of the ellipse 
+		- set A = ||in3dPosF - in3dPosI||; Theta_i = 0; Theta_F = 2pi
+		
+		2) the wrist traverses a path on the ellipse 
+			- Investigate if there is any trend in Theta_i and Theta_f from
+			  the collected data inorder to determine this 
+		- 
+
+		- determine B through investigating the Elliptical axis ratios computed by
+			fitting the Elliptical model to the sampled Vicon data
+
+}
+
+* Model the traveled path in terms of the % of the total perimeter of the ellipse 
+
+Dec 19
+1. model the maximum and minimum angular errors of the Plane
+	* which are defined orthogonal to the plane and aligned with 
+		the major axes of the best-fitting plane. 
+
+2. To form a full representation of the errors, we must also 
+	 report the azimuth of the error axis within the plane (ALPHA).
+	* Because of the nonlinearity associated with angular transformations,
+		there is no natural correspondence between the planar orientation of
+	  the fitted ellipse (i.e. planar rotation defined as the angle btween
+	  the Ellipse's major Axis, A, and the global/cameras X-axis) and the 
+		direction of θ max of the best-fitting plane .  
+	* rake (ALPHA) = cos ((v 3 × z) ⋅ v 2 ) ,
+		where z = [0, 0, 1] is a vertical vector.
+
+
+Projection to hyperbolic errors 
+ Two-dimensional conic slices of the hyperbolic error space
+ of the plane summarize dataset structure in PCA-aligned coordinates
+ or projected into real space.
+ Errors can assessed along any axis, but slices of the error hyperboloid aligned with the  
+ major axes of the planar fit are the most intuitive. These “axis-aligned” views of the
+ dataset, with in plane variation on the horizontal axis and out-of-plane variation on the  
+ vertical, are the ideal decomposition to assess the structure of a fitted dataset and 
+ verify the quality of the input data 𝐃.
+
+
+

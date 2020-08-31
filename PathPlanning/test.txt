@@ -1,0 +1,8 @@
+Scanning dependencies of target PathPlanning
+[ 50%] Building CXX object CMakeFiles/PathPlanning.dir/PathPlanning.o
+CMakeFiles/PathPlanning.dir/build.make:62: recipe for target 'CMakeFiles/PathPlanning.dir/PathPlanning.o' failed
+make[2]: *** [CMakeFiles/PathPlanning.dir/PathPlanning.o] Interrupt
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/PathPlanning.dir/all' failed
+make[1]: *** [CMakeFiles/PathPlanning.dir/all] Interrupt
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Interrupt

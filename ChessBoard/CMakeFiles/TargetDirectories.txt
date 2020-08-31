@@ -1,0 +1,3 @@
+/home/sara/Documents/upredictor/uPredictor/ChessBoard/CMakeFiles/edit_cache.dir
+/home/sara/Documents/upredictor/uPredictor/ChessBoard/CMakeFiles/rebuild_cache.dir
+/home/sara/Documents/upredictor/uPredictor/ChessBoard/CMakeFiles/ChessBoard.dir

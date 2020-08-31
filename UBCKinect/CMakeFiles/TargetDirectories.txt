@@ -1,0 +1,3 @@
+/home/sara/Documents/upredictor/uPredictor/UBCKinect/CMakeFiles/edit_cache.dir
+/home/sara/Documents/upredictor/uPredictor/UBCKinect/CMakeFiles/rebuild_cache.dir
+/home/sara/Documents/upredictor/uPredictor/UBCKinect/CMakeFiles/ubckinect.dir

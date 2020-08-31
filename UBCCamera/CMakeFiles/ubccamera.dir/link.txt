@@ -1,0 +1,2 @@
+/usr/bin/ar qc libubccamera.a  CMakeFiles/ubccamera.dir/CameraModel.o
+/usr/bin/ranlib libubccamera.a

@@ -1,0 +1,586 @@
+CMake Warning (dev) at UBCCamera/CMakeLists.txt:30 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /usr/share/cmake-3.5/Modules/FindCUDA.cmake:1649 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+Call Stack (most recent call first):
+  UBCDART/CMakeLists.txt:64 (cuda_add_library)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCKinect/CMakeLists.txt:44 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCKinectGUI/CMakeLists.txt:50 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCGUI/CMakeLists.txt:49 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCSimpleGeometry/CMakeLists.txt:25 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCUtil/CMakeLists.txt:38 (add_library):
+  Policy CMP0002 is not set: Logical target names must be globally unique.
+  Run "cmake --help-policy CMP0002" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCCamera
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCColorTrackCUDA
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCDART
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinect
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinectGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../UBCUtil
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/dart/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at UBCViconSimpleGeometry/CMakeLists.txt:60 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/libfreenect2/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCCamera
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCColorTrackCUDA
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCDART
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCKinect
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../UBCKinectGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+  This command specifies the relative path
+
+    ../UBCUtil
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../Linux/Third-Party/dart/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:71 (link_directories):
+=======
+CMake Warning (dev) at EllipseFit/CMakeLists.txt:69 (link_directories):
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+  This command specifies the relative path
+
+    ../Linux/Third-Party/libfreenect2/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+CMake Error at BayesianFit/CMakeLists.txt:80 (target_link_libraries):
+  Target "EllipseFit" of type EXECUTABLE may not be linked into another
+  target.  One may link only to STATIC or SHARED libraries, or to executables
+  with the ENABLE_EXPORTS property set.
+
+=======
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../EllipseFit
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCCamera
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCColorTrackCUDA
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCDART
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinect
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinectGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCUtil
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/dart/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at BayesianFit/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/libfreenect2/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCCamera
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCColorTrackCUDA
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCDART
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinect
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCKinectGUI
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../UBCUtil
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/dart/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at PathPlanning/CMakeLists.txt:57 (link_directories):
+  This command specifies the relative path
+
+    ../Linux/Third-Party/libfreenect2/lib
+
+  as a link directory.
+
+  Policy CMP0015 is not set: link_directories() treats paths relative to the
+  source dir.  Run "cmake --help-policy CMP0015" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.5)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+<<<<<<< HEAD
+-- Configuring incomplete, errors occurred!
+See also "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles/CMakeOutput.log".
+See also "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles/CMakeError.log".
+=======
+-- Configuring done
+CMake Error at /usr/share/cmake-3.5/Modules/FindCUDA.cmake:1649 (add_library):
+  Cannot find source file:
+
+    CUDAControl.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+Call Stack (most recent call first):
+  UBCTrackerCUDA/CMakeLists.txt:25 (cuda_add_library)
+
+
+CMake Warning (dev) at /usr/share/cmake-3.5/Modules/FindCUDA.cmake:1649 (add_library):
+  Policy CMP0003 should be set before this line.  Add code such as
+
+    if(COMMAND cmake_policy)
+      cmake_policy(SET CMP0003 NEW)
+    endif(COMMAND cmake_policy)
+
+  as early as possible but after the most recent call to
+  cmake_minimum_required or cmake_policy(VERSION).  This warning appears
+  because target "ubcdart" links to some libraries for which the linker must
+  search:
+
+    -lpthread, dl, -lpthread, dl
+
+  and other libraries with known full path:
+
+    /usr/local/cuda-8.0/lib64/libcudart_static.a
+    /usr/lib/x86_64-linux-gnu/librt.so
+
+  CMake is adding directories in the second list to the linker search path in
+  case they are needed to find libraries from the first list (for backwards
+  compatibility with CMake 2.4).  Set policy CMP0003 to OLD or NEW to enable
+  or disable this behavior explicitly.  Run "cmake --help-policy CMP0003" for
+  more information.
+Call Stack (most recent call first):
+  UBCDART/CMakeLists.txt:64 (cuda_add_library)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor
+>>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7

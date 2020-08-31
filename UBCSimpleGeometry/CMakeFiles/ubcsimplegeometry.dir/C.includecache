@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCSimpleGeometry/UBCSimpleGeometry.c
+UBCSimpleGeometry.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCSimpleGeometry/UBCSimpleGeometry.h
+math.h
+-
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCSimpleGeometry/UBCSimpleGeometry.h
+WinSock2.h
+-
+Kinect.h
+-
+Windows.h
+-
+FakeWindowsTypes.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCSimpleGeometry/FakeWindowsTypes.h
+
+UBCSimpleGeometry/../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxy.h
+
+UBCSimpleGeometry/../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxyz.h
+
+UBCSimpleGeometry/../UBCUtil/FakeWindowsTypes.h
+pointxy.h
+-
+pointxyz.h
+-
+x86_64-linux-gnu/sys/types.h
+-
+

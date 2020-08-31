@@ -1,0 +1,284 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+limits
+-
+locale.h
+-
+ctype.h
+-
+intrin.h
+-
+windows.h
+-
+process.h
+-
+time.h
+-
+unistd.h
+-
+pthread.h
+-
+sched.h
+-
+windows.h
+-
+stdio.h
+-
+sys/time.h
+-
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+stdio.h
+-
+stdlib.h
+-
+stddef.h
+-
+string
+-
+cstring
+-
+iostream
+-
+math.h
+-
+list
+-
+vector
+-
+list.h
+-
+vector.h
+-
+list
+-
+vector
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+setjmp.h
+-
+math.h
+-
+stddef.h
+-
+stdint.h
+-
+emmintrin.h
+-
+xmmintrin.h
+-
+xmmintrin.h
+-
+emmintrin.h
+-
+iostream
+-
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/dataanalysis.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+dataanalysis.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/dataanalysis.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/dataanalysis.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+statistics.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/statistics.h
+specialfunctions.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+solvers.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.h
+optimization.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/optimization.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/diffequations.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+diffequations.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/diffequations.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/diffequations.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/fasttransforms.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+fasttransforms.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/fasttransforms.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/fasttransforms.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/integration.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+integration.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/integration.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/integration.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+specialfunctions.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/interpolation.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+interpolation.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/interpolation.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/interpolation.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+solvers.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.h
+optimization.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/optimization.h
+specialfunctions.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+integration.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/integration.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/optimization.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+optimization.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/optimization.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/optimization.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+solvers.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+solvers.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/solvers.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+specialfunctions.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/statistics.cpp
+stdafx.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+statistics.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/statistics.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/statistics.h
+ap.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/ap.h
+alglibinternal.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibinternal.h
+linalg.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/linalg.h
+specialfunctions.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/specialfunctions.h
+alglibmisc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/alglibmisc.h
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/stdafx.h
+

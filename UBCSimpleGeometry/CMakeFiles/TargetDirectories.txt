@@ -1,0 +1,3 @@
+/home/sara/Documents/upredictor/uPredictor/UBCSimpleGeometry/CMakeFiles/rebuild_cache.dir
+/home/sara/Documents/upredictor/uPredictor/UBCSimpleGeometry/CMakeFiles/edit_cache.dir
+/home/sara/Documents/upredictor/uPredictor/UBCSimpleGeometry/CMakeFiles/ubcsimplegeometry.dir

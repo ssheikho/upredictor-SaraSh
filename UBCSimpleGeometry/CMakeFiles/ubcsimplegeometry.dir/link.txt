@@ -1,0 +1,2 @@
+/usr/bin/ar qc libubcsimplegeometry.a  CMakeFiles/ubcsimplegeometry.dir/UBCSimpleGeometry.o
+/usr/bin/ranlib libubcsimplegeometry.a

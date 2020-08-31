@@ -1,0 +1,52 @@
+solve for j1-j3
+-J4 returns 0  
+* IKperInputPt
+		elErrIMEAN = 0.0040240
+
+* IKfitFromElbAndWrist
+		elErrMEAN = 0.0168167
+
+solve for j1-j3 INCLUDE ELB OFFSET
+-J4 returns 0  
+* IKperInputPt
+		elErrIMEAN = 0.0173033
+
+* IKfitFromElbAndWrist
+		elErrMEAN = 0.0252589
+
+solve for j1-j4
+-J4 returns 0  - Same Joint values as above
+* IKperInputPt
+		elErrIMEAN = 0.0106759
+
+* IKfitFromElbAndWrist
+		elErrMEAN = 0.0382238
+
+
+solve for j1-j3 for ELB and J1-J4 LA
+* IKperInputPt - -J4 jumps initially and maxes out
+		elErrIMEAN = 0.0783325
+		laErrIMEAN = 0.1642174
+
+* IKfitFromElbAndWrist -J4 jumps OUT OF max bound
+		elErrMEAN = 0.1582104
+		laErrMEAN = 0.1847555
+
+solve for j1-j2 for ELB and J3-J4 LA
+* IKperInputPt - -J1->4 jumps initially and maxes out
+		elErrIMEAN = 0.6727152 ???
+		laErrIMEAN = 0.8137493	???
+
+* IKfitFromElbAndWrist -J4 jumps OUT OF max bound
+		elErrMEAN = 0.1578262
+		laErrMEAN = 0.1804968
+
+
+solve for j1-j2 for ELB and J3-J4 LA
+WITH motionB planefit
+* IKperInputPt - NA
+* IKfitFromElbAndWrist -J4 jumps OUT OF max bound
+		elErrMEAN = 0.1578262
+		laErrMEAN = 0.1804968
+
+

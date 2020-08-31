@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCCamera/CameraModel.cpp
+CameraModel.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCCamera/CameraModel.h
+FrameDesc.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCCamera/FrameDesc.h
+iostream
+-
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCCamera/CameraModel.h
+libfreenect2/libfreenect2.hpp
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCCamera/libfreenect2/libfreenect2.hpp
+
+UBCCamera/../Linux/Third-Party/libfreenect2/include/libfreenect2/frame_listener.hpp
+cstddef
+-
+stdint.h
+-
+../../libfreenect2/config.h
+-
+
+UBCCamera/../Linux/Third-Party/libfreenect2/include/libfreenect2/libfreenect2.hpp
+../../libfreenect2/config.h
+-
+frame_listener.hpp
+UBCCamera/../Linux/Third-Party/libfreenect2/include/libfreenect2/frame_listener.hpp
+packet_pipeline.h
+UBCCamera/../Linux/Third-Party/libfreenect2/include/libfreenect2/packet_pipeline.h
+string
+-
+
+UBCCamera/../Linux/Third-Party/libfreenect2/include/libfreenect2/packet_pipeline.h
+../../libfreenect2/config.h
+-
+stdlib.h
+-
+
+UBCCamera/../Linux/Third-Party/libfreenect2/libfreenect2/config.h
+libfreenect2/export.h
+-
+
+UBCCamera/../Linux/Third-Party/libfreenect2/libfreenect2/export.h
+
+UBCCamera/../UBCKinect/FrameDesc.h
+

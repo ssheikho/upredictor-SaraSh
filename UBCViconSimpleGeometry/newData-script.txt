@@ -1,0 +1,32 @@
+make
+echo 'ballCentroidsonRack: ' > ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_26_participant1_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_26_participant2_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_26_participant3_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_27_empty_setup.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_27_participant4_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_27_participant5_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_27_participant6_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_27_participant6_2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_empty_Setup2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_empty_setup.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_participant7_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_participant8_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_participant9_2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_participant10_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_28_participant11_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_31_participant12_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_31_participant13_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_10_31_participant14_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_1_empty_setup.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_1_participant15_2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_1_participant16_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_empty_setup.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant17_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant17_2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant18_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant19_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant20_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant20_2.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt
+./UBCViconSimpleGeometry ~/Dropbox/Reaching\ Study/Vicon\ Data/csv\ files/2016_11_2_participant21_1.csv >>  ~/Dropbox/Reaching\ Study/Phase1/Experimental\ Data/EllipseFit/NewData/markerLocsOnRack.txt

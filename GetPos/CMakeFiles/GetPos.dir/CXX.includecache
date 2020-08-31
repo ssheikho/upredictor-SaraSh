@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.cpp
+deque
+-
+fstream
+-
+iostream
+-
+sstream
+-
+string
+-
+tuple
+-
+vector
+-
+map
+-
+GetPos.h
+/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
+
+/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
+deque
+-
+fstream
+-
+deque
+-
+fstream
+-
+iostream
+-
+sstream
+-
+string
+-
+tuple
+-
+vector
+-
+map
+-
+list
+-
+

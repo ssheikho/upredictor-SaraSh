@@ -1,0 +1,279 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_05a71/fast"
+/usr/bin/make -f CMakeFiles/cmTC_05a71.dir/build.make CMakeFiles/cmTC_05a71.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_05a71.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_05a71.dir/CheckSymbolExists.c.o   -c /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_05a71
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05a71.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_05a71.dir/CheckSymbolExists.c.o  -o cmTC_05a71 -rdynamic 
+CMakeFiles/cmTC_05a71.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_05a71.dir/build.make:97: recipe for target 'cmTC_05a71' failed
+make[1]: *** [cmTC_05a71] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_05a71/fast' failed
+make: *** [cmTC_05a71/fast] Error 2
+
+File /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a9e13/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a9e13.dir/build.make CMakeFiles/cmTC_a9e13.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9e13.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a9e13.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a9e13
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9e13.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_a9e13.dir/CheckFunctionExists.c.o  -o cmTC_a9e13 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_a9e13.dir/build.make:97: recipe for target 'cmTC_a9e13' failed
+make[1]: *** [cmTC_a9e13] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a9e13/fast' failed
+make: *** [cmTC_a9e13/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a290f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a290f.dir/build.make CMakeFiles/cmTC_a290f.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a290f.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_a290f.dir/CheckSymbolExists.c.o   -c /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a290f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a290f.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_a290f.dir/CheckSymbolExists.c.o  -o cmTC_a290f -rdynamic 
+CMakeFiles/cmTC_a290f.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_a290f.dir/build.make:97: recipe for target 'cmTC_a290f' failed
+make[1]: *** [cmTC_a290f] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a290f/fast' failed
+make: *** [cmTC_a290f/fast] Error 2
+
+File /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3fe5e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3fe5e.dir/build.make CMakeFiles/cmTC_3fe5e.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3fe5e.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3fe5e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3fe5e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fe5e.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_3fe5e.dir/CheckFunctionExists.c.o  -o cmTC_3fe5e -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3fe5e.dir/build.make:97: recipe for target 'cmTC_3fe5e' failed
+make[1]: *** [cmTC_3fe5e] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3fe5e/fast' failed
+make: *** [cmTC_3fe5e/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f3cad/fast"
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f3cad.dir/build.make CMakeFiles/cmTC_f3cad.dir/build
+make[2]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3cad.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_f3cad.dir/CheckSymbolExists.c.o   -c /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f3cad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3cad.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_f3cad.dir/CheckSymbolExists.c.o  -o cmTC_f3cad -rdynamic 
+CMakeFiles/cmTC_f3cad.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f3cad.dir/build.make:97: recipe for target 'cmTC_f3cad' failed
+make[2]: *** [cmTC_f3cad] Error 1
+make[2]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f3cad/fast' failed
+make[1]: *** [cmTC_f3cad/fast] Error 2
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+
+File /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8e96d/fast"
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_8e96d.dir/build.make CMakeFiles/cmTC_8e96d.dir/build
+make[2]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8e96d.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_8e96d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8e96d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e96d.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_8e96d.dir/CheckFunctionExists.c.o  -o cmTC_8e96d -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8e96d.dir/build.make:97: recipe for target 'cmTC_8e96d' failed
+make[2]: *** [cmTC_8e96d] Error 1
+make[2]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8e96d/fast' failed
+make[1]: *** [cmTC_8e96d/fast] Error 2
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b0dfe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b0dfe.dir/build.make CMakeFiles/cmTC_b0dfe.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b0dfe.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_b0dfe.dir/CheckSymbolExists.c.o   -c /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b0dfe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0dfe.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_b0dfe.dir/CheckSymbolExists.c.o  -o cmTC_b0dfe -rdynamic 
+CMakeFiles/cmTC_b0dfe.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_b0dfe.dir/build.make:97: recipe for target 'cmTC_b0dfe' failed
+make[1]: *** [cmTC_b0dfe] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b0dfe/fast' failed
+make: *** [cmTC_b0dfe/fast] Error 2
+
+File /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e60ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e60ca.dir/build.make CMakeFiles/cmTC_e60ca.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e60ca.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_e60ca.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e60ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e60ca.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_e60ca.dir/CheckFunctionExists.c.o  -o cmTC_e60ca -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_e60ca.dir/build.make:97: recipe for target 'cmTC_e60ca' failed
+make[1]: *** [cmTC_e60ca] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e60ca/fast' failed
+make: *** [cmTC_e60ca/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23b79/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23b79.dir/build.make CMakeFiles/cmTC_23b79.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_23b79.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIC    -o CMakeFiles/cmTC_23b79.dir/CheckSymbolExists.c.o   -c /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_23b79
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23b79.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC     CMakeFiles/cmTC_23b79.dir/CheckSymbolExists.c.o  -o cmTC_23b79 -rdynamic 
+CMakeFiles/cmTC_23b79.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_23b79.dir/build.make:97: recipe for target 'cmTC_23b79' failed
+make[1]: *** [cmTC_23b79] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_23b79/fast' failed
+make: *** [cmTC_23b79/fast] Error 2
+
+File /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c1fcf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1fcf.dir/build.make CMakeFiles/cmTC_c1fcf.dir/build
+make[1]: Entering directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1fcf.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c1fcf.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c1fcf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1fcf.dir/link.txt --verbose=1
+/usr/bin/cc  -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_c1fcf.dir/CheckFunctionExists.c.o  -o cmTC_c1fcf -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_c1fcf.dir/build.make:97: recipe for target 'cmTC_c1fcf' failed
+make[1]: *** [cmTC_c1fcf] Error 1
+make[1]: Leaving directory '/home/sara/Documents/upredictor/uPredictor/Linux/Third-Party/dartExample/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c1fcf/fast' failed
+make: *** [cmTC_c1fcf/fast] Error 2
+
+

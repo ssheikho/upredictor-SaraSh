@@ -1,0 +1,90 @@
+data list list /forename (A12) height.
+
+DATA LIST file
+
+.1: error: DATA LIST: Syntax error at end of command: expecting a file name or handle name.
+.138-143: error: DATA LIST: Syntax error at `height'.
+DATA LIST file='data list file=’/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt' list /height.
+
+error: Could not open `data list file=’/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt' for reading as a data file: No such file or directory.
+DATA LIST file='/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt' list /height.
+
+file 
+
+error: Unknown command `file DATA'.
+.1: error: Syntax error at `/': expecting command name.
+DATA LIST file='/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt' list /height.
+
+list /format=numbered
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt:1.1: warning: Data for variable height is not valid as format F: Field contents are not numeric.
+warning: Record ends in data not part of any field.
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt:2.1-2.9: warning: Data for variable height is not valid as format F: Field contents are not numeric.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt:14.1-14.9: warning: Data for variable height is not valid as format F: Number followed by garbage.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/test.txt:38.1-38.8: warning: Data for variable height is not valid as format F: Number followed by garbage.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+warning: Record ends in data not part of any field.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DATA LIST file='/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/a' list /height.
+
+list /format=numbered
+
+
+
+
+
+
+
+
+

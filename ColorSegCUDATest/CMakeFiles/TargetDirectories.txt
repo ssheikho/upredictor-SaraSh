@@ -1,0 +1,3 @@
+/home/sara/Documents/upredictor/uPredictor/ColorSegCUDATest/CMakeFiles/edit_cache.dir
+/home/sara/Documents/upredictor/uPredictor/ColorSegCUDATest/CMakeFiles/rebuild_cache.dir
+/home/sara/Documents/upredictor/uPredictor/ColorSegCUDATest/CMakeFiles/colorsegcudatest.dir
