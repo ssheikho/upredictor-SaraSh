@@ -51,6 +51,18 @@ string getPartID(string fileName) {
 	return retS;
 }
 
+int whichPhase(string fileName) {
+ size_t startPos = fileName.find("Part");
+
+		if (startPos!=std::string::npos) 
+			fileName = fileName.substr(startPos + 4);
+	
+	int len = fileName.find('_');
+	string retS = fileName.substr(3,1);
+	int phaseNum = stoi(retS);
+	return phaseNum;
+}
+
 int countCols(string inLine) {
 	inLine = inLine.substr(1);
 	int commaDelim = inLine.find(',');
@@ -71,7 +83,9 @@ int countCols(string inLine) {
 int countRowsCSV(string inMat, string inCol) {
 
 	io::CSVReader<1> in(inMat);
+
 	in.read_header(io::ignore_extra_column, inCol);
+	in.next_line();
 	int ctr = 0;
 	while(in.read_row(inCol)){
 		ctr++;

@@ -45,12 +45,9 @@ void BallCentroidsOnRack::setMarkerLocs(){
 		double mean = 0.0;
 		
 		for (int row = 1; row < outMatRack.rows(); row++){
-<<<<<<< HEAD
 			if(outMatRack(row,col)!=0.0
 				/*&& abs(outMatRack(row,col)-outMatRack(row-1,col))<1.5*/){
-=======
 			if(outMatRack(row,col)!=0.0){
->>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
 				sum += outMatRack(row,col); 
 				ctr++;
 			}
@@ -72,15 +69,13 @@ void BallCentroidsOnRack::setMarkerLocs(){
 		rackMarkerLocRow(0,(outMatRack.cols()-mult)-1);
 
 		mult += 3;
+		}
 	}
-	
 }
 
 void BallCentroidsOnRack::setBallCentroids(){
 	MatrixXd Offsets(3,1);	
-	Offsets << 6.0,
-	           1.0,
-                       0.0;	
+	Offsets << 6.0, 1.0, 0.0;	
 
 	for (int col = 0; col < _ballCentroids.cols(); col++){
 		_ballCentroids.block(0,col,3,1) = 

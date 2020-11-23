@@ -14,7 +14,6 @@ using namespace Eigen;
 using namespace std;
 
 int main(int argc, char **argv) {
-<<<<<<< HEAD
 	srand(time(NULL));
 	string inLine = argv[1];
 	BallCentroidsOnRack bcRack(inLine);
@@ -28,19 +27,17 @@ int main(int argc, char **argv) {
 
 	//cout <<"markers Centroids on Ramp: " <<endl; 
 	//cout << bcRamp.getMarkerLocs() << endl;
-=======
 
-	string inLine = "2016_10_28_empty_Setup2.csv";
-	BallCentroidsOnRack bcRack(inLine);
+//	string inLine = "2016_10_28_empty_Setup2.csv";
+//	BallCentroidsOnRack bcRack(inLine);
 	
-	MatrixXd ballsCentroidsbcRack = bcRack.getBallCentroids();
+//	MatrixXd ballsCentroidsbcRack = bcRack.getBallCentroids();
 	cout <<"balls Centroids on Rack: " <<endl; 
 	cout << bcRack.getBallCentroids() << endl;
 
 	BallCentroidsOnRamp bcRamp(inLine);
 	cout <<"markers Centroids on Ramp: " <<endl; 
 	cout << bcRamp.getMarkerLocs() << endl;
->>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
 	
 	return 0;
 }

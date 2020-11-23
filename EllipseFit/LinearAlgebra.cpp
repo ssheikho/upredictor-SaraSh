@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#include "linalg.h"
+#include "specialfunctions.h"
+
 using namespace Eigen;
 using namespace std;
 

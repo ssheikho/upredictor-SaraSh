@@ -520,6 +520,153 @@ struct DifferentialPositionConstraint	{
 
 
 
+struct DifferentialOrientationConstraint	{
+	DifferentialOrientationConstraint (
+		ForwardKin<double> &fk
+		, Eigen::Quaternion<double> qbase_i
+		// The third column of R expresses the direction 
+		//	of z7 with respect to the base frame.
+		// Oee = Owr + d7.Ree.[0 0 1]^T			
+		, const Eigen::Matrix<double,3,1> shoToEeVi
+		, const Eigen::Matrix<double, 3, 3>& iMatShToEeWam
+		) : 
+		_fk(fk)
+		, _qbase_i(qbase_i)
+		, _AmatJ1toJ4(fk.getMat(4))
+		,_a(_fk.getAvect(7))
+		, _alpha(_fk.getAlphaVect(7))
+		, _d(_fk.getDvect(7)) 
+		,	_shoToEeVi(shoToEeVi)
+		, _iMatShToEeWam(iMatShToEeWam)
+	{}
+
+
+		//oUA = o3 - a3.R3.[1 0 0]^T
+	template <typename U>
+	bool operator()( const U* const thetas_i
+		, U* residuals) const {
+
+		// (1). Form the homogeneous transformation matrices
+		// 			A_i by substituting the parameters for each 
+		//			link into DH-matrix of eqn. (3.10).
+		//first 4 joints determine position constraints
+		int toDof = 4,
+			nJoints = 7;   
+		// last 3 joints determine endeffector orientation.
+		//initialize the matrices to zero;
+		//avoid calling external eigen::identity function
+		Eigen::Matrix<U, 4, 4> tEe;
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) 
+				tEe(i,j) = U(0.0);	
+			tEe(i,i) = U(1.0);
+		}		
+
+		Eigen::Matrix<U, 4, 4> A_j;
+		for(int i = toDof; i < nJoints; i++) {
+			//1st row 
+			A_j(0,0) = 
+				U(ceres::cos(thetas_i[i-toDof]));
+			A_j(0,1) = U(-ceres::cos(_alpha(i,0)) 
+				* ceres::sin(thetas_i[i-toDof]));
+			A_j(0,2) = U(ceres::sin(_alpha(i,0)) 
+				* ceres::sin(thetas_i[i-toDof]));
+			A_j(0,3) = 
+				U(_a(i,0) * ceres::cos(thetas_i[i-toDof]));
+			//2nd row 
+			A_j(1,0) = 
+				U(ceres::sin(thetas_i[i-toDof]));
+			A_j(1,1) = U(ceres::cos(_alpha(i,0)) 
+				* ceres:: cos(thetas_i[i-toDof]));
+			A_j(1,2) = U(-ceres::cos(thetas_i[i-toDof]) 
+				* ceres::sin(_alpha(i,0)));
+			A_j(1,3) = 
+				U(_a(i,0) * ceres::sin(thetas_i[i-toDof]));
+			//3rd row 
+			A_j(2,0) = U(0.0);
+			A_j(2,1) = U(ceres::sin(_alpha(i,0)));
+			A_j(2,2) = U(ceres::cos(_alpha(i,0)));
+			A_j(2,3) = U(_d(i,0));
+			//4th row 
+			A_j(3,0) = U(0.0);
+			A_j(3,1) = U(0.0);
+			A_j(3,2) = U(0.0);
+			A_j(3,3) = U(1.0);
+
+			
+			// (2). Form T^n_0 = A 1 · · · A n . This then gives 
+			//			the position (and orientation for wrist later)
+			//			of the tool frame expressed in base .
+			//			coordinates
+			tEe = tEe * A_j;
+		}
+		tEe = _AmatJ1toJ4.template cast<U>()
+			 * tEe;
+
+		//(3).	estimate Ee poition w.r.t. moving base
+		//	"θ1, θ2, ...., θ7": -> endEffector pEe(i)		
+		Eigen::Matrix	<U, 3, 1> pEeEstimatedInBase =
+			tEe.template block<3, 1>(0, 3);
+
+
+		//(4).	represent estimated endeffector poitions in
+		//			the camera frame
+		//	void QuaternionRotatePoint(
+		//		const T q[4], const T pt[3], T result[3])
+		Eigen::Matrix	<U, 3, 1> shToEeViEstimated;
+
+		U q_b_quat[4];
+		q_b_quat[0] = U(_qbase_i.x()); 
+		q_b_quat[1] = U(_qbase_i.y()); 
+		q_b_quat[2] = U(_qbase_i.z()); 
+		q_b_quat[3] = U(_qbase_i.w()); 
+    QuaternionRotatePoint(q_b_quat,
+			pEeEstimatedInBase.data(), shToEeViEstimated.data());
+
+    //(5).	Compute the residuals.
+    // [ position         ]   [ delta_p        ]
+    Eigen::Map<Eigen::Matrix<U, 3, 1> >
+			residualsMat(residuals);
+		residualsMat.template block<3, 1>(0, 0) =
+			shToEeViEstimated - _shoToEeVi.template cast<U>();
+
+		//(5). 	Scale the residuals by the
+		//			measurement uncertainty.
+    residualsMat.template block<3, 1>(0, 0).applyOnTheLeft(
+			_iMatShToEeWam.template cast<U>());
+
+    return true;
+	}
+
+	static ceres::CostFunction* Create(ForwardKin<double> &fk
+		, Eigen::Quaternion<double> qbase_i
+		, const Eigen::Matrix<double,3,1> shoToEeVi
+		, const Eigen::Matrix<double, 3, 3>& iMatShToEeWam
+		)	{
+		return (new ceres::AutoDiffCostFunction
+			<DifferentialOrientationConstraint, 3, 3> (
+				new DifferentialOrientationConstraint (fk, qbase_i,
+					shoToEeVi, iMatShToEeWam)));
+	}
+
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
+	ForwardKin<double> &_fk;
+//	const double* _qbase_i;
+	Eigen::Quaternion<double> _qbase_i;
+	Eigen::Matrix<double, 4,4> _AmatJ1toJ4;
+	Eigen::Matrix<double, Eigen::Dynamic, 1> 
+	 	_a, _alpha, _d;
+	//measured/scaled Cartesian vectores on the wam at t_i
+	const Eigen::Matrix<double, 3, 1> _shoToEeVi;
+	//measurements covariance (x y z)
+	const Eigen::Matrix<double, 3, 3> _iMatShToEeWam;
+};
+
+
+
+
+
 class DifferentialIKErrorTerm {
 
 public:

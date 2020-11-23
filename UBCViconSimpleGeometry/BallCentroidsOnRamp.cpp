@@ -45,14 +45,11 @@ void BallCentroidsOnRamp::setMarkerLocs(){
 		double ctr = 0.0;
 		double mean = 0.0;
 		
-<<<<<<< HEAD
 		for (int row = 2; row < outMatRamp.rows(); row++){
 			if(outMatRamp(row,col)!=0.0 
 				/*&& abs(outMatRamp(row,col)-outMatRamp(row-1,col))<1.5*/){
-=======
 		for (int row = 1; row < outMatRamp.rows(); row++){
 			if(outMatRamp(row,col)!=0.0){
->>>>>>> e070f2e51ee0c62744927929a7a1819317e943b7
 				sum += outMatRamp(row,col); 
 				ctr++;
 			}
@@ -77,10 +74,10 @@ void BallCentroidsOnRamp::setMarkerLocs(){
 		//rampMarkerLocRow(0,(outMatRamp.cols()-mult)-1);
 
 		mult += 3;
+		}
+		}
 	}
-	
 }
-
 void BallCentroidsOnRamp::setBallCentroids(){
 	// ramp X direction/width 
 	// total:22.25"/56.5cm space:3.25"/8.25cm devider-wall thickness: 1"/2.54cm 
@@ -89,9 +86,7 @@ void BallCentroidsOnRamp::setBallCentroids(){
 	// ramp Y direction/length
 	// total:36"+2 3/4"/98.5cm space:3.25"/8.25cm devider-wall thickness: 1"/2.54cm 
 	MatrixXd Offsets(3,1);	
-	Offsets << -7.0,
-	           -7.0,
-							0.0;	
+	Offsets << -7.0,-7.0, 0.0;	
 
 	for (int col = 0; col < _rampBallCentroids.cols(); col++){
 		_rampBallCentroids.block(0,col,3,1) = 

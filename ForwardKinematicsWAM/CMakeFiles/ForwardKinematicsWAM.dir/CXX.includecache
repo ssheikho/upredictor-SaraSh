@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.cpp
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.cpp
 iostream
 -
 Eigen/Dense
@@ -14,9 +14,9 @@ Eigen/Dense
 math.h
 -
 DH.h
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
 iostream
 -
 Eigen/Dense
@@ -24,7 +24,7 @@ Eigen/Dense
 math.h
 -
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH_Parameters.cpp
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH_Parameters.cpp
 iostream
 -
 Eigen/Dense
@@ -32,7 +32,7 @@ Eigen/Dense
 math.h
 -
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.cpp
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.cpp
 iostream
 -
 Eigen/Dense
@@ -40,15 +40,15 @@ Eigen/Dense
 math.h
 -
 ForwardKinematicsWAM.h
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.h
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/ForwardKinematicsWAM.h
 Eigen/Dense
 -
 list
 -
 DH.h
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ForwardKinematicsWAM/DH.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

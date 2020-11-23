@@ -150,33 +150,6 @@ BayesianFit.cpp.s:
 	$(MAKE) -f CMakeFiles/BayesianFit.dir/build.make CMakeFiles/BayesianFit.dir/BayesianFit.cpp.s
 .PHONY : BayesianFit.cpp.s
 
-BaysFitFunctions.o: BaysFitFunctions.cpp.o
-
-.PHONY : BaysFitFunctions.o
-
-# target to build an object file
-BaysFitFunctions.cpp.o:
-	$(MAKE) -f CMakeFiles/BayesianFit.dir/build.make CMakeFiles/BayesianFit.dir/BaysFitFunctions.cpp.o
-.PHONY : BaysFitFunctions.cpp.o
-
-BaysFitFunctions.i: BaysFitFunctions.cpp.i
-
-.PHONY : BaysFitFunctions.i
-
-# target to preprocess a source file
-BaysFitFunctions.cpp.i:
-	$(MAKE) -f CMakeFiles/BayesianFit.dir/build.make CMakeFiles/BayesianFit.dir/BaysFitFunctions.cpp.i
-.PHONY : BaysFitFunctions.cpp.i
-
-BaysFitFunctions.s: BaysFitFunctions.cpp.s
-
-.PHONY : BaysFitFunctions.s
-
-# target to generate assembly for a file
-BaysFitFunctions.cpp.s:
-	$(MAKE) -f CMakeFiles/BayesianFit.dir/build.make CMakeFiles/BayesianFit.dir/BaysFitFunctions.cpp.s
-.PHONY : BaysFitFunctions.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +162,6 @@ help:
 	@echo "... BayesianFit.o"
 	@echo "... BayesianFit.i"
 	@echo "... BayesianFit.s"
-	@echo "... BaysFitFunctions.o"
-	@echo "... BaysFitFunctions.i"
-	@echo "... BaysFitFunctions.s"
 .PHONY : help
 
 

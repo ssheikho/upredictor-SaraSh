@@ -3,7 +3,6 @@
 
 
 #include "BasicFormulas.h"
-#include "Ellipse3D.h"
 #include "SpatialJacobian.h"
 #include "DikProblem.h"
 #include "DifferentialIKErrorTerm.h"
@@ -138,8 +137,8 @@ namespace ceres {
 //	  options->linear_solver_type = 	
 //			ceres::SPARSE_NORMAL_CHOLESKY;
 
-		options->function_tolerance = 1e-1000;
-		options->parameter_tolerance = 1e-1000;
+		options->function_tolerance = 1e-100;
+		options->parameter_tolerance = 1e-100;
 		if (FLAGS_line_search) 
 		  options->minimizer_type = ceres::LINE_SEARCH;
 
@@ -375,9 +374,142 @@ namespace ceres {
 
 	}
 
+
+	void  BuildOrientationProblem	(
+		DikProblem* DIKProblem, Problem* problem) {		
+		const int theta_block_size =
+			DIKProblem->theta_block_size();
+		const int qBase_block_size =
+			DIKProblem->qBase_block_size();
+		double* thetas = DIKProblem->mutable_thetas();
+		double* qsBase = DIKProblem->mutable_qsBase();
+  
+		ForwardKin<double> &wam = DIKProblem->getWam();
+		size_t  nJoints = wam.getNJoints();
+
+		// Position measurements 
+		
+		// Observations = [u_1, u_2, ... , u_n],
+		// where each u_i is nMarkers * 3 dimensional,
+		// the x, y and z positions of each marker at t_i
+		const int nObservations = DIKProblem->nObservations();
+		Eigen::MatrixXd
+			shToEeVs =	DIKProblem->shoToEeVsWam();
+		//info mat -> inverse of covariance (x y z)T
+		Eigen::Matrix<double, 3, 3> 
+			iMatShToEe = varianceSolve(shToEeVs).inverse();
+
+
+		for (int i = 0; i < nObservations; i++)	{
+			// Each Residual block takes wrist thetas as input
+			// and outputs a 3 dimensional residual; 
+
+  	 	double* qbase_i = qsBase + qBase_block_size * i;
+			Eigen::Map< Eigen::Quaternion<double> > 
+				q_b_quat(qbase_i);
+   		CostFunction* cfOrientation;
+			cfOrientation = DifferentialOrientationConstraint::
+				Create (wam, q_b_quat,shToEeVs.col(i)
+					, iMatShToEe);
+
+    	// If enabled use Huber's loss function.
+    	LossFunction* loss_function = FLAGS_robustify 
+				? new HuberLoss(0.5) : NULL;
+    	// Each observation correponds to 3 wrist
+			// thetas which are identified by theta()[i]+ 4;
+   	 	double* theta = thetas + theta_block_size * i + 4;
+			problem->AddResidualBlock(cfOrientation,
+				loss_function, theta);
+  	}
+
+		//	void Problem::SetParameterLowerBound(
+		//		double *values, int index, double lower_bound)
+		//    Set the lower bound for the parameter at position 
+		//		index in the parameter block corresponding to values.	
+		std::vector<double> jointMinAngles = 
+			DIKProblem->jointMinAngles();
+		std::vector<double> jointMaxAngles = 
+			DIKProblem->jointMaxAngles();
+
+		for (int i = 0; i < nObservations; ++i) {
+			double* thetas_i = thetas + theta_block_size * i + 4;
+			for (int joint = 4; joint < nJoints &&
+				joint < theta_block_size; joint++) {
+				problem->SetParameterLowerBound(thetas_i, joint-4
+					, jointMinAngles[joint]);
+				problem->SetParameterUpperBound(thetas_i, joint-4
+					, jointMaxAngles[joint]);
+			}
+		}
+
+	}
+
+	void BuildOrientationProblemAt	(DikProblem* DIKProblem
+		, Problem* problem, int index) {		
+		const int theta_block_size =
+			DIKProblem->theta_block_size();
+		const int qBase_block_size =
+			DIKProblem->qBase_block_size();
+		double* thetas = DIKProblem->mutable_thetas();
+		double* qsBase = DIKProblem->mutable_qsBase();
+   	double* qbase_i = qsBase + qBase_block_size * index;
+		Eigen::Map< Eigen::Quaternion<double> > 
+			q_b_quat(qbase_i);
+
+		ForwardKin<double> &wam = DIKProblem->getWam();
+		size_t  nJoints = wam.getNJoints();
+
+		// Position measurement at t(i)
+		Eigen::MatrixXd
+			shToEeVs =	DIKProblem->shoToEeVsWam();
+		//info mat -> inverse of covariance (x y z)T
+		Eigen::Matrix<double, 3, 3> 
+			iMatShToEe = varianceSolve(shToEeVs).inverse();
+
+   	CostFunction* cfOrientation;
+		cfOrientation = DifferentialOrientationConstraint::
+			Create (wam, q_b_quat,shToEeVs.col(index)
+				, iMatShToEe);
+
+    	// If enabled use Huber's loss function.
+    	LossFunction* loss_function = FLAGS_robustify 
+				? new HuberLoss(0.5) : NULL;
+    	// Each observation correponds to a pair of 
+			// a qBase and a theta which are identified  
+    	// by qBase_index()[i] and theta_index()[i]
+    	// respectively.
+   	 	double* theta = thetas + theta_block_size * index + 4;
+
+			problem->AddResidualBlock(cfOrientation,
+				loss_function, theta);
+  	
+   		// Set the limit for the theta parameter at position 
+			// index in the thetas_i parameter block 
+			//	void Problem::SetParameterLowerBound(
+			//		double *values, int index, double lower_bound)
+			//    Set the lower bound for the parameter at position 
+			//		index in the parameter block corresponding to values.
+			std::vector<double> jointMinAngles = 
+				DIKProblem->jointMinAngles();
+			std::vector<double> jointMaxAngles = 
+				DIKProblem->jointMaxAngles();
+  		double* thetas_i = thetas + theta_block_size * index + 4;
+			for (int joint = 4; joint < nJoints &&
+				joint < theta_block_size; joint++) {
+				problem->SetParameterLowerBound(thetas_i, joint-4
+					, jointMinAngles[joint]);
+				problem->SetParameterUpperBound(thetas_i, joint-4
+					, jointMaxAngles[joint]);
+			}
+	
+	}
+
+
+
 	//Compute fit error at t(i)
 	void computeFitErrPtsRAt(
-		DikProblem* DIKProblem, int index) {
+		DikProblem* DIKProblem, int index
+			, bool solveOrientation) {
 
 		const int theta_block_size =
 			DIKProblem->theta_block_size();
@@ -476,34 +608,61 @@ namespace ceres {
 		, cout, "fitErrLa"+to_string(index));	
 	printEigenMathematica(fitErrWr.transpose()
 		, cout, "fitErrWr"+to_string(index));	
+	printEigenMathematica(fitErrEe.transpose()
+		, cout, "fitErrEe"+to_string(index));	
 	printEigenMathematica(rMatsBase
 		, cout, "rMatsBase"+to_string(index));	
 	printEigenMathematica(theta_Vi.transpose()
 		, cout, "outThetasWam"+to_string(index));	
-	
+	if (!solveOrientation)	{
 		//initialize next observation
 		if (fitErrUA.norm()>0.01)	{
-		cout << "fitErrUA.norm()" << fitErrUA.norm() <<endl;
-				double* qbaseIpOne = qsBase + 
-					qBase_block_size * 	(index-1);
- 		 		double* theta_ipone = thetas + 
-					theta_block_size * (index-1);
-			for (int j = 0; j < qBase_block_size; j++)	
-				*qbase_i++ = *qbaseIpOne++;
-			for (int j = 0; j < theta_block_size; j++)	
-				*theta_i++ = *theta_ipone++;
-		Problem problem;
-		BuildProblemAt(DIKProblem, &problem, index);
- 		Solver::Options options;
-		SetSolverOptionsFromFlags(DIKProblem, &options);
-		std::cout << "(* " << std::endl;
- 	 	Solver::Summary summary;
-  	Solve(options, &problem, &summary);
-  	std::cout << summary.FullReport() << std::endl;
-		std::cout << "*) " << std::endl;
-			}
+			cout << "fitErrUA.norm()" << fitErrUA.norm() <<endl;
+					double* qbaseIpOne = qsBase + 
+						qBase_block_size * 	(index-1);
+	 		 		double* theta_ipone = thetas + 
+						theta_block_size * (index-1);
+				for (int j = 0; j < qBase_block_size; j++)	
+					*qbase_i++ = *qbaseIpOne++;
+				for (int j = 0; j < theta_block_size; j++)	
+					*theta_i++ = *theta_ipone++;
+			Problem problem;
+			BuildProblemAt(DIKProblem, &problem, index);
+	 		Solver::Options options;
+			SetSolverOptionsFromFlags(DIKProblem, &options);
+			std::cout << "(* " << std::endl;
+	 	 	Solver::Summary summary;
+			Solve(options, &problem, &summary);
+			std::cout << summary.FullReport() << std::endl;
+			std::cout << "*) " << std::endl;
+				}
+		}
+/*
+		if (solveOrientation)	{
+			//initialize next observation
+			if (fitErrEe.norm()>0.01)	{
+				cout << "fitErrEe.norm()" << fitErrEe.norm() <<endl;
+		  	// Each observation correponds to 3 wrist
+				// thetas which are identified by theta()[i]+ 4;
+	 		 		double* theta_ipone = thetas + 
+						theta_block_size * (index-1) + 4;
+				for (int j = 0; j < theta_block_size-4; j++)	
+					*theta_i++ = *theta_ipone++;
+			Problem problem;
+			BuildOrientationProblemAt(DIKProblem, &problem, index);
+	 		Solver::Options options;
+			SetSolverOptionsFromFlags(DIKProblem, &options);
+			std::cout << "(* " << std::endl;
+	 	 	Solver::Summary summary;
+			Solve(options, &problem, &summary);
+			std::cout << summary.FullReport() << std::endl;
+			std::cout << "*) " << std::endl;
+				}
+		}
+*/
 	}
 
+	
 	void computeFitErrPtsR (
 		DikProblem* DIKProblem) {
 
@@ -585,9 +744,14 @@ namespace ceres {
 			quaternionsBase = MatrixXd::Zero(4,nObservations),
 			rMatsBase = MatrixXd::Zero(3,3*nObservations),
 			xyzEulersBase = MatrixXd::Zero(3,nObservations),
-			rMatsBaseWrtChest = 
+			rMatsBaseInMaya = 
 				MatrixXd::Zero(3,3*nObservations),
-			xyzEulersBaseWrtChest = 
+			xyzEulersBaseInMaya = 
+				MatrixXd::Zero(3,nObservations),		
+			//at time t_i	
+			rMatsBaseInChest = 
+				MatrixXd::Zero(3,3*nObservations),
+			xyzEulersBaseInChest = 
 				MatrixXd::Zero(3,nObservations);
 		//vector form
 		VectorOfQuaternions VectorOfQuaternionsBase;
@@ -618,7 +782,9 @@ namespace ceres {
 		//"A(θ1) * A(θ2) * ...* A(θ7) * Origin": -> pEE(i)				
 		outShoToEeVsWamInBase.col(i) = homToCart(
 			wam.getMat(7) * origin);
-
+		/*outShoToEeVsWamInBase.col(i) = outShoToWrVsWamInBase.col(i)
+			+ 0.06 * wam.getMat(7).block(0,2,3,1);*/
+/*		
 		//(2). represent estimated marker poitions in
 		//			the camera frame
 
@@ -632,6 +798,7 @@ namespace ceres {
 		quaternionsBase(1,i) = q_b_quat.y(); 
 		quaternionsBase(2,i) = q_b_quat.z(); 
 		quaternionsBase(3,i) = q_b_quat.w(); 
+
 		//(b) Rotation Matrix		
 		Mat3 rmBase_i = 
 			q_b_quat.normalized().toRotationMatrix();
@@ -639,17 +806,35 @@ namespace ceres {
 		rMatsBase.block(0,3*i,3,3) = rmBase_i;
 		//(c) the roll, pitch, and yaw angles
 		//		 x0 , y0 , and z0
+		//in Vicon frame
 		Vec3 eaBase_i = rmBase_i.eulerAngles(0, 1, 2); 
 		VectorOfXYZeulersBase.push_back(eaBase_i);
 		xyzEulersBase.col(i) = eaBase_i;	
-		//Base Orientation w.r.t. Chest:
-		Mat3 rmBaseWrtChest_i = DIKProblem->rMatsCh().block
-			(0,3*i,3,3).transpose() * rmBase_i;
-		rMatsBaseWrtChest.block(0,3*i,3,3) =
-			rmBaseWrtChest_i;
-		xyzEulersBaseWrtChest.col(i) =
-			rmBaseWrtChest_i.eulerAngles(0, 1, 2); 
 
+		//in Maya frame
+		//get vicon frame in Maya local base frame
+		Mat3 rMatViconWrtBaseInMaya = 
+			Eigen::MatrixXd::Zero(3,3);
+		rMatViconWrtBaseInMaya(0,2) = 1.0;
+		rMatViconWrtBaseInMaya(1,0) = 1.0;
+		rMatViconWrtBaseInMaya(2,1) = 1.0;
+		//Base Orientation w.r.t. Maya loca frame of the base:
+		Mat3 rmBaseInMaya_i = 
+			rMatViconWrtBaseInMaya * rmBase_i;
+		rMatsBaseInMaya.block(0,3*i,3,3) =
+			rmBaseInMaya_i;
+		xyzEulersBaseInMaya.col(i) =
+			rmBaseInMaya_i.eulerAngles(0, 1, 2); 
+
+
+		//Base rotation in chest frame at time t_i
+		Mat3 rmBaseInChest_i = DIKProblem->rMatsCh().block
+			(0,3*i,3,3).transpose() * rmBase_i;
+		rMatsBaseInChest.block(0,3*i,3,3) =
+			rmBaseInChest_i;
+		xyzEulersBaseInChest.col(i) =
+			rmBaseInChest_i.eulerAngles(0, 1, 2); 
+*/
 		//	"shToUa(i)"
 		QuaternionRotatePoint(qbase_i,
 			outShoToUaVsWamInBase.col(i).data(),
@@ -761,64 +946,219 @@ namespace ceres {
 				<< q_b_quat.w() << " " <<  endl;
 	}
 */
-
+/*
 	//out Base orientation
-	printEigenMathematica(rMatsBase.transpose()
+	printEigenMathematica(rMatsBase
 		, cout, "rMatsBase");	
 	printEigenMathematica(xyzEulersBase.transpose()
 		, cout, "xyzEulersBase");	
 	printEigenMathematica(quaternionsBase.transpose()
 		, cout, "quaternionsBase");	
 
-	printEigenMathematica(rMatsBaseWrtChest.transpose()
-		, cout, "rMatsBaseWrtChest");	
-	printEigenMathematica(xyzEulersBaseWrtChest.transpose()
-		, cout, "xyzEulersBaseWrtChest");	
-			
+	printEigenMathematica(rMatsBaseInMaya
+		, cout, "rMatsBaseInMaya");	
+	printEigenMathematica(xyzEulersBaseInMaya.transpose()
+		, cout, "xyzEulersBaseInMaya");	
+
+	printEigenMathematica(rMatsBaseInChest
+		, cout, "rMatsBaseInChest");	
+	printEigenMathematica(xyzEulersBaseInChest.transpose()
+		, cout, "xyzEulersBaseInChest");				
+*/
+	}
+
+	void SolveOrientationProblemAt(DikProblem* DIKProblem
+		, int index) {
+		Problem problem;
+		BuildOrientationProblemAt(DIKProblem, &problem, index);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(DIKProblem, &options);
+		std::cout << "(* " << std::endl;
+		options.minimizer_progress_to_stdout = false;
+ 	 	Solver::Summary summary;
+  	Solve(options, &problem, &summary);
+  	std::cout << summary.FullReport() << std::endl;
+		std::cout << "*) " << std::endl;
+		
+		computeFitErrPtsRAt(DIKProblem, index, true);
+
 	}
 
 
-	void solveInverseOrientation (DikProblem* DIKProblem) {
-		ForwardKin<double> &wam = DIKProblem->getWam();
-		size_t  nJoints = wam.getNJoints();
-		const int nObservations = DIKProblem->nObservations();
 
+	void SolveOrientationProblem(
+		DikProblem* DIKProblem) {
+
+		computeFitErrPtsR(DIKProblem);
+
+		Problem problem;
+		BuildOrientationProblem(DIKProblem, &problem);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(DIKProblem, &options);
+		std::cout << "(* " << std::endl;
+ 	 	Solver::Summary summary;
+  	Solve(options, &problem, &summary);
+  	std::cout << summary.FullReport() << std::endl;
+		std::cout << "*) " << std::endl;
+
+		computeFitErrPtsR(DIKProblem);
+
+		}
+	
+
+
+	void SolveProblemAt(DikProblem* DIKProblem, int index) {
+		Problem problem;
+		BuildProblemAt(DIKProblem, &problem, index);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(DIKProblem, &options);
+		std::cout << "(* " << std::endl;
+		options.minimizer_progress_to_stdout = false;
+ 	 	Solver::Summary summary;
+  	Solve(options, &problem, &summary);
+  	std::cout << summary.FullReport() << std::endl;
+		std::cout << "*) " << std::endl;
+		computeFitErrPtsRAt(DIKProblem, index, false);
+
+	}
+
+
+	void SolveProblem(DikProblem* DIKProblem) {
+		Problem problem;
+		BuildProblem(DIKProblem, &problem);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(DIKProblem, &options);
+		std::cout << "(* " << std::endl;
+ 	 	Solver::Summary summary;
+  	Solve(options, &problem, &summary);
+  	std::cout << summary.FullReport() << std::endl;
+		std::cout << "*) " << std::endl;
+		computeFitErrPtsR(DIKProblem);
+
+	}
+
+
+Eigen::MatrixXd FitEllipseModel(
+	Eigen::MatrixXd inPts) {
+
+//	Ellipse3D e3dUA(cartToHom(inPts));
+
+}
+
+}
+/*
+
+	// if s θ > 0
+	void rotMatToEulerPos(Mat3 inRotMat, double* theta_i)	{
+		Eigen::Map<Eigen::Matrix<double, 7, 1> > 
+		theta_Vi(theta_i);
+
+		theta_Vi(5,0) =  atan2(inRotMat(2,2)
+			, sqrt(1.0 -(inRotMat(2,2)*inRotMat(2,2))));
+		theta_Vi(4,0) = atan2( inRotMat(0,2)
+			, inRotMat(1,2));
+		theta_Vi(6,0) = atan2(
+			-inRotMat(2,0), inRotMat(2,1));
+	}
+
+	// if s θ > 0
+	void rotMatToEulerNeg(Mat3 inRotMat, double* theta_i)	{
+		Eigen::Map<Eigen::Matrix<double, 7, 1> > 
+		theta_Vi(theta_i);
+
+		theta_Vi(5,0) =  atan2(inRotMat(2,2), -sqrt(1.0 -
+			(inRotMat(2,2)*inRotMat(2,2))));
+		theta_Vi(4,0) = atan2(
+			-inRotMat(0,2), -inRotMat(1,2));
+		theta_Vi(6,0) = atan2(
+			inRotMat(2,0), -inRotMat(2,1));
+	}
+
+	void solveInverseEeOrientationAt (
+		DikProblem* DIKProblem, int index) {
 		const int theta_block_size =
 			DIKProblem->theta_block_size();
+		const int qBase_block_size =
+			DIKProblem->qBase_block_size();
 		double* thetas = DIKProblem->mutable_thetas();
-		for (int i = 0; i < nObservations; i++)	{
-   	 	double* theta_i = thetas + theta_block_size * i;
-    	Eigen::Map<Eigen::Matrix<double, 7, 1> > 
-				theta_Vi(theta_i);
-			wam.setThetaVect(theta_Vi);
+		double* qsBase = DIKProblem->mutable_qsBase();
+ 		double* qbase_i = qsBase + qBase_block_size * index;
+		Eigen::Map< Eigen::Quaternion<double> > 
+			q_b_quat(qbase_i);
+ 	 	double* theta_i = thetas + theta_block_size * index;
+		Eigen::Map<const Eigen::Matrix<double, 7, 1> > 
+			theta_Vi(theta_i);
 
-			// Step 1: Using the joint variables θ1, θ2, θ3 θ4
-			// 	 determined from inverse position, 
-			//		evaluate R_4^base.		
+		ForwardKin<double> &wam = DIKProblem->getWam();
+		size_t  nJoints = wam.getNJoints();
+		wam.setThetaVect(theta_Vi);
+
+		// Step 1: Using the joint variables θ1, θ2, θ3 θ4
+		// 	 determined from inverse position, 
+		//		evaluate R_4^base.		
 			Mat3 rotMatj4InBase = wam.getMat(4).block(0,0,3,3);
+		//		evaluate R_4^Vicon.		
+		Mat3 rotMatBaseInVicon = 
+			q_b_quat.normalized().toRotationMatrix();
+		Mat3 rotMatj4InVicon = rotMatBaseInVicon
+			* rotMatj4InBase;
+	
+		// Step 2: Find R_end-effector^Vicon
+		// determined from vicon markers of the hand
+			Mat3 rotMatEeInVicon = DIKProblem
+				->buildWrRotReferential(index);
+			Mat3 rotMatEeInBase = rotMatBaseInVicon.transpose()
+				* rotMatEeInVicon;
+		// Step 3: Find R_7^4
+		// 	  =(R_4^Vicon)T R_ee^Vicon
+  	Mat3 rotMatj7InJ4 = rotMatj4InBase.transpose() 
+			* rotMatEeInBase;
 
-			// Step 2: Find the rotation matrix
-			// 	 R_7^4 =(R_4^base)T R_ee
-			int iTimesThree = i*3;
-			Mat3 eeOrientation_i = DIKProblem->
-				rMatsEe().block(0,iTimesThree, 3, 3);
-  		Mat3 rotMatj7InJ4 = rotMatj4InBase.transpose() *
-				eeOrientation_i;
+//	printEigenMathematica(rotMatj7InJ4
+//		, cout, "rotMatj7InJ4");	
 
-			// Step 3: Find a set of Euler angles corresponding 
-			// 	to the rotation matrix R_7^4 , and then use the 
-			//	mapping θ5, θ6, θ7 ==  φ, θ, ψ
+		// Step 3: Find a set of Euler angles corresponding 
+		// 	to the rotation matrix R_7^4 , and then use the 
+		//	mapping θ5, θ6, θ7 ==  φ, θ, ψ
+		// if s θ > 0
+		rotMatToEulerPos(rotMatj7InJ4, theta_i);
+		wam.setThetaVect(theta_Vi);
+		// Step 4: fit error Ee
+		//"A(θ1) * A(θ2) * ...* A(θ7) * Origin": -> pEe(i)				
 
 
-			theta_Vi(5,0) =  atan2(rotMatj7InJ4(2,2), sqrt(1.0 -
-			(rotMatj7InJ4(2,2)*rotMatj7InJ4(2,2))));
+		//Pee = Pwr + d6*Ree.[0 0 1]T
+		_wrToEeVsWam.col(i) = l5wam_wrToEe * 
+			buildWrRotReferential(i).col(2);
+		_shoToEeVsWam.col(i) = _shoToWrVsWam.col(i) 
+			+ _wrToEeVsWam.col(i);
 
+		MatrixXd origin = MatrixXd::Zero(4,1);
+		origin << 0.0, 0.0, 0.0, 1.0;
+		Vec3 outShoToEeViWamInBase = homToCart(
+			wam.getMat(7) * origin);
+
+		Vec3 outShoToEeViWam;
+		QuaternionRotatePoint(qbase_i,
+			outShoToEeViWamInBase.data(),
+				outShoToEeViWam.data());
+
+
+//		Vec3 fitErrEe = (DIKProblem->
+//			shoToEeVsWam().col(index) - outShoToEeViWam);
+
+//		printEigenMathematica(fitErrEe.transpose()
+//			, cout, "fitErrEe");	
+
+	}
+*/
+
+/*
+	
 			if (theta_Vi(5,0) > DIKProblem->jointMinAngles()[5]
 			 &&
 				theta_Vi(5,0) < DIKProblem->jointMaxAngles()[5]) {
 		
-				theta_Vi(4,0) = atan2(
-					rotMatj7InJ4(0,2), rotMatj7InJ4(1,2));
 				if (theta_Vi(4,0) > 
 					DIKProblem->jointMaxAngles()[4])
 					theta_Vi(4,0) -= 2.0 * M_PI;		
@@ -835,52 +1175,7 @@ namespace ceres {
 				theta_Vi(6,0) = atan2(rotMatj7InJ4(2,0)
 					, -rotMatj7InJ4(2,1));
 			}
-
-		}
- }
-
-	void SolveProblemAt(DikProblem* DIKProblem, int index) {
-		Problem problem;
-		BuildProblemAt(DIKProblem, &problem, index);
- 		Solver::Options options;
-		SetSolverOptionsFromFlags(DIKProblem, &options);
-		std::cout << "(* " << std::endl;
-		options.minimizer_progress_to_stdout = false;
- 	 	Solver::Summary summary;
-  	Solve(options, &problem, &summary);
-  	std::cout << summary.FullReport() << std::endl;
-		std::cout << "*) " << std::endl;
-		computeFitErrPtsRAt(DIKProblem, index);
-
-	}
-
-
-	void SolveProblem(DikProblem* DIKProblem) {
-		Problem problem;
-		BuildProblem(DIKProblem, &problem);
- 		Solver::Options options;
-		SetSolverOptionsFromFlags(DIKProblem, &options);
-		std::cout << "(* " << std::endl;
- 	 	Solver::Summary summary;
-  	Solve(options, &problem, &summary);
-  	std::cout << summary.FullReport() << std::endl;
-		std::cout << "*) " << std::endl;
-		
-//		solveInverseOrientation(DIKProblem);
-
-		computeFitErrPtsR(DIKProblem);
-
-	}
-
-
-Eigen::MatrixXd FitEllipseModel(
-	Eigen::MatrixXd inPts) {
-
-//	Ellipse3D e3dUA(cartToHom(inPts));
-
-}
-
-}
+*/
 
 #endif
 

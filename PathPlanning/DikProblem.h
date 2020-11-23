@@ -153,7 +153,7 @@ public:
 	void mapInPtsHtoInPtsR ();
 	Eigen::Matrix<double, 3, 3> 
 		buildWrRotReferential	(int index);
-
+	Mat3 buildJointsRotReferential(int index);
 	//ordered as (x_i y_i z_i)T
 	Eigen::MatrixXd pEeWam () {
 		return _pEeWam;
@@ -233,6 +233,12 @@ public:
 
 	Eigen::MatrixXd xyzEulersCh() {
 		return _xyzEulersCh;	}
+/*	
+	Eigen::MatrixXd rMatsChInMaya() {
+		return _rMatsChInMaya; }
+
+	Eigen::MatrixXd xyzEulersChInMaya() {
+		return _xyzEulersChInMaya;	}
 
 	// end-effectors
 	Eigen::MatrixXd quaternionsEe() {
@@ -243,7 +249,7 @@ public:
 
 	Eigen::MatrixXd xyzEulersEe() {
 		return _xyzEulersEe;	}
-
+*/
 	Eigen::MatrixXd outShoToUaVsWam(){
 		return _outShoToUaVsWam;
 	}
@@ -315,10 +321,21 @@ protected:
 	// Chest
 	Eigen::MatrixXd 
 		_quaternionsCh, _rMatsCh, _xyzEulersCh;
+	// chest in Maya
+	Eigen::MatrixXd 
+		_rMatsChInMaya, _xyzEulersChInMaya;
+/*
+	// elbow
+	Eigen::MatrixXd
+		_rMatsEl, _xyzEulersEl;
+
 	// end-effectors
 	Eigen::MatrixXd
 		_quaternionsEe, _rMatsEe, _xyzEulersEe;
-
+	Eigen::MatrixXd
+		_rMatsEeLocal, _xyzEulersEeLocal
+			,_rMatsEeLocalFvicon, _xyzEulersEeLocalFvicon;
+*/
 
 	// linear velocity of scaled markers on the robot
 	Eigen::MatrixXd _inLvsWam;

@@ -63,7 +63,7 @@ string getHeaderRowCSV(string fileName);
 
 string getCharfromString(string fileName);
 string getPartID(string fileName);
-
+int whichPhase(string fileName);
 
 int countCols(string inLine);
 int countRowsCSV(string inMat, string inCol);

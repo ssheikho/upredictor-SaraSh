@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit"
+CMAKE_SOURCE_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit"
+CMAKE_BINARY_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles/progress.marks"
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles" 0
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles/progress.marks"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f CMakeFiles/Makefile2 EllipseFit/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f CMakeFiles/Makefile2 EllipseFit/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,30 +97,32 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f CMakeFiles/Makefile2 EllipseFit/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f CMakeFiles/Makefile2 EllipseFit/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named EllipseFit
+# Convenience name for target.
+EllipseFit/CMakeFiles/EllipseFit.dir/rule:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f CMakeFiles/Makefile2 EllipseFit/CMakeFiles/EllipseFit.dir/rule
+.PHONY : EllipseFit/CMakeFiles/EllipseFit.dir/rule
 
-# Build rule for target.
-EllipseFit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EllipseFit
+# Convenience name for target.
+EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/rule
+
 .PHONY : EllipseFit
 
 # fast build rule for target.
 EllipseFit/fast:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/build
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/build
 .PHONY : EllipseFit/fast
 
 BaysFitFunctions.o: BaysFitFunctions.cpp.o
@@ -129,7 +131,7 @@ BaysFitFunctions.o: BaysFitFunctions.cpp.o
 
 # target to build an object file
 BaysFitFunctions.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o
 .PHONY : BaysFitFunctions.cpp.o
 
 BaysFitFunctions.i: BaysFitFunctions.cpp.i
@@ -138,7 +140,7 @@ BaysFitFunctions.i: BaysFitFunctions.cpp.i
 
 # target to preprocess a source file
 BaysFitFunctions.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.i
 .PHONY : BaysFitFunctions.cpp.i
 
 BaysFitFunctions.s: BaysFitFunctions.cpp.s
@@ -147,7 +149,7 @@ BaysFitFunctions.s: BaysFitFunctions.cpp.s
 
 # target to generate assembly for a file
 BaysFitFunctions.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.s
 .PHONY : BaysFitFunctions.cpp.s
 
 Ellipse.o: Ellipse.cpp.o
@@ -156,7 +158,7 @@ Ellipse.o: Ellipse.cpp.o
 
 # target to build an object file
 Ellipse.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse.cpp.o
 .PHONY : Ellipse.cpp.o
 
 Ellipse.i: Ellipse.cpp.i
@@ -165,7 +167,7 @@ Ellipse.i: Ellipse.cpp.i
 
 # target to preprocess a source file
 Ellipse.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse.cpp.i
 .PHONY : Ellipse.cpp.i
 
 Ellipse.s: Ellipse.cpp.s
@@ -174,7 +176,7 @@ Ellipse.s: Ellipse.cpp.s
 
 # target to generate assembly for a file
 Ellipse.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse.cpp.s
 .PHONY : Ellipse.cpp.s
 
 Ellipse3D.o: Ellipse3D.cpp.o
@@ -183,7 +185,7 @@ Ellipse3D.o: Ellipse3D.cpp.o
 
 # target to build an object file
 Ellipse3D.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o
 .PHONY : Ellipse3D.cpp.o
 
 Ellipse3D.i: Ellipse3D.cpp.i
@@ -192,7 +194,7 @@ Ellipse3D.i: Ellipse3D.cpp.i
 
 # target to preprocess a source file
 Ellipse3D.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.i
 .PHONY : Ellipse3D.cpp.i
 
 Ellipse3D.s: Ellipse3D.cpp.s
@@ -201,7 +203,7 @@ Ellipse3D.s: Ellipse3D.cpp.s
 
 # target to generate assembly for a file
 Ellipse3D.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.s
 .PHONY : Ellipse3D.cpp.s
 
 EllipseFit.o: EllipseFit.cpp.o
@@ -210,7 +212,7 @@ EllipseFit.o: EllipseFit.cpp.o
 
 # target to build an object file
 EllipseFit.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o
 .PHONY : EllipseFit.cpp.o
 
 EllipseFit.i: EllipseFit.cpp.i
@@ -219,7 +221,7 @@ EllipseFit.i: EllipseFit.cpp.i
 
 # target to preprocess a source file
 EllipseFit.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseFit.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.i
 .PHONY : EllipseFit.cpp.i
 
 EllipseFit.s: EllipseFit.cpp.s
@@ -228,7 +230,7 @@ EllipseFit.s: EllipseFit.cpp.s
 
 # target to generate assembly for a file
 EllipseFit.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseFit.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.s
 .PHONY : EllipseFit.cpp.s
 
 EllipseImplicitFit.o: EllipseImplicitFit.cpp.o
@@ -237,7 +239,7 @@ EllipseImplicitFit.o: EllipseImplicitFit.cpp.o
 
 # target to build an object file
 EllipseImplicitFit.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o
 .PHONY : EllipseImplicitFit.cpp.o
 
 EllipseImplicitFit.i: EllipseImplicitFit.cpp.i
@@ -246,7 +248,7 @@ EllipseImplicitFit.i: EllipseImplicitFit.cpp.i
 
 # target to preprocess a source file
 EllipseImplicitFit.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.i
 .PHONY : EllipseImplicitFit.cpp.i
 
 EllipseImplicitFit.s: EllipseImplicitFit.cpp.s
@@ -255,7 +257,7 @@ EllipseImplicitFit.s: EllipseImplicitFit.cpp.s
 
 # target to generate assembly for a file
 EllipseImplicitFit.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.s
 .PHONY : EllipseImplicitFit.cpp.s
 
 FitFunctions.o: FitFunctions.cpp.o
@@ -264,7 +266,7 @@ FitFunctions.o: FitFunctions.cpp.o
 
 # target to build an object file
 FitFunctions.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/FitFunctions.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/FitFunctions.cpp.o
 .PHONY : FitFunctions.cpp.o
 
 FitFunctions.i: FitFunctions.cpp.i
@@ -273,7 +275,7 @@ FitFunctions.i: FitFunctions.cpp.i
 
 # target to preprocess a source file
 FitFunctions.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/FitFunctions.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/FitFunctions.cpp.i
 .PHONY : FitFunctions.cpp.i
 
 FitFunctions.s: FitFunctions.cpp.s
@@ -282,7 +284,7 @@ FitFunctions.s: FitFunctions.cpp.s
 
 # target to generate assembly for a file
 FitFunctions.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/FitFunctions.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/FitFunctions.cpp.s
 .PHONY : FitFunctions.cpp.s
 
 Plane.o: Plane.cpp.o
@@ -291,7 +293,7 @@ Plane.o: Plane.cpp.o
 
 # target to build an object file
 Plane.cpp.o:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Plane.cpp.o
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Plane.cpp.o
 .PHONY : Plane.cpp.o
 
 Plane.i: Plane.cpp.i
@@ -300,7 +302,7 @@ Plane.i: Plane.cpp.i
 
 # target to preprocess a source file
 Plane.cpp.i:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Plane.cpp.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Plane.cpp.i
 .PHONY : Plane.cpp.i
 
 Plane.s: Plane.cpp.s
@@ -309,7 +311,7 @@ Plane.s: Plane.cpp.s
 
 # target to generate assembly for a file
 Plane.cpp.s:
-	$(MAKE) -f CMakeFiles/EllipseFit.dir/build.make CMakeFiles/EllipseFit.dir/Plane.cpp.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Plane.cpp.s
 .PHONY : Plane.cpp.s
 
 # Help Target
@@ -353,6 +355,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

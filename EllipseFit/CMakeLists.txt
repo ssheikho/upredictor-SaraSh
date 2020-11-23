@@ -38,6 +38,7 @@ set(ellipse_fit_src
 include_directories(
 
 	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB
+	${CMAKE_CURRENT_SOURCE_DIR}/../PathPlanning
 	../UBCCamera
 	../UBCColorTrackCUDA
 	../UBCDART

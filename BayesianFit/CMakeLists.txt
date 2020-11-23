@@ -15,12 +15,11 @@ pkg_check_modules(GTK REQUIRED "gtk+-3.0")
 
 set(Bayesian_fit_src
 	
-	BaysFitFunctions.cpp
 	BayesianFit.cpp
-	#EllipseImplicitFit.cpp
 )
 
 include_directories(	
+	../ALGLIB
 	../UBCCamera
 	../UBCColorTrackCUDA
 	../UBCDART
@@ -57,7 +56,7 @@ include_directories(
 
 link_directories(
 
-	
+	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCCamera/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCColorTrackCUDA/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCDART/
@@ -85,9 +84,8 @@ target_link_libraries(BayesianFit
 	#ubccamera
 
 	#dart
-
+	alglib
 	ubcutil
-	EllipseFit
 
 	opencv_calib3d
 	opencv_contrib

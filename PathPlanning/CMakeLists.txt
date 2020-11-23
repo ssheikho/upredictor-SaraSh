@@ -20,6 +20,7 @@ set(Path_Planning_src
 	#BasicFormulas.cpp
 	PathPlanning.cpp
 	DikProblem.cpp
+	
 )
 
 include_directories(
@@ -61,8 +62,10 @@ include_directories(
 )
 
 link_directories(
-	../ALGLIB/
-	../EllipseFit/
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles/EllipseFit.dir/
+
+	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
+	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit//CMakeFiles/EllipseFit.dir/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCCamera/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCColorTrackCUDA/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCDART/
@@ -82,6 +85,8 @@ add_executable(
 	${Path_Planning_src}
 
 )
+
+
 
 target_link_libraries(PathPlanning
 	#UBColorTrackCuda

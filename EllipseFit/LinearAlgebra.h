@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <math.h> 
-#include "linalg.h"
-#include "specialfunctions.h"
 
 #include <Eigen/Dense>
 

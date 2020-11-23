@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upr
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named uPredictor
+
+# Build rule for target.
+uPredictor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uPredictor
+.PHONY : uPredictor
+
+# fast build rule for target.
+uPredictor/fast:
+	$(MAKE) -f CMakeFiles/uPredictor.dir/build.make CMakeFiles/uPredictor.dir/build
+.PHONY : uPredictor/fast
+
+#=============================================================================
 # Target rules for targets named ubccamera
 
 # Build rule for target.
@@ -135,32 +148,6 @@ alglib: cmake_check_build_system
 alglib/fast:
 	$(MAKE) -f ALGLIB/CMakeFiles/alglib.dir/build.make ALGLIB/CMakeFiles/alglib.dir/build
 .PHONY : alglib/fast
-
-#=============================================================================
-# Target rules for targets named UBColorTrackCuda
-
-# Build rule for target.
-UBColorTrackCuda: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 UBColorTrackCuda
-.PHONY : UBColorTrackCuda
-
-# fast build rule for target.
-UBColorTrackCuda/fast:
-	$(MAKE) -f UBCColorTrackCUDA/CMakeFiles/UBColorTrackCuda.dir/build.make UBCColorTrackCUDA/CMakeFiles/UBColorTrackCuda.dir/build
-.PHONY : UBColorTrackCuda/fast
-
-#=============================================================================
-# Target rules for targets named ubcdart
-
-# Build rule for target.
-ubcdart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ubcdart
-.PHONY : ubcdart
-
-# fast build rule for target.
-ubcdart/fast:
-	$(MAKE) -f UBCDART/CMakeFiles/ubcdart.dir/build.make UBCDART/CMakeFiles/ubcdart.dir/build
-.PHONY : ubcdart/fast
 
 #=============================================================================
 # Target rules for targets named ubckinect
@@ -215,19 +202,6 @@ ubcsimplegeometry/fast:
 .PHONY : ubcsimplegeometry/fast
 
 #=============================================================================
-# Target rules for targets named ubctrackercuda
-
-# Build rule for target.
-ubctrackercuda: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ubctrackercuda
-.PHONY : ubctrackercuda
-
-# fast build rule for target.
-ubctrackercuda/fast:
-	$(MAKE) -f UBCTrackerCUDA/CMakeFiles/ubctrackercuda.dir/build.make UBCTrackerCUDA/CMakeFiles/ubctrackercuda.dir/build
-.PHONY : ubctrackercuda/fast
-
-#=============================================================================
 # Target rules for targets named ubcutil
 
 # Build rule for target.
@@ -267,19 +241,6 @@ EllipseFit/fast:
 .PHONY : EllipseFit/fast
 
 #=============================================================================
-# Target rules for targets named PathPlanning
-
-# Build rule for target.
-PathPlanning: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PathPlanning
-.PHONY : PathPlanning
-
-# fast build rule for target.
-PathPlanning/fast:
-	$(MAKE) -f PathPlanning/CMakeFiles/PathPlanning.dir/build.make PathPlanning/CMakeFiles/PathPlanning.dir/build
-.PHONY : PathPlanning/fast
-
-#=============================================================================
 # Target rules for targets named ForwardKinematicsWAM
 
 # Build rule for target.
@@ -291,6 +252,19 @@ ForwardKinematicsWAM: cmake_check_build_system
 ForwardKinematicsWAM/fast:
 	$(MAKE) -f ForwardKinematicsWAM/CMakeFiles/ForwardKinematicsWAM.dir/build.make ForwardKinematicsWAM/CMakeFiles/ForwardKinematicsWAM.dir/build
 .PHONY : ForwardKinematicsWAM/fast
+
+#=============================================================================
+# Target rules for targets named PathPlanning
+
+# Build rule for target.
+PathPlanning: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PathPlanning
+.PHONY : PathPlanning
+
+# fast build rule for target.
+PathPlanning/fast:
+	$(MAKE) -f PathPlanning/CMakeFiles/PathPlanning.dir/build.make PathPlanning/CMakeFiles/PathPlanning.dir/build
+.PHONY : PathPlanning/fast
 
 #=============================================================================
 # Target rules for targets named GetPos
@@ -305,29 +279,45 @@ GetPos/fast:
 	$(MAKE) -f GetPos/CMakeFiles/GetPos.dir/build.make GetPos/CMakeFiles/GetPos.dir/build
 .PHONY : GetPos/fast
 
+# target to build an object file
+uPredictor.o:
+	$(MAKE) -f CMakeFiles/uPredictor.dir/build.make CMakeFiles/uPredictor.dir/uPredictor.o
+.PHONY : uPredictor.o
+
+# target to preprocess a source file
+uPredictor.i:
+	$(MAKE) -f CMakeFiles/uPredictor.dir/build.make CMakeFiles/uPredictor.dir/uPredictor.i
+.PHONY : uPredictor.i
+
+# target to generate assembly for a file
+uPredictor.s:
+	$(MAKE) -f CMakeFiles/uPredictor.dir/build.make CMakeFiles/uPredictor.dir/uPredictor.s
+.PHONY : uPredictor.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... uPredictor"
 	@echo "... ubccamera"
 	@echo "... alglib"
-	@echo "... UBColorTrackCuda"
-	@echo "... ubcdart"
 	@echo "... ubckinect"
 	@echo "... ubckinectgui"
 	@echo "... ubcgui"
 	@echo "... ubcsimplegeometry"
-	@echo "... ubctrackercuda"
 	@echo "... ubcutil"
 	@echo "... UBCViconSimpleGeometry"
 	@echo "... EllipseFit"
-	@echo "... PathPlanning"
 	@echo "... ForwardKinematicsWAM"
+	@echo "... PathPlanning"
 	@echo "... GetPos"
+	@echo "... uPredictor.o"
+	@echo "... uPredictor.i"
+	@echo "... uPredictor.s"
 .PHONY : help
 
 

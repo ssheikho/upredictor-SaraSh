@@ -13,6 +13,8 @@ LinearAlgebra.h
 ../EllipseFit/LinearAlgebra.h
 EllipseImplicitFit.h
 ../EllipseFit/EllipseImplicitFit.h
+EllipseConicConstraints.h
+../EllipseFit/EllipseConicConstraints.h
 Eigen/Dense
 -
 cmath
@@ -29,6 +31,24 @@ EllipseThetaMin.h
 ../EllipseFit/EllipseThetaMin.h
 Eigen/Dense
 -
+
+../EllipseFit/EllipseConicConstraints.h
+FitFunctions.h
+../EllipseFit/FitFunctions.h
+Plane.h
+../EllipseFit/Plane.h
+Ellipse.h
+../EllipseFit/Ellipse.h
+UBCUtil.h
+../EllipseFit/UBCUtil.h
+Eigen/Core
+-
+ceres/ceres.h
+../EllipseFit/ceres/ceres.h
+gflags/gflags.h
+../EllipseFit/gflags/gflags.h
+glog/logging.h
+../EllipseFit/glog/logging.h
 
 ../EllipseFit/EllipseImplicitFit.h
 FitFunctions.h
@@ -55,6 +75,12 @@ Eigen/Core
 -
 
 ../EllipseFit/LinearAlgebra.h
+stdio.h
+-
+sys/time.h
+-
+math.h
+-
 Eigen/Dense
 -
 map
@@ -121,6 +147,10 @@ memory
 -
 string
 -
+iostream
+-
+sstream
+-
 
 ../UBCUtil/csv.h
 vector
@@ -153,18 +183,6 @@ istream
 -
 
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BayesianFit.cpp
-Ellipse.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/Ellipse.h
-FitFunctions.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/FitFunctions.h
-LinearAlgebra.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/LinearAlgebra.h
-EllipseImplicitFit.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/EllipseImplicitFit.h
-Plane.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/Plane.h
-Ellipse3D.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/Ellipse3D.h
 BaysFitFunctions.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BaysFitFunctions.h
 ParseMathematica.h
@@ -183,24 +201,6 @@ RigidTrans2D.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/RigidTrans2D.h
 iostream
 -
-
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BaysFitFunctions.cpp
-BaysFitFunctions.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BaysFitFunctions.h
-ParseCSV.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/ParseCSV.h
-UBCUtil.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/UBCUtil.h
-EllipseImplicitFit.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/EllipseImplicitFit.h
-Ellipse.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/Ellipse.h
-Ellipse3D.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/Ellipse3D.h
-Eigen/Dense
--
-ParseMathematica.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/ParseMathematica.h
 
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/BayesianFit/BaysFitFunctions.h
 Eigen/Dense
@@ -1149,46 +1149,4 @@ math_constants.h
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
-
-/usr/local/cuda-8.0/include/builtin_types.h
-device_types.h
-/usr/local/cuda-8.0/include/device_types.h
-driver_types.h
-/usr/local/cuda-8.0/include/driver_types.h
-surface_types.h
-/usr/local/cuda-8.0/include/surface_types.h
-texture_types.h
-/usr/local/cuda-8.0/include/texture_types.h
-vector_types.h
-/usr/local/cuda-8.0/include/vector_types.h
-
-/usr/local/cuda-8.0/include/device_types.h
-host_defines.h
-/usr/local/cuda-8.0/include/host_defines.h
-
-/usr/local/cuda-8.0/include/driver_types.h
-host_defines.h
-/usr/local/cuda-8.0/include/host_defines.h
-limits.h
--
-stddef.h
--
-
-/usr/local/cuda-8.0/include/host_defines.h
-
-/usr/local/cuda-8.0/include/math_constants.h
-
-/usr/local/cuda-8.0/include/surface_types.h
-driver_types.h
-/usr/local/cuda-8.0/include/driver_types.h
-
-/usr/local/cuda-8.0/include/texture_types.h
-driver_types.h
-/usr/local/cuda-8.0/include/driver_types.h
-
-/usr/local/cuda-8.0/include/vector_types.h
-builtin_types.h
-/usr/local/cuda-8.0/include/builtin_types.h
-host_defines.h
-/usr/local/cuda-8.0/include/host_defines.h
 

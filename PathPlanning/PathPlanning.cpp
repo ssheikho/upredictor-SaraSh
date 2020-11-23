@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include <Plane.h>
 #include <UBCUtil.h>
 #include <Plane.h>
 #include <LinearAlgebra.h>
@@ -7,8 +9,10 @@
 #include "ForwardKin.h"
 #include "DikProblem.h"
 #include "DikSolver.h"
+#include "MayaAnimation.h"
 
 
+#include "Ellipse3D.h"
 #include "ParseMathematica.h"
 #include "ParseCSV.h"
 #include <Eigen/SVD>
@@ -17,8 +21,6 @@
 #include <fstream>
 #include <math.h>       /* pow */
 #include "FitFunctions.h"
-#include "Ellipse3D.h"
-#include "Plane.h"
 #include "LinearAlgebra.cpp"
 #include "RigidTrans2D.h"
 
@@ -27,7 +29,7 @@
 using namespace ceres;
 using namespace Eigen;
 using namespace std;
-
+/*
 //ensure theta is within [-pi,pi], 
 //	&& theta(t) is a monotonic function 
 MatrixXd fixThetas(MatrixXd a) {
@@ -56,6 +58,7 @@ MatrixXd fixThetas(MatrixXd a) {
 
 	return retVal;
 }
+*/
 
 int main(int argc, char **argv) {
 	
@@ -82,16 +85,24 @@ int main(int argc, char **argv) {
 	int nMarkers = wSMarkers.size();
 
 	// nx3
-	int nPts = countRowsCSV(fileName, wristMarkers[0]);
-	MatrixXd inPtsAlongRows = MatrixXd::Zero(nPts,nMarkers);
 	std::string metaFileName;
 	std::string reachCtr = getPartID(fileName) + "P"
 		+fileName.at ((unsigned)(fileName.length()-5));
+
+	int phase = 1;
+	//whichPhase(fileName);		
 	// Calculating the length of string 
 	metaFileName = 
 		fileName.substr(0,fileName.find("_clean"))+".csv";	
 	string headerLine = 
 		getHeaderRowCSV(metaFileName);
+
+	int nPts = countRowsCSV(fileName, wristMarkers[0]);
+	MatrixXd inPtsAlongRows = MatrixXd::Zero(nPts,nMarkers);
+	int nPtsTotal = countRowsCSV(
+		metaFileName, wSMarkers[0]);
+	MatrixXd inPtsAlongRowsTotal = 
+		MatrixXd::Zero(nPtsTotal,nMarkers);
 
 	int ctr = 0;
 	while ((ctr < nMarkers)) {
@@ -100,24 +111,20 @@ int main(int argc, char **argv) {
 		if (startMarkerDelim!=std::string::npos) { 
 			fillMatCSV(ctr, metaFileName
 				, wSMarkers[ctr], wSMarkers[ctr+1]
-				, wSMarkers[ctr+2], inPtsAlongRows);
+				, wSMarkers[ctr+2], inPtsAlongRowsTotal);
 		}
 		ctr +=3;
 	}
+/*
+	cout << "Phase " << phase << endl;
+	if (phase ==1)	
+		inPtsAlongRows = inPtsAlongRowsTotal.topRows(nPts);
+	
+	else	
+		inPtsAlongRows = inPtsAlongRowsTotal.bottomRows(nPts);
+*/
 
-	/** TO IMPORT TO MOTION BUILDER 
-			X' = -X; Y' = Z; Z'=Y;
-	**/
-	MatrixXd inPtsAlongRowsMB = MatrixXd::Zero(nPts,nMarkers);
-	for (size_t j = 0; j < nMarkers/3; j++){
-		size_t jTimesThree = j * 3;	
-		inPtsAlongRowsMB.col(jTimesThree) 
-			=	-inPtsAlongRows.col(jTimesThree);
-		inPtsAlongRowsMB.col(jTimesThree+1) 
-			= inPtsAlongRows.col(jTimesThree+2);
-		inPtsAlongRowsMB.col(jTimesThree+2) 
-			= inPtsAlongRows.col(jTimesThree+1);
-	}
+
 	/*** END - Reading input CSV Motion Files ***/
 	/************************************************/
 
@@ -151,42 +158,244 @@ int main(int argc, char **argv) {
 	size_t nJoints = 7;
 	// positions in meter
 	MatrixXd inPts = 0.01 * inPtsAlongRows.transpose();
+	MatrixXd inPtsTot = 0.01 * inPtsAlongRowsTotal.transpose();
+
 
 	/*** (1) Human motion from vicon data**/
 	/*********************************************************/
 	MatrixXd JsWam = MatrixXd::Zero(nJoints,  nPts); 
 	// (a). inverse position
 	bool use_quaternions = true;
+
+/*
+	DikProblem *dIkProbTot =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			inPtsTot);
+
 	DikProblem *dIkProb =
 		new DikProblem	(wam, jointMinAngles,
 			jointMaxAngles, use_quaternions, 
 			inPts);
 
+	Eigen::MatrixXd xyzEulersCh = 
+		MayaAnimation::getChEulerAngles (dIkProb);
+	printEigenMathematica(xyzEulersCh.transpose()
+		, cout, "xyzEulersCh");
+	printEigenMathematica(xyzEulersCh.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersChInDeg");
+	Eigen::MatrixXd xyzEulersEl = 
+		MayaAnimation::getElEulerAngles (dIkProb);
+	printEigenMathematica(xyzEulersEl.transpose()
+		, cout, "xyzEulersEl");
+	printEigenMathematica(xyzEulersEl.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersElInDeg");
+
+	Eigen::MatrixXd xyzEulersWr = MayaAnimation::
+		getWrEulerAngles (dIkProb);
+	printEigenMathematica(xyzEulersWr.transpose()
+		, cout, "xyzEulersWr");
+	printEigenMathematica(xyzEulersWr.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersWrInDeg");
+
+	// (a.2). inverse position in Chest frame
+	MatrixXd inPtsInBase = MatrixXd::Zero(nMarkers,nPts),
+		inPtsInChest = MatrixXd::Zero(nMarkers,nPts),
+		inPRCh = inPts.block(Markers::RCh,0,3,nPts),
+		inPMCh = inPts.block(Markers::MCh,0,3,nPts),
+		inPLCh = inPts.block(Markers::LCh,0,3,nPts);
+
+	Eigen::MatrixXd xyzEulersChF3Pts  = 
+		MatrixXd::Zero(3,nPts);
+	for (int i = 0; i < nPts; i++) {
+		Mat3 rMatsBase_i = MayaAnimation::
+			buildBaseRotReferentialAt (dIkProb, i);
+		//chest Rot matrix 
+		Eigen::Matrix<double, 3, 1> 
+			RChP = inPRCh.col(i), 
+			MChP = inPMCh.col(i),
+			LChP = inPLCh.col(i);
+		
+		Mat3 rMatsCh_i = buildRefFramefrom3Pts(
+			RChP, MChP, LChP);
+		xyzEulersChF3Pts.col(i) = rMatsCh_i.eulerAngles(0, 1, 2); 
+		//inPts in Chest frame
+		for (size_t j = 0; j < nMarkers; ){	
+			inPtsInChest.block(j,i,3,1) = 
+				rMatsCh_i.transpose() * inPts.block(j,i,3,1);
+			j = j+3;
+		}
+	}
+
+	printEigenMathematica(xyzEulersChF3Pts.transpose()
+		, cout, "xyzEulersChF3Pts");
+
+	DikProblem *dIkProbInChest =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			inPtsInChest);
 
 	for (int i = 0; i < nPts; i++)
-		ceres::SolveProblemAt(dIkProb, i);
+		ceres::SolveProblemAt(dIkProbInChest, i);
 
-	ceres::SolveProblem(dIkProb);
+	ceres::SolveProblem(dIkProbInChest);
+
+	Eigen::MatrixXd xyzEulersBase = 
+		MayaAnimation::getBaseEulerAngles (dIkProbInChest);
+	printEigenMathematica(xyzEulersBase.transpose()
+		, cout, "xyzEulersBase");
+	printEigenMathematica(xyzEulersBase.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersBaseInDeg");
 
 	// (b). inverse orientation
+//	for (int i = 0; i < nPts; i++)
+//		ceres::SolveOrientationProblemAt(dIkProbInChest, i);
+
+//	ceres::SolveOrientationProblem(dIkProbInChest);
+*/
+
 
 	/*** (2) ELLIPSE fitted model of Human motion **/
 	/*********************************************************/
-	MatrixXd 
-		inPtsRPi = inPts.block(Markers::RPi,0,3,nPts),
-		inPtsRTh = inPts.block(Markers::RTh,0,3,nPts),
-		inPtsRWr = inPts.block(Markers::RWr,0,3,nPts),
-		inPtsRLA = inPts.block(Markers::RLA,0,3,nPts),
-		inPtsREl = inPts.block(Markers::REl,0,3,nPts),
-		inPtsRUA = inPts.block(Markers::RUA,0,3,nPts),
-		inPtsRSh = inPts.block(Markers::RSh,0,3,nPts);
+
+	//Read ellipse fitted data JUST FOR THE WRIST
 /*
+	string wholeFile = getWholeFileMathematica("outEf.txt");
+	MatrixXd efPtsHand = inPts;
+
+	MatrixXd efPtsAlongRows = MatrixXd::Zero(nPts,nMarkers);
+	efPtsAlongRows = parseMathematica(wholeFile);
+	MatrixXd efPts = efPtsAlongRows.transpose();
+
+	efPtsHand.block(Markers::RPi,0,3,nPts) 
+		= efPts.block(Markers::RPi,0,3,nPts);
+	efPtsHand.block(Markers::RTh,0,3,nPts) 
+		= efPts.block(Markers::RTh,0,3,nPts);
+	efPtsHand.block(Markers::RWr,0,3,nPts) 
+		= efPts.block(Markers::RWr,0,3,nPts);
+
+	DikProblem *dIkProb =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			efPtsHand);
+*/
+
+	//Read ellipse fitted data
+	string wholeFile = getWholeFileMathematica("Ef10-2.txt");
+	MatrixXd efPtsAlongRows = MatrixXd::Zero(nPts,nMarkers);
+	efPtsAlongRows = parseMathematica(wholeFile);
+
+
+	//get inPts in MotionBuilder frame
+	MatrixXd efPtsAlongRowsMB = MotionBuilderAnimation
+		::getInPtsInMbFrame(efPtsAlongRows);
+	MatrixXd efPtsMB =  100.0*efPtsAlongRowsMB.transpose();
+	
+
+	DikProblem *dIkProbEfMB =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			efPtsMB);
+
+	int startFrame = 593;//FIX
+	MotionBuilderAnimation::keyAdd(efPtsMB, startFrame);
+	
+	cout <<" END inPts in MotionBuilder frame"<< endl;
+
+	MatrixXd efPts = 100.0*efPtsAlongRows.transpose();
+
+	DikProblem *dIkProbEf =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			efPts);
+
+	Eigen::MatrixXd xyzEulersChEf = 
+		MayaAnimation::getChEulerAngles (dIkProbEf);
+	printEigenMathematica(xyzEulersChEf.transpose()
+		, cout, "xyzEulersChEf");
+	printEigenMathematica(xyzEulersChEf.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersChEfInDeg");
+
+	Eigen::MatrixXd xyzEulersElEf = 
+		MayaAnimation::getElEulerAngles (dIkProbEf);
+	printEigenMathematica(xyzEulersElEf.transpose()
+		, cout, "xyzEulersElEf");
+	printEigenMathematica(xyzEulersElEf.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersElEfInDeg");
+
+	Eigen::MatrixXd xyzEulersWrEf = MayaAnimation::
+		getWrEulerAngles (dIkProbEf);
+	printEigenMathematica(xyzEulersWrEf.transpose()
+		, cout, "xyzEulersWrEf");
+	printEigenMathematica(xyzEulersWrEf.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersWrEfInDeg");
+
+
+
+	// efPts in Chest frame
+	MatrixXd 
+		efPtsInChest = MatrixXd::Zero(nMarkers,nPts),
+		inPRCh = inPts.block(Markers::RCh,0,3,nPts),
+		inPMCh = inPts.block(Markers::MCh,0,3,nPts),
+		inPLCh = inPts.block(Markers::LCh,0,3,nPts);
+	Eigen::MatrixXd xyzEulersChF3Pts  = 
+		MatrixXd::Zero(3,nPts);
+	for (int i = 0; i < nPts; i++) {
+		int iTimesThree = i*3;
+		//chest Rot matrix 
+		Eigen::Matrix<double, 3, 1> 
+			RChP = inPRCh.col(i), 
+			MChP = inPMCh.col(i),
+			LChP = inPLCh.col(i);
+		
+		Mat3 rMatsCh_i = buildRefFramefrom3Pts(
+			RChP, MChP, LChP);
+		xyzEulersChF3Pts.col(i) = rMatsCh_i.eulerAngles(0, 1, 2); 
+		for (size_t j = 0; j < nMarkers; ){
+			efPtsInChest.block(j,i,3,1) = 
+				rMatsCh_i.transpose() * efPts.block(j,i,3,1);
+
+			j = j+3;
+		}
+	}
+
+	// (a). inverse position of efPts in Chest frame
+	DikProblem *dIkProbEfInChest =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			efPtsInChest);
+
+
+	for (int i = 0; i < nPts; i++)
+		ceres::SolveProblemAt(dIkProbEfInChest, i);
+
+	ceres::SolveProblem(dIkProbEfInChest);
+
+	Eigen::MatrixXd xyzEulersBaseEf = 
+		MayaAnimation::getBaseEulerAngles (dIkProbEfInChest);
+	printEigenMathematica(xyzEulersBaseEf.transpose()
+		, cout, "xyzEulersBaseEf");
+	printEigenMathematica(xyzEulersBaseEf.transpose()*(180.0/M_PI)
+		, cout, "xyzEulersBaseEfInDeg");
+
+
+/*
+MatrixXd 
+		inPtsRPi = efPts.block(Markers::RPi,0,3,nPts),
+		inPtsRTh = efPts.block(Markers::RTh,0,3,nPts),
+		inPtsRWr = efPts.block(Markers::RWr,0,3,nPts),
+		inPtsRLA = efPts.block(Markers::RLA,0,3,nPts),
+		inPtsREl = efPts.block(Markers::REl,0,3,nPts),
+		inPtsRUA = efPts.block(Markers::RUA,0,3,nPts),
+		inPtsRSh = efPts.block(Markers::RSh,0,3,nPts);
+
 	//(a) ShoToUa
-	Ellipse3D e3dUA(cartToHom(inPtsRUA));
+	Ellipse3D *e3dUA(new Ellipse3D(cartToHom(inPtsRUA)));
 
 	MatrixXd thetasUA = e3dUA.findThetas();
 	MatrixXd efPtsRUA = homToCart(
 		e3dUA.getPointAtThetasH(fixThetas(thetasUA)));
+
 	//(b) shoToEl
 	Ellipse3D e3dEl(cartToHom(inPtsREl));
 	MatrixXd thetasEl = e3dEl.findThetas();

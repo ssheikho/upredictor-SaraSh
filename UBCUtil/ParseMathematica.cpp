@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-string getWholeFile(string fileName) {
+string getWholeFileMathematica(string fileName) {
 	ifstream infile(fileName);
 	string s, out = "";
 	while (!infile.eof()) {	
@@ -13,7 +13,7 @@ string getWholeFile(string fileName) {
 	return out;
 }
 
-int countCols(string inLine) {
+int countColsMathematica(string inLine) {
 	inLine = inLine.substr(1);
 	int commaDelim = inLine.find(',');
 	int endBracketDelim = inLine.find('}');
@@ -30,7 +30,7 @@ int countCols(string inLine) {
 	return ctr;
 }
 
-int countRows(string inMat) {
+int countRowsMathematica(string inMat) {
 	int endBracketDelim = inMat.find('}');
 	int ctr = 0;
 	while(endBracketDelim >= 0) {
@@ -67,8 +67,8 @@ MatrixXd parseMathematica(string inMat) {
 	startDelim = containsRows.find('{');
 	int endDelim = containsRows.find('}');
 
-	int rows = countRows(inMat);
-	int cols = countCols(containsRows.substr(startDelim, endDelim + 1));
+	int rows = countRowsMathematica(inMat);
+	int cols = countColsMathematica(containsRows.substr(startDelim, endDelim + 1));
 	
 	MatrixXd outMat(rows, cols);
 

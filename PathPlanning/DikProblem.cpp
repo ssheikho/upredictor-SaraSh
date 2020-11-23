@@ -49,16 +49,27 @@ DikProblem::DikProblem (ForwardKin<double> &fk
 	, _shoToEeVsWam(Eigen::MatrixXd::Zero(3,_nPts))
 	, _elOffsetVsWam(Eigen::MatrixXd::Zero(3,_nPts))
 	, _wOffsetVsWam(Eigen::MatrixXd::Zero(3,_nPts))
+
 	//Orientation as mathematica matrices:
 	// Chest
 	, _quaternionsCh(Eigen::MatrixXd::Zero(4,_nPts))
 	, _rMatsCh(Eigen::MatrixXd::Zero(3,3*_nPts))
 	, _xyzEulersCh(Eigen::MatrixXd::Zero(3,_nPts))
+	, _rMatsChInMaya(Eigen::MatrixXd::Zero(3,3*_nPts))
+	, _xyzEulersChInMaya(Eigen::MatrixXd::Zero(3,_nPts))
+	//Elbow
+/*	
+	, _rMatsEl(Eigen::MatrixXd::Zero(3,3*_nPts))
+	, _xyzEulersEl(Eigen::MatrixXd::Zero(3,_nPts))
 	// end-effectors
 	, _quaternionsEe(Eigen::MatrixXd::Zero(4,_nPts))
 	, _rMatsEe(Eigen::MatrixXd::Zero(3,3*_nPts))
 	, _xyzEulersEe(Eigen::MatrixXd::Zero(3,_nPts))
-
+	, _rMatsEeLocal(Eigen::MatrixXd::Zero(3,3*_nPts))
+	, _xyzEulersEeLocal(Eigen::MatrixXd::Zero(3,_nPts))
+	, _rMatsEeLocalFvicon(Eigen::MatrixXd::Zero(3,3*_nPts))
+	, _xyzEulersEeLocalFvicon(Eigen::MatrixXd::Zero(3,_nPts))
+*/
 	,	_inPtsWam(Eigen::MatrixXd::Zero(inPts.rows(),_nPts))
 	, _pEeWam(Eigen::MatrixXd::Zero(3,_nPts))
 	, _pPiWam(Eigen::MatrixXd::Zero(3,_nPts))
@@ -192,6 +203,30 @@ void DikProblem::mapInPtsHtoVecsR ()	{
 			+ _wOffsetVsWam.col(i); 
 		_shoToWrVsWam.col(i) = _shoToElVsWam.col(i) 
 			+ _elToWrVsWam.col(i); 
+
+/*
+		// end-effectors/Wrist rotation w.r.t its local frame
+		// A. From Chest
+		Mat3 rMatsLocalEe_i = buildJointsRotReferential(i);
+	 _rMatsEeLocal.block(0,i*3, 3, 3) = rMatsLocalEe_i;
+		_xyzEulersEeLocal.col(i) = 
+			rMatsLocalEe_i.eulerAngles(0, 1, 2)*(180.0/M_PI);
+		// B. From Vicon
+		Mat3 rMatsEl_i = _rMatsEl.block(0,i*3, 3, 3)
+		, rMatsEe_i = _rMatsEe.block(0,i*3, 3, 3)
+		, rMatsEeLocalFvicon_i
+				= rMatsEl_i.transpose() * rMatsEe_i;
+	 _rMatsEeLocalFvicon.block(0,i*3, 3, 3) 
+			= rMatsEeLocalFvicon_i;
+		_xyzEulersEeLocalFvicon.col(i) = 
+			 rMatsEeLocalFvicon_i.eulerAngles(0, 1, 2)*(180.0/M_PI);
+	*/
+		//Pee = Pwr + d6*Ree.[0 0 1]T
+		_wrToEeVsWam.col(i) = l5wam_wrToEe * 
+			buildWrRotReferential(i).col(2);
+		_shoToEeVsWam.col(i) = _shoToWrVsWam.col(i) 
+			+ _wrToEeVsWam.col(i);
+
 		_wrToThVsWam.col(i) = wrToThVhN * l5wam_wrToEe;
 		_wrToPiVsWam.col(i) = wrToPiVhN * l5wam_wrToEe;
 
@@ -199,7 +234,7 @@ void DikProblem::mapInPtsHtoVecsR ()	{
 			+ _wrToThVsWam.col(i);
 		_shoToPiVsWam.col(i) = _shoToWrVsWam.col(i) 
 			+ _wrToPiVsWam.col(i);
-
+/*
 		//Orientation as mathematica matrices:
 		int iTimesThree = i*3;
 		//chest Rot matrix
@@ -207,19 +242,24 @@ void DikProblem::mapInPtsHtoVecsR ()	{
 			RChP(i), MChP(i), LChP(i));
 		_rMatsCh.block(0,iTimesThree, 3, 3) =rMatsCh_i;
 		//chest XYZ-euler angles
+//		Mat3 rMatsCh_i =_rMatsCh
+//			.block(0,iTimesThree, 3, 3);
 		_xyzEulersCh.col(i) = rMatsCh_i.eulerAngles(0, 1, 2);
-		// end-effectors
-		Mat3 rMatsEe_i = buildWrRotReferential(i);
-	 _rMatsEe.block(0,iTimesThree, 3, 3)
-			= buildWrRotReferential(i);
-		_xyzEulersEe.col(i) = 
-			rMatsEe_i.eulerAngles(0, 1, 2);
-	
-		//Pee = Pwr + d6*Ree.[0 0 1]T
-		_wrToEeVsWam.col(i) = l5wam_wrToEe * 
-			buildWrRotReferential(i).col(2);
-		_shoToEeVsWam.col(i) = _shoToWrVsWam.col(i) 
-			+ _wrToEeVsWam.col(i);
+
+		//vicon frame in Maya local chest frame
+		Mat3 rMatViconWrtChInMaya = 
+			Eigen::MatrixXd::Zero(3,3);
+		rMatViconWrtChInMaya(0,2) = 1.0;
+		rMatViconWrtChInMaya(1,1) = -1.0;
+		rMatViconWrtChInMaya(2,0) = 1.0;
+		//chest Rot matrix in Maya local chest frame
+		Mat3 rMatsChInMaya_i = 
+			rMatViconWrtChInMaya * rMatsCh_i;
+		_rMatsChInMaya.block(0,iTimesThree, 3, 3) = 
+			rMatsChInMaya_i;
+		_xyzEulersChInMaya.col(i) = 
+			rMatsChInMaya_i.eulerAngles(0, 1, 2);
+*/
 
 	}
 }
@@ -267,18 +307,24 @@ Eigen::Matrix<double, 3, 3> DikProblem::buildWrRotReferential
 	Eigen::Matrix<double, 3, 3> retT;
 	/* Z	The sum of these two vectors lies on the hand 
 			plane and is parallel to the z-axis (i.e. axis 
-			of rotation) of the rotated referential.*/
-	retT.col(2) = (wrToPiVhN + wrToThVhN).normalized();
+			of rotation) of the rotated referential.
+	retT.col(2) = (wrToPiVhN + wrToThVhN).normalized();*/
 	/* The cross-product of these vectors gives the 
 			normal to the hand plane (pointing down) and 
-			is parallel to the x-axis  */
-	retT.col(0) = (wrToPiVhN.cross(wrToThVhN)).normalized();
+			is parallel to the x-axis  
+	retT.col(0) = (wrToThVhN.cross(wrToPiVhN)).normalized();*/
  	/* The remaining Y axis can easily be computed 
-		 as the cross-product of Z cross X axis */
+		 as the cross-product of Z cross X axis 
 	retT.col(1) = (retT.col(2).cross(
-		retT.col(0))).normalized();
+		retT.col(0))).normalized();*/
+
+	retT.col(0) = (wrToPiVhN + wrToThVhN).normalized();
+	retT.col(1) = -(wrToThVhN.cross(wrToPiVhN)).normalized();
+	retT.col(2) = (retT.col(0).cross(
+		retT.col(1))).normalized();
 	return retT;
 }
+
 
 void DikProblem::setOutVecsR () {
 
@@ -362,16 +408,38 @@ void DikProblem::printVecsR()	{
 		, cout, "shoToPiVsWam");	
 	printEigenMathematica(_shoToEeVsWam.transpose()
 		, cout, "shoToEeVsWam");	
+/*
 	//Orientation as mathematica matrices:
 	// Chest
 	printEigenMathematica(_rMatsCh
 		, cout, "rMatsCh");	
 	printEigenMathematica(_xyzEulersCh.transpose()
 		, cout, "xyzEulersCh");	
+	//chest in Maya frame
+	printEigenMathematica(_rMatsChInMaya
+		, cout, "rMatsChInMaya");	
+	printEigenMathematica(_xyzEulersChInMaya.transpose()
+		, cout, "xyzEulersChInMaya");	
+	// Ebow
+	printEigenMathematica(_rMatsEl
+		, cout, "rMatsEl");	
+	printEigenMathematica(_xyzEulersEl.transpose()
+		, cout, "xyzEulersEl");	
+
 	// end-effectors
 	printEigenMathematica(_rMatsEe
 		, cout, "rMatsEe");	
 	printEigenMathematica(_xyzEulersEe.transpose()
 		, cout, "xyzEulersEe");
+
+	printEigenMathematica(_rMatsEeLocal
+		, cout, "rMatsEeLocalFch");	
+	printEigenMathematica(_xyzEulersEeLocal.transpose()
+		, cout, "xyzEulersEeLocal");
+	printEigenMathematica(_rMatsEeLocalFvicon
+		, cout, "rMatsEeLocalFviconFch");	
+	printEigenMathematica(_xyzEulersEeLocalFvicon.transpose()
+		, cout, "xyzEulersEeLocalFvicon");
+*/
 }
 

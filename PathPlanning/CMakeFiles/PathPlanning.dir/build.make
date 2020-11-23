@@ -43,66 +43,66 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning"
+CMAKE_SOURCE_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning"
+CMAKE_BINARY_DIR = "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor"
 
 # Include any dependencies generated for this target.
-include CMakeFiles/PathPlanning.dir/depend.make
+include PathPlanning/CMakeFiles/PathPlanning.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/PathPlanning.dir/progress.make
+include PathPlanning/CMakeFiles/PathPlanning.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/PathPlanning.dir/flags.make
+include PathPlanning/CMakeFiles/PathPlanning.dir/flags.make
 
-CMakeFiles/PathPlanning.dir/PathPlanning.o: CMakeFiles/PathPlanning.dir/flags.make
-CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PathPlanning.dir/PathPlanning.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PathPlanning.dir/PathPlanning.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp"
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/CMakeFiles/PathPlanning.dir/flags.make
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/PathPlanning.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PathPlanning.dir/PathPlanning.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp"
 
-CMakeFiles/PathPlanning.dir/PathPlanning.i: cmake_force
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PathPlanning.dir/PathPlanning.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp" > CMakeFiles/PathPlanning.dir/PathPlanning.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp" > CMakeFiles/PathPlanning.dir/PathPlanning.i
 
-CMakeFiles/PathPlanning.dir/PathPlanning.s: cmake_force
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PathPlanning.dir/PathPlanning.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp" -o CMakeFiles/PathPlanning.dir/PathPlanning.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp" -o CMakeFiles/PathPlanning.dir/PathPlanning.s
 
-CMakeFiles/PathPlanning.dir/PathPlanning.o.requires:
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.requires:
 
-.PHONY : CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
 
-CMakeFiles/PathPlanning.dir/PathPlanning.o.provides: CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
-	$(MAKE) -f CMakeFiles/PathPlanning.dir/build.make CMakeFiles/PathPlanning.dir/PathPlanning.o.provides.build
-.PHONY : CMakeFiles/PathPlanning.dir/PathPlanning.o.provides
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.provides: PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
+	$(MAKE) -f PathPlanning/CMakeFiles/PathPlanning.dir/build.make PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.provides.build
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.provides
 
-CMakeFiles/PathPlanning.dir/PathPlanning.o.provides.build: CMakeFiles/PathPlanning.dir/PathPlanning.o
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.provides.build: PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o
 
 
-CMakeFiles/PathPlanning.dir/DikProblem.o: CMakeFiles/PathPlanning.dir/flags.make
-CMakeFiles/PathPlanning.dir/DikProblem.o: DikProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PathPlanning.dir/DikProblem.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PathPlanning.dir/DikProblem.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp"
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/CMakeFiles/PathPlanning.dir/flags.make
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DikProblem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PathPlanning.dir/DikProblem.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp"
 
-CMakeFiles/PathPlanning.dir/DikProblem.i: cmake_force
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PathPlanning.dir/DikProblem.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp" > CMakeFiles/PathPlanning.dir/DikProblem.i
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp" > CMakeFiles/PathPlanning.dir/DikProblem.i
 
-CMakeFiles/PathPlanning.dir/DikProblem.s: cmake_force
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PathPlanning.dir/DikProblem.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp" -o CMakeFiles/PathPlanning.dir/DikProblem.s
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp" -o CMakeFiles/PathPlanning.dir/DikProblem.s
 
-CMakeFiles/PathPlanning.dir/DikProblem.o.requires:
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.requires:
 
-.PHONY : CMakeFiles/PathPlanning.dir/DikProblem.o.requires
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.requires
 
-CMakeFiles/PathPlanning.dir/DikProblem.o.provides: CMakeFiles/PathPlanning.dir/DikProblem.o.requires
-	$(MAKE) -f CMakeFiles/PathPlanning.dir/build.make CMakeFiles/PathPlanning.dir/DikProblem.o.provides.build
-.PHONY : CMakeFiles/PathPlanning.dir/DikProblem.o.provides
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.provides: PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.requires
+	$(MAKE) -f PathPlanning/CMakeFiles/PathPlanning.dir/build.make PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.provides.build
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.provides
 
-CMakeFiles/PathPlanning.dir/DikProblem.o.provides.build: CMakeFiles/PathPlanning.dir/DikProblem.o
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.provides.build: PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o
 
 
 # Object files for target PathPlanning
@@ -113,28 +113,30 @@ PathPlanning_OBJECTS = \
 # External object files for target PathPlanning
 PathPlanning_EXTERNAL_OBJECTS =
 
-PathPlanning: CMakeFiles/PathPlanning.dir/PathPlanning.o
-PathPlanning: CMakeFiles/PathPlanning.dir/DikProblem.o
-PathPlanning: CMakeFiles/PathPlanning.dir/build.make
-PathPlanning: CMakeFiles/PathPlanning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable PathPlanning"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PathPlanning.dir/link.txt --verbose=$(VERBOSE)
+PathPlanning/PathPlanning: PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o
+PathPlanning/PathPlanning: PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o
+PathPlanning/PathPlanning: PathPlanning/CMakeFiles/PathPlanning.dir/build.make
+PathPlanning/PathPlanning: ALGLIB/libalglib.a
+PathPlanning/PathPlanning: UBCUtil/libubcutil.a
+PathPlanning/PathPlanning: PathPlanning/CMakeFiles/PathPlanning.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable PathPlanning"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PathPlanning.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/PathPlanning.dir/build: PathPlanning
+PathPlanning/CMakeFiles/PathPlanning.dir/build: PathPlanning/PathPlanning
 
-.PHONY : CMakeFiles/PathPlanning.dir/build
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/build
 
-CMakeFiles/PathPlanning.dir/requires: CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
-CMakeFiles/PathPlanning.dir/requires: CMakeFiles/PathPlanning.dir/DikProblem.o.requires
+PathPlanning/CMakeFiles/PathPlanning.dir/requires: PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o.requires
+PathPlanning/CMakeFiles/PathPlanning.dir/requires: PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o.requires
 
-.PHONY : CMakeFiles/PathPlanning.dir/requires
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/requires
 
-CMakeFiles/PathPlanning.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/PathPlanning.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/PathPlanning.dir/clean
+PathPlanning/CMakeFiles/PathPlanning.dir/clean:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && $(CMAKE_COMMAND) -P CMakeFiles/PathPlanning.dir/cmake_clean.cmake
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/clean
 
-CMakeFiles/PathPlanning.dir/depend:
-	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/CMakeFiles/PathPlanning.dir/DependInfo.cmake" --color=$(COLOR)
-.PHONY : CMakeFiles/PathPlanning.dir/depend
+PathPlanning/CMakeFiles/PathPlanning.dir/depend:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning" "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/CMakeFiles/PathPlanning.dir/DependInfo.cmake" --color=$(COLOR)
+.PHONY : PathPlanning/CMakeFiles/PathPlanning.dir/depend
 

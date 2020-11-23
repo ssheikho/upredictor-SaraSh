@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxy.h
-
-../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxyz.h
-
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCUtil/DefaultShutdownInterface.cpp
 DefaultShutdownInterface.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCUtil/DefaultShutdownInterface.h
@@ -1131,4 +1127,8 @@ math_constants.h
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+
+UBCUtil/../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxy.h
+
+UBCUtil/../Linux/Third-Party/libfreenect2/include/libfreenect2/pointxyz.h
 

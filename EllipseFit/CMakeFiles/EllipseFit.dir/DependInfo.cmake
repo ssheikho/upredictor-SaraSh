@@ -16,21 +16,22 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../ALGLIB"
-  "../UBCCamera"
-  "../UBCColorTrackCUDA"
-  "../UBCDART"
-  "../UBCGUI"
-  "../UBCKinect"
-  "../UBCKinectGUI"
-  "../UBCSimpleGeometry"
-  "../UBCUtil"
-  "../Linux/Third-Party/dart/src"
-  "../Linux/Third-Party/libfreenect2"
-  "../Linux/Third-Party/libfreenect2/include"
-  "../Linux/Third-Party/libfreenect2/include/internal"
-  "../Linux/Third-Party/libfreenect2/include/internal/CL"
-  "../Linux/Third-Party/libfreenect2/include/libfreenect2"
+  "EllipseFit/../ALGLIB"
+  "EllipseFit/../PathPlanning"
+  "EllipseFit/../UBCCamera"
+  "EllipseFit/../UBCColorTrackCUDA"
+  "EllipseFit/../UBCDART"
+  "EllipseFit/../UBCGUI"
+  "EllipseFit/../UBCKinect"
+  "EllipseFit/../UBCKinectGUI"
+  "EllipseFit/../UBCSimpleGeometry"
+  "EllipseFit/../UBCUtil"
+  "EllipseFit/../Linux/Third-Party/dart/src"
+  "EllipseFit/../Linux/Third-Party/libfreenect2"
+  "EllipseFit/../Linux/Third-Party/libfreenect2/include"
+  "EllipseFit/../Linux/Third-Party/libfreenect2/include/internal"
+  "EllipseFit/../Linux/Third-Party/libfreenect2/include/internal/CL"
+  "EllipseFit/../Linux/Third-Party/libfreenect2/include/libfreenect2"
   "/usr/include/eigen3"
   "/usr/include/opencv"
   "/usr/include/opencv2"
@@ -60,6 +61,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/ALGLIB/CMakeFiles/alglib.dir/DependInfo.cmake"
+  "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/UBCUtil/CMakeFiles/ubcutil.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

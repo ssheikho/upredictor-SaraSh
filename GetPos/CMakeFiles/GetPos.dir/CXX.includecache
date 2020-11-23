@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.cpp
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.cpp
 deque
 -
 fstream
@@ -24,9 +24,9 @@ vector
 map
 -
 GetPos.h
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
 
-/home/sara/Dropbox/Reaching Study/ReachPredictor/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/GetPos/GetPos.h
 deque
 -
 fstream

@@ -1,11 +1,4 @@
 
-#include "Ellipse.h"
-#include "FitFunctions.h"
-#include "LinearAlgebra.h"
-#include "EllipseImplicitFit.h"
-#include "Plane.h"
-
-#include "Ellipse3D.h"
 #include "BaysFitFunctions.h"
 #include "ParseMathematica.h"
 #include "ParseCSV.h"
@@ -26,22 +19,28 @@ using namespace std;
 
 int main(int argc, char **argv) {
 	srand(time(NULL));
-	//MatrixXd inPts2dAlongColsHom = parseMathematica(getWholeFile(argv[1]));
+	// inPts rotated to the best fit plane
+	//3xn since only looking at the wirst
+	string wholeFile = getWholeFileMathematica(argv[1]);
 	
-	int colNo = 0;
-	int nRows = countRowsFColCSV(argv[1]);
-	// 3xn
-	MatrixXd inWPtsAlongCols(3,nRows);
-	fillMatWholeCSV(colNo, argv[1], inWPtsAlongCols);
+	int nPts = countRowsMathematica(argv[1]);
+	MatrixXd rotatedWrPtsAlongRows = 
+		MatrixXd::Zero(3,nPts);
+	rotatedWrPtsAlongRows = parseMathematica(wholeFile);
+	MatrixXd rotatedWrPts =
+		rotatedWrPtsAlongRows.transpose();
+//	MatrixXd inWPtsAlongCols(3,nRows);
+//	fillMatWholeCSV(colNo, argv[1], inWPtsAlongCols);
 
 	//Ellipse3D::Ellipse3D e3d(cartToHom(inWPtsAlongCols));
-	MatrixXd inPts2dAlongColsHom = 
-		getPtsXYAlongCols(cartToHom(inWPtsAlongCols));
+	MatrixXd rotatedWrPts2d = homToCart(rotatedWrPtsAlongRows);
+		//getPtsXYAlongCols(cartToHom(rotatedPtsAlongRows));
 
-
-	int n = inPts2dAlongColsHom.cols();
-	MatrixXd xVec = (inPts2dAlongColsHom.block(0,0,1,n)).transpose();
-	MatrixXd yVec = (inPts2dAlongColsHom.block(1,0,1,n)).transpose();	
+	int n = rotatedWrPts2d.cols();
+cout <<"nPts"<<nPts<<endl;
+cout <<"n"<<n<<endl;
+	MatrixXd xVec = (rotatedWrPts2d.block(0,0,1,n)).transpose();
+	MatrixXd yVec = (rotatedWrPts2d.block(1,0,1,n)).transpose();	
 	//cout << "xVec:" << xVec << endl;
 	//cout << "---------end---------" <<endl;
 
