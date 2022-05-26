@@ -90,6 +90,26 @@ Eigen/Geometry
 BasicFormulas.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/BasicFormulas.h
 
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DifferentialJacobianErrorTerm.h
+SpatialJacobian.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/SpatialJacobian.h
+DifferentialIKTypes.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DifferentialIKTypes.h
+Eigen/Core
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/Eigen/Core
+ceres/ceres.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/ceres.h
+ceres/rotation.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/rotation.h
+Eigen/SVD
+-
+Eigen/Geometry
+-
+cmath
+-
+ceres/autodiff_cost_function.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/autodiff_cost_function.h
+
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.cpp
 DikProblem.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.h
@@ -125,6 +145,8 @@ UBCUtil.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/UBCUtil.h
 ceres/ceres.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/ceres.h
+DifferentialJacobianErrorTerm.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DifferentialJacobianErrorTerm.h
 
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikSolver.h
 BasicFormulas.h
@@ -135,8 +157,12 @@ DikProblem.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikProblem.h
 DifferentialIKErrorTerm.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DifferentialIKErrorTerm.h
+qBaseErrorTerm.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/qBaseErrorTerm.h
 UBCUtil.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/UBCUtil.h
+MayaAnimation.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/MayaAnimation.h
 Eigen/SVD
 -
 Eigen/Geometry
@@ -185,11 +211,7 @@ ceres/ceres.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/PathPlanning.cpp
 iostream
 -
-Plane.h
--
 UBCUtil.h
--
-Plane.h
 -
 LinearAlgebra.h
 -
@@ -205,8 +227,6 @@ DikSolver.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DikSolver.h
 MayaAnimation.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/MayaAnimation.h
-Ellipse3D.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/Ellipse3D.h
 ParseMathematica.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ParseMathematica.h
 ParseCSV.h
@@ -223,14 +243,10 @@ math.h
 -
 FitFunctions.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/FitFunctions.h
-LinearAlgebra.cpp
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/LinearAlgebra.cpp
 RigidTrans2D.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/RigidTrans2D.h
 BaysFitFunctions.h
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/BaysFitFunctions.h
-EllipseConicConstraints.h
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/EllipseConicConstraints.h
 
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/SpatialJacobian.h
 BasicJacobian.h
@@ -241,6 +257,24 @@ Eigen/SVD
 -
 cmath
 -
+
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/qBaseErrorTerm.h
+DifferentialIKTypes.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/DifferentialIKTypes.h
+Eigen/Core
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/Eigen/Core
+ceres/ceres.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/ceres.h
+ceres/rotation.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/rotation.h
+Eigen/SVD
+-
+Eigen/Geometry
+-
+cmath
+-
+ceres/autodiff_cost_function.h
+/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/PathPlanning/ceres/autodiff_cost_function.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
@@ -1178,68 +1212,6 @@ lapacke_mangling.h
 
 /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
-PathPlanning/../ALGLIB/alglibinternal.h
-ap.h
-PathPlanning/../ALGLIB/ap.h
-
-PathPlanning/../ALGLIB/ap.h
-stdio.h
--
-stdlib.h
--
-stddef.h
--
-string
--
-cstring
--
-iostream
--
-math.h
--
-list
--
-vector
--
-list.h
--
-vector.h
--
-list
--
-vector
--
-stdlib.h
--
-stdio.h
--
-string.h
--
-setjmp.h
--
-math.h
--
-stddef.h
--
-stdint.h
--
-emmintrin.h
--
-xmmintrin.h
--
-xmmintrin.h
--
-emmintrin.h
--
-iostream
--
-
-PathPlanning/../ALGLIB/specialfunctions.h
-ap.h
-PathPlanning/../ALGLIB/ap.h
-alglibinternal.h
-PathPlanning/../ALGLIB/alglibinternal.h
-
 PathPlanning/../EllipseFit/BaysFitFunctions.h
 math.h
 -
@@ -1348,12 +1320,6 @@ PathPlanning/../EllipseFit/FitFunctions.h
 Eigen/Core
 -
 
-PathPlanning/../EllipseFit/LinearAlgebra.cpp
-LinearAlgebra.h
-PathPlanning/../EllipseFit/LinearAlgebra.h
-iostream
--
-
 PathPlanning/../EllipseFit/LinearAlgebra.h
 stdio.h
 -
@@ -1361,8 +1327,6 @@ sys/time.h
 -
 math.h
 -
-specialfunctions.h
-PathPlanning/../EllipseFit/specialfunctions.h
 Eigen/Dense
 -
 map

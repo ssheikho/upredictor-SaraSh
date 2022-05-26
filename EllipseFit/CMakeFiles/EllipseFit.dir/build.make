@@ -177,9 +177,33 @@ EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o.provides: EllipseFit/CMakeF
 EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o.provides.build: EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o
 
 
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o: EllipseFit/CMakeFiles/EllipseFit.dir/flags.make
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o: EllipseFit/RigidTransformation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/RigidTransformation.cpp"
+
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.i"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/RigidTransformation.cpp" > CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.i
+
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.s"
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/RigidTransformation.cpp" -o CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.s
+
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.requires:
+
+.PHONY : EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.requires
+
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.provides: EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.requires
+	$(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.provides.build
+.PHONY : EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.provides
+
+EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.provides.build: EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o
+
+
 EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o: EllipseFit/CMakeFiles/EllipseFit.dir/flags.make
 EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o: EllipseFit/EllipseFit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o"
 	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/EllipseFit.cpp"
 
 EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.i: cmake_force
@@ -203,7 +227,7 @@ EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o.provides.build: EllipseFit
 
 EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o: EllipseFit/CMakeFiles/EllipseFit.dir/flags.make
 EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o: EllipseFit/BaysFitFunctions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o"
 	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o -c "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/BaysFitFunctions.cpp"
 
 EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.i: cmake_force
@@ -232,6 +256,7 @@ EllipseFit_OBJECTS = \
 "CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o" \
 "CMakeFiles/EllipseFit.dir/Ellipse.cpp.o" \
 "CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o" \
+"CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o" \
 "CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o" \
 "CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o"
 
@@ -243,13 +268,14 @@ EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/Plane.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o
+EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/build.make
 EllipseFit/EllipseFit: ALGLIB/libalglib.a
 EllipseFit/EllipseFit: UBCUtil/libubcutil.a
 EllipseFit/EllipseFit: EllipseFit/CMakeFiles/EllipseFit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable EllipseFit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable EllipseFit"
 	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EllipseFit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -262,6 +288,7 @@ EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.
 EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o.requires
 EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse.cpp.o.requires
 EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o.requires
+EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o.requires
 EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o.requires
 EllipseFit/CMakeFiles/EllipseFit.dir/requires: EllipseFit/CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o.requires
 

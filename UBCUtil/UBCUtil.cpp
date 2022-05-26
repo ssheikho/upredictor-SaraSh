@@ -244,6 +244,41 @@ Eigen::Matrix4d transZ4(double d) {
 	return trans;
 }
 
+
+Eigen::MatrixXd fixThetas(Eigen::MatrixXd a) {
+
+	Eigen::MatrixXd retVal(a.rows(), a.cols());
+
+	double curTheta = a(0,0);
+	while(curTheta >= -M_PI) curTheta -= M_PI;
+	while(curTheta <= M_PI) curTheta += M_PI;
+	retVal(0,0) = curTheta;
+
+	for(size_t i = 1; i < a.cols(); i++) {
+		double curTheta = a(0,i);
+		while(curTheta >= -M_PI) curTheta -= 2.0 * M_PI;
+		while(curTheta <= M_PI) curTheta += 2.0 * M_PI;
+
+//		double distNull = curTheta - retVal(0, i - 1);
+//		double distNullNeg = -curTheta - retVal(0, i - 1);
+//		curTheta = distNull < distNullNeg ? curTheta : -curTheta;
+		
+
+		double testA = curTheta + 2.0 * M_PI;
+		double testB = curTheta - 2.0 * M_PI;
+
+		double distNull = curTheta - retVal(0, i - 1);
+		double distA = testA - retVal(0, i - 1);
+		double distB = testB - retVal(0, i - 1);
+		
+		retVal(0, i) = distNull < distA ? curTheta : testA;
+		retVal(0, i) = distNull < distB ? curTheta : testB;
+	}
+
+	return retVal;
+
+}
+
 Eigen::Matrix3d toRotMat(Eigen::Vector3d v) {
 	double norm = v.norm();
 	Eigen::AngleAxisd aa(norm, v / norm);

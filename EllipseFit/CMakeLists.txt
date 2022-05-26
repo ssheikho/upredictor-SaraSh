@@ -1,12 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
-
-#cmake_policy(SET CMP0054 OLD)
-#cmake_policy(SET CMP0045 OLD)
 
 project(EllipseFit)
 
-include(${CMAKE_CURRENT_LIST_DIR}/../ProjectIncludes.cmake.in)
-#set(CMAKE_BUILD_TYPE Debug)
+cmake_minimum_required(VERSION 2.8)
+
+set(CMAKE_BUILD_TYPE Debug)
+
+#include(${CMAKE_CURRENT_LIST_DIR}/../ProjectIncludes.cmake.in)
+
 
 #FIND_PACKAGE(OpenCL)
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
@@ -21,18 +21,23 @@ pkg_check_modules(GTK REQUIRED "gtk+-3.0")
 
 set(ellipse_fit_src
 	FitFunctions.cpp
-	#LinearAlgebra.cpp
+#	LinearAlgebra.cpp
 	Plane.cpp		
 	EllipseImplicitFit.cpp		
 	Ellipse.cpp
 	Ellipse3D.cpp
-	#RigidTrans2D.cpp
-	#RigidTransformation.cpp
+	RigidTransformation.cpp
 
 	EllipseFit.cpp
 
 	BaysFitFunctions.cpp
-	#BayesianFit.cpp
+
+)
+
+
+add_executable(
+	EllipseFit
+	${ellipse_fit_src}
 )
 
 include_directories(
@@ -97,10 +102,6 @@ link_directories(
 	#/usr/local/cuda-8.0/lib64
 )
 
-add_executable(
-	EllipseFit
-	${ellipse_fit_src}
-)
 
 target_link_libraries(EllipseFit
 	#UBColorTrackCuda

@@ -594,10 +594,11 @@ struct DifferentialOrientationConstraint	{
 			A_j(3,3) = U(1.0);
 
 			
-			// (2). Form T^n_0 = A 1 · · · A n . This then gives 
-			//			the position (and orientation for wrist later)
-			//			of the tool frame expressed in base .
-			//			coordinates
+			/** (2). Form T^n_0 = A 1 · · · A n . 
+								This then gives the position (and 
+								orientation for wrist later) of the 
+								tool frame expressed in base frame:
+			**/
 			tEe = tEe * A_j;
 		}
 		tEe = _AmatJ1toJ4.template cast<U>()
@@ -632,8 +633,9 @@ struct DifferentialOrientationConstraint	{
 
 		//(5). 	Scale the residuals by the
 		//			measurement uncertainty.
-    residualsMat.template block<3, 1>(0, 0).applyOnTheLeft(
-			_iMatShToEeWam.template cast<U>());
+    residualsMat.template block<3, 1>
+    	(0, 0).applyOnTheLeft(
+				_iMatShToEeWam.template cast<U>());
 
     return true;
 	}
@@ -675,7 +677,8 @@ public:
 		//Observed Cartesian Positions t_(i)
 		, Eigen::Matrix<double, Eigen::Dynamic, 1> inPi
 		//measured linear velocity
-		, Eigen::Matrix<double, Eigen::Dynamic, 1> inLinearVi
+		, Eigen::Matrix<double, Eigen::Dynamic, 1> 
+				inLinearVi
 		//only for the end-effector
 		, Eigen::Matrix<double, 3,	1> inAngularVi
 		//measurements covariance information (x y z φ θ ψ)

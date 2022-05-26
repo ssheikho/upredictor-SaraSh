@@ -6,6 +6,7 @@ PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/BasicJacobia
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DH.h
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DifferentialIKErrorTerm.h
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DifferentialIKTypes.h
+PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DifferentialJacobianErrorTerm.h
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DikProblem.cpp
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/DikProblem.h
 PathPlanning/CMakeFiles/PathPlanning.dir/DikProblem.o: PathPlanning/ForwardKin.h
@@ -185,12 +186,14 @@ PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/BasicJacob
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DH.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DifferentialIKErrorTerm.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DifferentialIKTypes.h
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DifferentialJacobianErrorTerm.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DikProblem.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/DikSolver.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/ForwardKin.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/MayaAnimation.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/PathPlanning.cpp
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/SpatialJacobian.h
+PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/qBaseErrorTerm.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/Cholesky
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/Core
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/Dense
@@ -375,9 +378,6 @@ PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eig
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: /usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
-PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../ALGLIB/alglibinternal.h
-PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../ALGLIB/ap.h
-PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../ALGLIB/specialfunctions.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/BaysFitFunctions.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/Ellipse.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/Ellipse3D.h
@@ -386,7 +386,6 @@ PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../Ellipse
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/EllipseModeler.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/EllipseThetaMin.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/FitFunctions.h
-PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/LinearAlgebra.cpp
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/LinearAlgebra.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/MEE.h
 PathPlanning/CMakeFiles/PathPlanning.dir/PathPlanning.o: PathPlanning/../EllipseFit/MLE.h

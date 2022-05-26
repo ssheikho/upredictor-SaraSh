@@ -21,6 +21,7 @@ set(Path_Planning_src
 	PathPlanning.cpp
 	DikProblem.cpp
 	
+	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 )
 
 include_directories(
@@ -65,7 +66,7 @@ link_directories(
 /home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles/EllipseFit.dir/
 
 	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
-	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit//CMakeFiles/EllipseFit.dir/
+	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCCamera/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCColorTrackCUDA/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCDART/
@@ -83,6 +84,7 @@ link_directories(
 add_executable(
 	PathPlanning
 	${Path_Planning_src}
+	
 
 )
 
@@ -132,7 +134,6 @@ target_link_libraries(PathPlanning
 	#freenect2
 
 	pthread
-
 	${GTK_LDFLAGS}
 
 	glog

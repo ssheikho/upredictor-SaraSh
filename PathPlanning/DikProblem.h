@@ -7,6 +7,9 @@
 #include "UBCUtil.h"
 
 #include "ceres/ceres.h"
+#include "DifferentialJacobianErrorTerm.h"
+
+
 
 using namespace Eigen;
 using namespace std;
@@ -40,6 +43,7 @@ public:
 		, std::vector<double> jointMaxAngles
 		, bool use_quaternions
 		, Eigen::MatrixXd inPts	
+		, string phase
 		);
 
 	~DikProblem ();
@@ -88,12 +92,38 @@ public:
   const double* qsBase()	const { 
 		return _parameters;               
 	}
+	
   double* mutable_qsBase() { 
 		return _parameters;               
 	}
+	
+	double* mutable_qbaseAt(int index) {
+	
+		const int qBase_block_size 
+			= this->qBase_block_size();
+		double* qsBase = this->mutable_qsBase();
+		
+		double* qbase_i = qsBase
+			+ qBase_block_size * index;
+		return qbase_i;
+	}
+	
+	Eigen::Quaternion<double> qbaseQuatAt (int index) {
+		
+		double* qbase_i = this->mutable_qbaseAt(index);
+		Eigen::Map< Eigen::Quaternion<double> > 
+			q_b_quat(qbase_i);
+		return q_b_quat;
+	}
+	
   double* mutable_thetas() {
-    return _parameters  + qBase_block_size() * nObservations();
+    return _parameters 
+    	+ qBase_block_size() * nObservations();
   }
+
+	string phase() {
+		return _phase;
+	}
 
 	Eigen::Matrix<double, Dynamic, 1> markerPtsAt	(
 			int index)	{
@@ -148,6 +178,21 @@ public:
 	Eigen::Matrix<double, 3, 1> ThP (int i)	{
 		return _inPtsWam.block(Markers::RTh,i,3,1);
 	}
+
+	Eigen::MatrixXd outThetasWam ()	{
+		double* thetas = mutable_thetas();
+
+		for (int i = 0; i < nObservations(); i++)	{
+	 	 	double* theta_i = thetas + theta_block_size() * i;
+			Eigen::Map<const Eigen::Matrix<double, 7, 1> > 
+				theta_Vi(theta_i);
+
+			_outThetasWam.col(i) = theta_Vi;
+		}
+
+	}
+
+
 	
 	void mapInPtsHtoVecsR ();
 	void mapInPtsHtoInPtsR ();
@@ -185,6 +230,18 @@ public:
 
 	Eigen::MatrixXd pShWam(){
 		return _pShWam;
+	}
+
+	Eigen::MatrixXd pRchWam(){
+		return _inPRCh;
+	}
+
+	Eigen::MatrixXd pMchWam(){
+		return _inPMCh;
+	}
+
+	Eigen::MatrixXd pLchWam(){
+		return _inPLCh;
 	}
 
 	Eigen::MatrixXd shoToUaVsWam(){
@@ -297,6 +354,7 @@ protected:
 
 	//in marker points 
 	Eigen::MatrixXd  &_inPts;
+	string _phase;
 	int _nPts;
 	Eigen::MatrixXd _inPRWr, _inPRTh
 		, _inPRPi , _inPRLA, _inPREl, _inPRUA, _inPRSh
@@ -354,6 +412,7 @@ protected:
   // [camera_1, ..., camera_n, point_1, ..., point_m]
   double* _parameters;
 
+	Eigen::MatrixXd _outThetasWam;
 	//*** OUTpoints***/	
 	//OUT-scaled VECTORS on the robot
 		Eigen::MatrixXd

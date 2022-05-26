@@ -73,6 +73,11 @@ Eigen::Matrix4d transZ4(double d);
 
 Eigen::Matrix3d toRotMat(Eigen::Vector3d v);
 
+
+//ensure theta is within [-pi,pi], 
+//	&& theta(t) is a monotonic function 
+Eigen::MatrixXd fixThetas(Eigen::MatrixXd a);
+
 void diffsizekernel(IplImage *in, IplImage *out, int f, int c);
 void diffx(IplImage *img, IplImage *out);
 void diffy(IplImage *img, IplImage *out);

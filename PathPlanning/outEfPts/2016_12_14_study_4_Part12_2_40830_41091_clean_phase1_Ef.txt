@@ -1,0 +1,2 @@
+terminate called after throwing an instance of 'io::error::can_not_open_file'
+  what():  Can not open file "/home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part12_2/2016_12_14_study_4_Part12_240830_41091__clean_phase1.csv" because "No such file or directory".

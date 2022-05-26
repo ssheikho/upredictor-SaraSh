@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/EllipseFit.dir/EllipseImplicitFit.cpp.o"
   "CMakeFiles/EllipseFit.dir/Ellipse.cpp.o"
   "CMakeFiles/EllipseFit.dir/Ellipse3D.cpp.o"
+  "CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o"
   "CMakeFiles/EllipseFit.dir/EllipseFit.cpp.o"
   "CMakeFiles/EllipseFit.dir/BaysFitFunctions.cpp.o"
   "EllipseFit.pdb"

@@ -51,16 +51,48 @@ string getPartID(string fileName) {
 	return retS;
 }
 
-int whichPhase(string fileName) {
- size_t startPos = fileName.find("Part");
 
-		if (startPos!=std::string::npos) 
-			fileName = fileName.substr(startPos + 4);
-	
+void getStartFrame(string fileName, int& startF, int& endF) {
+
+	size_t endPos = fileName.find("_clean");	
+	int slashDelim = fileName.find("/");	
+
+	while((slashDelim >= 0) && (slashDelim < endPos)) {
+		fileName = fileName.substr(slashDelim+1,endPos );
+		slashDelim = fileName.find("/");	
+		endPos = fileName.find("_clean");	
+	}
+
+	size_t startPos = fileName.find("Part");	
+	if (startPos!=std::string::npos) 
+		fileName = fileName.substr(startPos + 4);
+
+	int dashDelim = fileName.find('_');
+	if(dashDelim !=std::string::npos) {
+		fileName = fileName.substr(dashDelim + 1);
+		dashDelim = fileName.find('_');
+
+		fileName = fileName.substr(dashDelim + 1);
+	}
+
 	int len = fileName.find('_');
-	string retS = fileName.substr(3,1);
-	int phaseNum = stoi(retS);
-	return phaseNum;
+	string startFrame = fileName.substr(0,len);		
+	startF = stoi(startFrame);
+	//end frame
+	fileName = fileName.substr(len + 1);
+	len = fileName.find('_');
+	string endFrame = fileName.substr(0,len);
+	endF = stoi(endFrame);
+
+}
+
+int whichPhase(string fileName) {
+
+
+		string retS = fileName.substr(
+			((unsigned)(fileName.length()-5)), 1);
+		int phaseNum = stoi(retS);
+		return phaseNum;
 }
 
 int countCols(string inLine) {

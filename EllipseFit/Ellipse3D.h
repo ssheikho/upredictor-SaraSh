@@ -26,6 +26,7 @@ public:
 	double getTotalXYCost();
 	MatrixXd getXYCostMat();
 
+
 	MatrixXd getPointAtThetaH(double theta);
 
 	MatrixXd getPointAtThetasH(MatrixXd thetas);
@@ -39,7 +40,8 @@ public:
 	MatrixXd findThetas();
 
 	MatrixXd ellipticalInterpolator(size_t sliceN);
-	
+
+
 protected:
 	EllipseImplicitFit _eif;
 	Ellipse _ellipse;

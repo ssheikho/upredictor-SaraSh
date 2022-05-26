@@ -96,10 +96,13 @@ using std::vector;
 			return getEulAnglesFromRmat(Rmat);
 		}
 */
-		Eigen::Vector3d p;
+		Eigen::Vector3d shToUaVi
+			, elOffsetVi
+			, wrOffsetVi
+			, laToWrVi
+			, shoToWrVi;
 	  Eigen::Quaterniond q;
- 		Eigen::Vector3d eulPars;
-
+	  
 		/*	Eigen provided macro - If you define a structure 
 				having members of fixed-size vectorizable Eigen types, 
 				you must overload its "operator new" so that it 
@@ -111,17 +114,30 @@ using std::vector;
 		Eigen::aligned_allocator<std::pair<const int, Pose3d> > >
     	MapOfPoses;
 
-		//what goes into IK error term at each time-frame
+		// what goes into IK error term at each time-frame
+		// The constraint between two vertices in the pose
+		// graph. The constraint is the transformation 
+		// from vertex id_begin tovertex id_end.
 	struct Constraint3d {
  		int id_begin;
 	  int id_end;
-  	// The transformation that represents the pose of the 
-		//	wrist frame w.r.t. the camera
-  	Pose3d t_cWr;
+	  // The transformation that represents the pose of 
+  	// the end frame E w.r.t. the begin frame B. 
+  	// In other words, it transforms a vector in the
+  	// E frame to the B frame.
+    Pose3d t_be;
+  	
   	// The inverse of the covariance matrix of inPts
-		//The order of the entries are x, y, z, delta orientation.
-	  Eigen::Matrix<double, 6, 6> information;
+		//The order of the entries are:
+		//			 x, y, z, delta orientation.
 
+		Eigen::Matrix<double, 3, 3> iMatDeltaQbase;
+		Eigen::Matrix<double, 3, 3> iMatShToUaWam;
+		Eigen::Matrix<double, 3, 3> iMatElOffsetWam;
+		Eigen::Matrix<double, 3, 3> iMatWrOffsetWam;
+		Eigen::Matrix<double, 3, 3> iMatLaToWrWam;
+		Eigen::Matrix<double, 3, 3> iMatShToWrWam;
+	
 	  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 	};
 

@@ -1,0 +1,555 @@
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_9785_9995_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_9785_9995_clean_phase1.csv*)
+fitErrPi Mean = 0.0465796
+fitErrTh Mean = 0.0894854
+fitErrWr Mean = 0.104413
+fitErrLA Mean = 0.0183227
+fitErrEl Mean = 0.0505091
+fitErrUA Mean = 0.0336641
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_9785_9995_clean_phase2.csv*)
+fitErrPi Mean = 0.421161
+fitErrTh Mean = 0.574573
+fitErrWr Mean = 0.531882
+fitErrLA Mean = 0.463558
+fitErrEl Mean = 0.154791
+fitErrUA Mean = 0.352678
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15189_15369_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15189_15369_clean_phase1.csv*)
+fitErrPi Mean = 0.0140926
+fitErrTh Mean = 0.0231434
+fitErrWr Mean = 0.0415409
+fitErrLA Mean = 0.630569
+fitErrEl Mean = 0.0473912
+fitErrUA Mean = 0.159235
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15189_15369_clean_phase2.csv*)
+fitErrPi Mean = 0.430182
+fitErrTh Mean = 0.49551
+fitErrWr Mean = 0.465661
+fitErrLA Mean = 0.4609
+fitErrEl Mean = 0.0217749
+fitErrUA Mean = 0.769516
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_27036_27279_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_27036_27279_clean_phase1.csv*)
+fitErrPi Mean = 0.0126573
+fitErrTh Mean = 0.022842
+fitErrWr Mean = 0.020942
+fitErrLA Mean = 0.0490441
+fitErrEl Mean = 0.022462
+fitErrUA Mean = 0.0523885
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_27036_27279_clean_phase2.csv*)
+fitErrPi Mean = 0.0245932
+fitErrTh Mean = 0.0262024
+fitErrWr Mean = 0.0314766
+fitErrLA Mean = 0.0283286
+fitErrEl Mean = 0.0492455
+fitErrUA Mean = 0.100735
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_2364_2549_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_2364_2549_clean_phase1.csv*)
+fitErrPi Mean = 0.14589
+fitErrTh Mean = 0.0446481
+fitErrWr Mean = 0.132368
+fitErrLA Mean = 0.0323594
+fitErrEl Mean = 0.152112
+fitErrUA Mean = 0.0561088
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_2364_2549_clean_phase2.csv*)
+fitErrPi Mean = 0.451744
+fitErrTh Mean = 0.431798
+fitErrWr Mean = 0.459423
+fitErrLA Mean = 0.146374
+fitErrEl Mean = 0.65462
+fitErrUA Mean = 0.486672
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28456_28648_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28456_28648_clean_phase1.csv*)
+fitErrPi Mean = 0.00537132
+fitErrTh Mean = 0.0181595
+fitErrWr Mean = 0.0279229
+fitErrLA Mean = 0.17599
+fitErrEl Mean = 0.02609
+fitErrUA Mean = 0.025321
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28456_28648_clean_phase2.csv*)
+fitErrPi Mean = 0.012952
+fitErrTh Mean = 0.0094212
+fitErrWr Mean = 0.00889082
+fitErrLA Mean = 0.31304
+fitErrEl Mean = 0.279743
+fitErrUA Mean = 0.426506
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_22831_23046_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_22831_23046_clean_phase1.csv*)
+fitErrPi Mean = 0.16976
+fitErrTh Mean = 0.271033
+fitErrWr Mean = 0.0606932
+fitErrLA Mean = 0.0174888
+fitErrEl Mean = 0.0204212
+fitErrUA Mean = 0.0566055
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_22831_23046_clean_phase2.csv*)
+fitErrPi Mean = 0.68216
+fitErrTh Mean = 0.585832
+fitErrWr Mean = 0.45634
+fitErrLA Mean = 0.556813
+fitErrEl Mean = 0.0443965
+fitErrUA Mean = 0.318871
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7880_8057_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7880_8057_clean_phase1.csv*)
+fitErrPi Mean = 0.0659492
+fitErrTh Mean = 0.180424
+fitErrWr Mean = 0.0380704
+fitErrLA Mean = 0.0998014
+fitErrEl Mean = 0.139296
+fitErrUA Mean = 0.113702
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7880_8057_clean_phase2.csv*)
+fitErrPi Mean = 0.373045
+fitErrTh Mean = 0.360748
+fitErrWr Mean = 0.0620294
+fitErrLA Mean = 0.115163
+fitErrEl Mean = 0.408757
+fitErrUA Mean = 0.72053
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_362_566_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_362_566_clean_phase1.csv*)
+fitErrPi Mean = 0.392324
+fitErrTh Mean = 0.0188193
+fitErrWr Mean = 0.5224
+fitErrLA Mean = 0.013884
+fitErrEl Mean = 0.0719798
+fitErrUA Mean = 0.107431
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_362_566_clean_phase2.csv*)
+fitErrPi Mean = 0.114084
+fitErrTh Mean = 0.214483
+fitErrWr Mean = 0.147815
+fitErrLA Mean = 0.0403192
+fitErrEl Mean = 0.158808
+fitErrUA Mean = 0.0269086
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_34724_34925_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_34724_34925_clean_phase1.csv*)
+fitErrPi Mean = 0.0172157
+fitErrTh Mean = 0.0897559
+fitErrWr Mean = 0.200389
+fitErrLA Mean = 0.840737
+fitErrEl Mean = 0.0160595
+fitErrUA Mean = 0.058514
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_34724_34925_clean_phase2.csv*)
+fitErrPi Mean = 0.0827699
+fitErrTh Mean = 0.398799
+fitErrWr Mean = 0.136746
+fitErrLA Mean = 0.0495186
+fitErrEl Mean = 0.0251294
+fitErrUA Mean = 0.0624568
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_6371_6579_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_6371_6579_clean_phase1.csv*)
+fitErrPi Mean = 0.0155084
+fitErrTh Mean = 0.0153937
+fitErrWr Mean = 0.314422
+fitErrLA Mean = 0.590097
+fitErrEl Mean = 0.0506833
+fitErrUA Mean = 0.119471
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_6371_6579_clean_phase2.csv*)
+fitErrPi Mean = 0.0296578
+fitErrTh Mean = 0.0398787
+fitErrWr Mean = 0.0332582
+fitErrLA Mean = 0.331322
+fitErrEl Mean = 0.0410486
+fitErrUA Mean = 0.462736
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_38812_39041_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_38812_39041_clean_phase1.csv*)
+fitErrPi Mean = 0.0346471
+fitErrTh Mean = 0.0254119
+fitErrWr Mean = 0.0423385
+fitErrLA Mean = 0.00620824
+fitErrEl Mean = 0.00742444
+fitErrUA Mean = 0.0440509
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_38812_39041_clean_phase2.csv*)
+fitErrPi Mean = 0.023167
+fitErrTh Mean = 0.0242767
+fitErrWr Mean = 0.0200741
+fitErrLA Mean = 0.0225469
+fitErrEl Mean = 0.0288969
+fitErrUA Mean = 0.14755
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28752_28921_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28752_28921_clean_phase1.csv*)
+fitErrPi Mean = 0.0369836
+fitErrTh Mean = 0.012535
+fitErrWr Mean = 0.0149268
+fitErrLA Mean = 0.0632429
+fitErrEl Mean = 0.0408546
+fitErrUA Mean = 0.119686
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28752_28921_clean_phase2.csv*)
+fitErrPi Mean = 0.371413
+fitErrTh Mean = 0.320995
+fitErrWr Mean = 0.352748
+fitErrLA Mean = 0.321525
+fitErrEl Mean = 0.166979
+fitErrUA Mean = 0.384994
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_39701_39874_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_39701_39874_clean_phase1.csv*)
+fitErrPi Mean = 0.0778517
+fitErrTh Mean = 0.0668388
+fitErrWr Mean = 0.0548997
+fitErrLA Mean = 0.182282
+fitErrEl Mean = 0.0964773
+fitErrUA Mean = 0.200792
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_39701_39874_clean_phase2.csv*)
+fitErrPi Mean = 0.486885
+fitErrTh Mean = 0.442677
+fitErrWr Mean = 0.348815
+fitErrLA Mean = 0.0180199
+fitErrEl Mean = 0.227071
+fitErrUA Mean = 0.929188
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_14260_14453_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_14260_14453_clean_phase1.csv*)
+fitErrPi Mean = 0.0179296
+fitErrTh Mean = 0.0146463
+fitErrWr Mean = 0.0212497
+fitErrLA Mean = 0.0368613
+fitErrEl Mean = 0.0234016
+fitErrUA Mean = 0.0265395
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_14260_14453_clean_phase2.csv*)
+fitErrPi Mean = 0.0602432
+fitErrTh Mean = 0.553663
+fitErrWr Mean = 0.234087
+fitErrLA Mean = 0.213516
+fitErrEl Mean = 0.0180393
+fitErrUA Mean = 0.180156
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_45160_45334_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_45160_45334_clean_phase1.csv*)
+fitErrPi Mean = 0.0103493
+fitErrTh Mean = 0.0115441
+fitErrWr Mean = 0.0249638
+fitErrLA Mean = 0.337654
+fitErrEl Mean = 0.0396525
+fitErrUA Mean = 0.187298
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_45160_45334_clean_phase2.csv*)
+fitErrPi Mean = 0.242459
+fitErrTh Mean = 0.227487
+fitErrWr Mean = 0.0203299
+fitErrLA Mean = 0.213365
+fitErrEl Mean = 0.0500463
+fitErrUA Mean = 0.108146
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7609_7790_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7609_7790_clean_phase1.csv*)
+fitErrPi Mean = 0.0809727
+fitErrTh Mean = 0.0150381
+fitErrWr Mean = 0.0498045
+fitErrLA Mean = 0.0276052
+fitErrEl Mean = 0.101466
+fitErrUA Mean = 0.1174
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7609_7790_clean_phase2.csv*)
+fitErrPi Mean = 0.283336
+fitErrTh Mean = 0.278242
+fitErrWr Mean = 0.293578
+fitErrLA Mean = 0.285459
+fitErrEl Mean = 0.703908
+fitErrUA Mean = 0.271314
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_20389_20548_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_20389_20548_clean_phase1.csv*)
+fitErrPi Mean = 0.0354088
+fitErrTh Mean = 0.0354849
+fitErrWr Mean = 0.0401505
+fitErrLA Mean = 0.045738
+fitErrEl Mean = 0.0306878
+fitErrUA Mean = 0.0963318
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_20389_20548_clean_phase2.csv*)
+fitErrPi Mean = 0.39375
+fitErrTh Mean = 0.356789
+fitErrWr Mean = 0.414245
+fitErrLA Mean = 0.430528
+fitErrEl Mean = 0.152135
+fitErrUA Mean = 0.426413
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_31013_31258_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_31013_31258_clean_phase1.csv*)
+fitErrPi Mean = 0.023902
+fitErrTh Mean = 0.0368196
+fitErrWr Mean = 0.00461736
+fitErrLA Mean = 0.318937
+fitErrEl Mean = 0.0196515
+fitErrUA Mean = 0.0589269
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_31013_31258_clean_phase2.csv*)
+fitErrPi Mean = 0.0946809
+fitErrTh Mean = 0.123087
+fitErrWr Mean = 0.0803921
+fitErrLA Mean = 0.0985441
+fitErrEl Mean = 0.127317
+fitErrUA Mean = 0.0558409
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36954_37119_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36954_37119_clean_phase1.csv*)
+fitErrPi Mean = 0.0157175
+fitErrTh Mean = 0.0101584
+fitErrWr Mean = 0.0584297
+fitErrLA Mean = 0.219543
+fitErrEl Mean = 0.0379965
+fitErrUA Mean = 0.306899
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36954_37119_clean_phase2.csv*)
+fitErrPi Mean = 0.313439
+fitErrTh Mean = 0.299991
+fitErrWr Mean = 0.318436
+fitErrLA Mean = 0.0126917
+fitErrEl Mean = 0.205292
+fitErrUA Mean = 0.187343
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15774_15960_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15774_15960_clean_phase1.csv*)
+fitErrPi Mean = 0.0282004
+fitErrTh Mean = 0.0244453
+fitErrWr Mean = 0.00928571
+fitErrLA Mean = 0.145535
+fitErrEl Mean = 0.0535268
+fitErrUA Mean = 0.049489
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_15774_15960_clean_phase2.csv*)
+fitErrPi Mean = 0.0330624
+fitErrTh Mean = 0.0279208
+fitErrWr Mean = 0.0318764
+fitErrLA Mean = 0.256452
+fitErrEl Mean = 0.0277523
+fitErrUA Mean = 0.0246758
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28150_28321_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28150_28321_clean_phase1.csv*)
+fitErrPi Mean = 0.0275423
+fitErrTh Mean = 0.0182425
+fitErrWr Mean = 0.00780405
+fitErrLA Mean = 0.112673
+fitErrEl Mean = 0.00560771
+fitErrUA Mean = 0.0355748
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_28150_28321_clean_phase2.csv*)
+fitErrPi Mean = 0.341305
+fitErrTh Mean = 0.283499
+fitErrWr Mean = 0.327146
+fitErrLA Mean = 0.329362
+fitErrEl Mean = 0.516006
+fitErrUA Mean = 0.682169
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19499_19678_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19499_19678_clean_phase1.csv*)
+fitErrPi Mean = 0.041811
+fitErrTh Mean = 0.0196934
+fitErrWr Mean = 0.00743707
+fitErrLA Mean = 0.113971
+fitErrEl Mean = 0.0542063
+fitErrUA Mean = 0.121084
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19499_19678_clean_phase2.csv*)
+fitErrPi Mean = 0.471145
+fitErrTh Mean = 0.399934
+fitErrWr Mean = 0.357823
+fitErrLA Mean = 0.498505
+fitErrEl Mean = 0.224542
+fitErrUA Mean = 0.423523
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_3028_3212_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_3028_3212_clean_phase1.csv*)
+fitErrPi Mean = 0.04925
+fitErrTh Mean = 0.027658
+fitErrWr Mean = 0.119217
+fitErrLA Mean = 0.0479571
+fitErrEl Mean = 0.107794
+fitErrUA Mean = 0.0626221
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_3028_3212_clean_phase2.csv*)
+fitErrPi Mean = 0.333831
+fitErrTh Mean = 0.30514
+fitErrWr Mean = 0.0339236
+fitErrLA Mean = 0.0342929
+fitErrEl Mean = 0.0687892
+fitErrUA Mean = 0.0783249
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_11371_11595_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_11371_11595_clean_phase1.csv*)
+fitErrPi Mean = 0.04039
+fitErrTh Mean = 0.113019
+fitErrWr Mean = 0.055072
+fitErrLA Mean = 0.094619
+fitErrEl Mean = 0.0423528
+fitErrUA Mean = 0.239699
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_11371_11595_clean_phase2.csv*)
+fitErrPi Mean = 0.0107754
+fitErrTh Mean = 0.00932069
+fitErrWr Mean = 0.0101686
+fitErrLA Mean = 0.0051641
+fitErrEl Mean = 0.12355
+fitErrUA Mean = 0.597661
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19783_19988_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19783_19988_clean_phase1.csv*)
+fitErrPi Mean = 0.0153009
+fitErrTh Mean = 0.0106451
+fitErrWr Mean = 0.0126794
+fitErrLA Mean = 0.393471
+fitErrEl Mean = 0.0217221
+fitErrUA Mean = 0.0321381
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_19783_19988_clean_phase2.csv*)
+fitErrPi Mean = 0.0312185
+fitErrTh Mean = 0.10629
+fitErrWr Mean = 0.0348043
+fitErrLA Mean = 0.247321
+fitErrEl Mean = 0.0746187
+fitErrUA Mean = 0.0760459
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_29009_29408_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_29009_29408_clean_phase1.csv*)
+fitErrPi Mean = 0.0197735
+fitErrTh Mean = 0.00568049
+fitErrWr Mean = 0.00866536
+fitErrLA Mean = 0.384083
+fitErrEl Mean = 0.012366
+fitErrUA Mean = 0.160208
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_29009_29408_clean_phase2.csv*)
+fitErrPi Mean = 0.0350847
+fitErrTh Mean = 0.225626
+fitErrWr Mean = 0.475589
+fitErrLA Mean = 0.344265
+fitErrEl Mean = 0.25658
+fitErrUA Mean = 0.317154
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24699_25098_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24699_25098_clean_phase1.csv*)
+fitErrPi Mean = 0.0479025
+fitErrTh Mean = 0.0430633
+fitErrWr Mean = 0.0451063
+fitErrLA Mean = 0.108551
+fitErrEl Mean = 0.111413
+fitErrUA Mean = 0.059882
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24699_25098_clean_phase2.csv*)
+fitErrPi Mean = 0.460698
+fitErrTh Mean = 0.0520606
+fitErrWr Mean = 0.0214481
+fitErrLA Mean = 0.0619105
+fitErrEl Mean = 0.0397309
+fitErrUA Mean = 0.646614
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_32752_32915_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_32752_32915_clean_phase1.csv*)
+fitErrPi Mean = 0.0132997
+fitErrTh Mean = 0.00925099
+fitErrWr Mean = 0.00822809
+fitErrLA Mean = 0.158879
+fitErrEl Mean = 0.126854
+fitErrUA Mean = 0.11332
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_32752_32915_clean_phase2.csv*)
+fitErrPi Mean = 0.346896
+fitErrTh Mean = 0.319189
+fitErrWr Mean = 0.324144
+fitErrLA Mean = 0.245647
+fitErrEl Mean = 0.230275
+fitErrUA Mean = 0.415896
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36688_36855_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36688_36855_clean_phase1.csv*)
+fitErrPi Mean = 0.164222
+fitErrTh Mean = 0.0775947
+fitErrWr Mean = 0.186415
+fitErrLA Mean = 0.206453
+fitErrEl Mean = 0.153844
+fitErrUA Mean = 0.305737
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_36688_36855_clean_phase2.csv*)
+fitErrPi Mean = 0.0351333
+fitErrTh Mean = 0.037769
+fitErrWr Mean = 0.308134
+fitErrLA Mean = 0.269872
+fitErrEl Mean = 0.100771
+fitErrUA Mean = 0.043747
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_1411_1621_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_1411_1621_clean_phase1.csv*)
+fitErrPi Mean = 0.0467076
+fitErrTh Mean = 0.0334024
+fitErrWr Mean = 0.0286147
+fitErrLA Mean = 0.0349541
+fitErrEl Mean = 0.0910931
+fitErrUA Mean = 0.0528416
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_1411_1621_clean_phase2.csv*)
+fitErrPi Mean = 0.188228
+fitErrTh Mean = 0.547146
+fitErrWr Mean = 0.340271
+fitErrLA Mean = 0.444528
+fitErrEl Mean = 0.8136
+fitErrUA Mean = 1.02864
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_5417_5621_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_5417_5621_clean_phase1.csv*)
+fitErrPi Mean = 0.0244146
+fitErrTh Mean = 0.0206375
+fitErrWr Mean = 0.0120946
+fitErrLA Mean = 0.0313076
+fitErrEl Mean = 0.0213876
+fitErrUA Mean = 0.166865
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_5417_5621_clean_phase2.csv*)
+fitErrPi Mean = 0.341106
+fitErrTh Mean = 0.299875
+fitErrWr Mean = 0.319352
+fitErrLA Mean = 0.526703
+fitErrEl Mean = 0.0473849
+fitErrUA Mean = 0.672555
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_705_899_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_705_899_clean_phase1.csv*)
+fitErrPi Mean = 0.381232
+fitErrTh Mean = 0.352228
+fitErrWr Mean = 0.48027
+fitErrLA Mean = 0.103367
+fitErrEl Mean = 0.173741
+fitErrUA Mean = 0.259791
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_705_899_clean_phase2.csv*)
+fitErrPi Mean = 0.0358198
+fitErrTh Mean = 0.0305964
+fitErrWr Mean = 0.0346486
+fitErrLA Mean = 0.46715
+fitErrEl Mean = 0.924972
+fitErrUA Mean = 0.0171715
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_10754_10932_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_10754_10932_clean_phase1.csv*)
+fitErrPi Mean = 0.0490972
+fitErrTh Mean = 0.0917583
+fitErrWr Mean = 0.215985
+fitErrLA Mean = 0.0998181
+fitErrEl Mean = 0.107837
+fitErrUA Mean = 0.148688
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_10754_10932_clean_phase2.csv*)
+fitErrPi Mean = 0.511926
+fitErrTh Mean = 0.572049
+fitErrWr Mean = 0.370847
+fitErrLA Mean = 0.502488
+fitErrEl Mean = 0.0380294
+fitErrUA Mean = 0.268438
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_12381_12564_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_12381_12564_clean_phase1.csv*)
+fitErrPi Mean = 0.0348188
+fitErrTh Mean = 0.0304504
+fitErrWr Mean = 0.0158828
+fitErrLA Mean = 0.901464
+fitErrEl Mean = 0.0209355
+fitErrUA Mean = 0.061453
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_12381_12564_clean_phase2.csv*)
+fitErrPi Mean = 0.274175
+fitErrTh Mean = 0.269699
+fitErrWr Mean = 0.0287158
+fitErrLA Mean = 0.265656
+fitErrEl Mean = 0.5072
+fitErrUA Mean = 0.266947
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_33012_33411_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_33012_33411_clean_phase1.csv*)
+fitErrPi Mean = 0.0213996
+fitErrTh Mean = 0.0125312
+fitErrWr Mean = 0.00693542
+fitErrLA Mean = 0.0721486
+fitErrEl Mean = 0.0824958
+fitErrUA Mean = 0.121329
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_33012_33411_clean_phase2.csv*)
+fitErrPi Mean = 0.0491787
+fitErrTh Mean = 0.694498
+fitErrWr Mean = 0.599442
+fitErrLA Mean = 0.387179
+fitErrEl Mean = 0.29582
+fitErrUA Mean = 0.340761
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24395_24576_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24395_24576_clean_phase1.csv*)
+fitErrPi Mean = 0.00564447
+fitErrTh Mean = 0.0179138
+fitErrWr Mean = 0.0273177
+fitErrLA Mean = 0.102767
+fitErrEl Mean = 0.116285
+fitErrUA Mean = 0.0209388
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_24395_24576_clean_phase2.csv*)
+fitErrPi Mean = 0.346837
+fitErrTh Mean = 0.207949
+fitErrWr Mean = 0.0233359
+fitErrLA Mean = 0.0105938
+fitErrEl Mean = 0.2742
+fitErrUA Mean = 0.31141
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7017_7184_clean.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7017_7184_clean_phase1.csv*)
+fitErrPi Mean = 0.0176517
+fitErrTh Mean = 0.0198948
+fitErrWr Mean = 0.317176
+fitErrLA Mean = 0.0375044
+fitErrEl Mean = 0.0335171
+fitErrUA Mean = 0.106266
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part9_2/2016_12_14_study_4_Part9_2_7017_7184_clean_phase2.csv*)
+fitErrPi Mean = 0.0465697
+fitErrTh Mean = 0.323284
+fitErrWr Mean = 0.0178699
+fitErrLA Mean = 0.0326631
+fitErrEl Mean = 0.0620521
+fitErrUA Mean = 0.718894

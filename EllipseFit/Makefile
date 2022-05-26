@@ -314,6 +314,33 @@ Plane.cpp.s:
 	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/Plane.cpp.s
 .PHONY : Plane.cpp.s
 
+RigidTransformation.o: RigidTransformation.cpp.o
+
+.PHONY : RigidTransformation.o
+
+# target to build an object file
+RigidTransformation.cpp.o:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.o
+.PHONY : RigidTransformation.cpp.o
+
+RigidTransformation.i: RigidTransformation.cpp.i
+
+.PHONY : RigidTransformation.i
+
+# target to preprocess a source file
+RigidTransformation.cpp.i:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.i
+.PHONY : RigidTransformation.cpp.i
+
+RigidTransformation.s: RigidTransformation.cpp.s
+
+.PHONY : RigidTransformation.s
+
+# target to generate assembly for a file
+RigidTransformation.cpp.s:
+	cd "/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor" && $(MAKE) -f EllipseFit/CMakeFiles/EllipseFit.dir/build.make EllipseFit/CMakeFiles/EllipseFit.dir/RigidTransformation.cpp.s
+.PHONY : RigidTransformation.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -344,6 +371,9 @@ help:
 	@echo "... Plane.o"
 	@echo "... Plane.i"
 	@echo "... Plane.s"
+	@echo "... RigidTransformation.o"
+	@echo "... RigidTransformation.i"
+	@echo "... RigidTransformation.s"
 .PHONY : help
 
 

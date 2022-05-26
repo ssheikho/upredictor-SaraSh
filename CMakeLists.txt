@@ -1,7 +1,7 @@
 project(uPredictor)
 
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectIncludes.cmake.in)
-#set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Debug)
 
 #FIND_PACKAGE(OpenCL)
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
@@ -17,30 +17,26 @@ set(uPredictor_src
 )
 
 
-add_executable(
-	uPredictor
-	${uPredictor_src}
 
-)
-
-add_subdirectory(UBCCamera)
-add_subdirectory(ALGLIB)
+add_subdirectory(
+	${CMAKE_CURRENT_SOURCE_DIR}/UBCCamera)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ALGLIB)
 #add_subdirectory(UBCColorTrackCUDA)
 #add_subdirectory(UBCDART)
-add_subdirectory(UBCKinect)
-add_subdirectory(UBCKinectGUI)
-add_subdirectory(UBCGUI)
-add_subdirectory(UBCSimpleGeometry)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCKinect)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCKinectGUI)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCGUI)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCSimpleGeometry)
 #add_subdirectory(UBCTrackerCUDA)
-add_subdirectory(UBCUtil)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCUtil)
 #add_subdirectory(ChessBoard)
 #add_subdirectory(GUIExample)
-add_subdirectory(UBCViconSimpleGeometry)
-add_subdirectory(EllipseFit)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/UBCViconSimpleGeometry)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/EllipseFit)
 #add_subdirectory(BayesianFit)
-add_subdirectory(ForwardKinematicsWAM)
-add_subdirectory(PathPlanning)
-add_subdirectory(GetPos)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ForwardKinematicsWAM)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/PathPlanning)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/GetPos)
 
 
 
@@ -85,7 +81,8 @@ include_directories(
 link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/ALGLIB/
 	${CMAKE_CURRENT_SOURCE_DIR}/PathPlanning
-	${CMAKE_CURRENT_SOURCE_DIR}/EllipseFit//CMakeFiles/EllipseFit.dir
+	${CMAKE_CURRENT_SOURCE_DIR}/EllipseFit
+	${CMAKE_CURRENT_SOURCE_DIR}/EllipseFit/CMakeFiles/EllipseFit.dir
 	${CMAKE_CURRENT_SOURCE_DIR}/UBCCamera/
 	${CMAKE_CURRENT_SOURCE_DIR}/UBCColorTrackCUDA/
 	${CMAKE_CURRENT_SOURCE_DIR}/UBCDART/
@@ -100,6 +97,11 @@ link_directories(
 	/usr/local/cuda-8.0/lib64
 )
 
+add_executable(
+	uPredictor
+	${uPredictor_src}
+
+)
 target_link_libraries(uPredictor
 	#UBColorTrackCuda
 	#ubcdart
@@ -153,7 +155,7 @@ target_link_libraries(uPredictor
 	#ubcgui
 )
 
-set_property(TARGET uPredictor PROPERTY CXX_STANDARD 11)
+#set_property(TARGET uPredictor PROPERTY CXX_STANDARD 11)
 
 
 

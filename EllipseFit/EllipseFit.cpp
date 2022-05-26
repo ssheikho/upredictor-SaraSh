@@ -29,6 +29,7 @@ using namespace Eigen;
 using namespace std;
 //ensure theta is within [-pi,pi], 
 //	&& theta(t) is a monotonic function 
+/*
 MatrixXd fixThetas(MatrixXd a) {
 	MatrixXd retVal(a.rows(), a.cols());
 
@@ -55,11 +56,11 @@ MatrixXd fixThetas(MatrixXd a) {
 
 	return retVal;
 }
-
+*/
 int main(int argc, char **argv) {
 
 	string fileName = argv[1];
-	cout << "(* " << fileName << "*)" << endl;
+	//cout << "(* " << fileName << "*)" << endl;
 /*************************************/
 /* H1.A. Ellipse Fitting Algorith */
 /**********************************************/
@@ -87,8 +88,9 @@ int main(int argc, char **argv) {
 //	std::string reachCtr = getPartID(fileName) + "P"
 //		+fileName.at ((unsigned)(fileName.length()-5));
 
-	int phase = 1;
-//whichPhase(fileName);		
+	int phase = 
+		whichPhase(fileName);		
+	string phaseS = to_string(phase);
 	// Calculating the length of string 
 	metaFileName = 
 		fileName.substr(0,fileName.find("_clean"))+".csv";	
@@ -119,22 +121,28 @@ int main(int argc, char **argv) {
 	if (phase ==1)	
 		inPtsAlongRows = inPtsAlongRowsTotal.topRows(nPts);
 	
-	else	{
+	else if (phase == 2)	{
 		inPtsAlongRows = inPtsAlongRowsTotal.bottomRows(nPts);
-		cout <<"here"<<endl;
+	}
+	else {
+		cout << "Error! can't determine the motion Phase" << endl;
 	}
 	// positions in meter
 	MatrixXd inPts = 0.01 * inPtsAlongRows.transpose();
-	MatrixXd inPtsRCh = inPts.block(Markers::RCh,0,3,nPts)
+	// Same as human, i.e. no ellipse fitting
+	MatrixXd inPtsRSh = inPts.block(Markers::RSh,0,3,nPts)
+		, inPtsRCh = inPts.block(Markers::RCh,0,3,nPts)
 		,	inPtsMCh = inPts.block(Markers::MCh,0,3,nPts)
 		,	inPtsLCh = inPts.block(Markers::LCh,0,3,nPts)
+		, inPtsLSh = inPts.block(Markers::LSh,0,3,nPts)
+
+	// ellipse fitted pts
 		,	inPtsRPi = inPts.block(Markers::RPi,0,3,nPts)
 		,	inPtsRTh = inPts.block(Markers::RTh,0,3,nPts)
 		,	inPtsRWr = inPts.block(Markers::RWr,0,3,nPts)
 		,	inPtsRLA = inPts.block(Markers::RLA,0,3,nPts)
 		,	inPtsREl = inPts.block(Markers::REl,0,3,nPts)
-		,	inPtsRUA = inPts.block(Markers::RUA,0,3,nPts)
-		,	inPtsRSh = inPts.block(Markers::RSh,0,3,nPts);
+		,	inPtsRUA = inPts.block(Markers::RUA,0,3,nPts);
 
 	/*** END - Reading input CSV Motion Files ***/
 	/************************************************/
@@ -178,7 +186,15 @@ int main(int argc, char **argv) {
 		e3dPi.getPointAtThetasH(fixThetas(thetasPi)));
 	
 	MatrixXd efPts = MatrixXd::Zero(nMarkers,nPts);
-	efPts = inPts;
+
+	// Same as human, i.e. no ellipse fitting
+	efPts.block(Markers::RSh,0,3,nPts) = inPtsRSh;
+	efPts.block(Markers::RCh,0,3,nPts) = inPtsRCh;
+	efPts.block(Markers::MCh,0,3,nPts) = inPtsMCh;
+	efPts.block(Markers::LCh,0,3,nPts) = inPtsLCh;
+	efPts.block(Markers::LSh,0,3,nPts) = inPtsLSh;
+
+	// Fitted ellipse pts
 	efPts.block(Markers::RUA,0,3,nPts) = outPtsRUA;
 	efPts.block(Markers::REl,0,3,nPts) = outPtsREl;
 	efPts.block(Markers::RLA,0,3,nPts) = outPtsRLA;
@@ -186,44 +202,91 @@ int main(int argc, char **argv) {
 	efPts.block(Markers::RTh,0,3,nPts) = outPtsRTh;
 	efPts.block(Markers::RPi,0,3,nPts) = outPtsRPi;
 
-	/** For print in Mathematica **/
+//	printEigenMathematica( inPts.transpose(), cout
+//		, "inPts");	
+
+
+	// EllipseFit error
+	MatrixXd 
+		fitErrUA = inPtsRUA - outPtsRUA,
+		fitErrEl = inPtsREl - outPtsREl,
+		fitErrLA = inPtsRLA - outPtsRLA,
+		fitErrWr = inPtsRWr - outPtsRWr,
+		fitErrTh = inPtsRTh - outPtsRTh,
+		fitErrPi = inPtsRPi - outPtsRPi;
+/**/
+	cout << "fitErrPi Mean = " 
+		 << fitErrPi.colwise().norm().mean() << endl;
+	cout << "fitErrTh Mean = " 
+		 << fitErrTh.colwise().norm().mean() << endl;
+	cout << "fitErrWr Mean = " 
+		 << fitErrWr.colwise().norm().mean() << endl;
+	cout << "fitErrLA Mean = " 
+		 << fitErrLA.colwise().norm().mean() << endl;
+	cout << "fitErrEl Mean = " 
+		 << fitErrEl.colwise().norm().mean() << endl;
+	cout << "fitErrUA Mean = " 
+		 << fitErrUA.colwise().norm().mean() << endl;
+
+
+	printEigenMathematica( efPts.transpose(), cout
+		, "efPts");	
+
+/** For print in Mathematica 
+	
+	/// Fit error inPts vs outPts
+	printEigenMathematica( fitErrPi.transpose()
+		, cout , "fitErrPi");	
+	printEigenMathematica( fitErrTh.transpose()
+		, cout , "fitErrTh");	
+	printEigenMathematica( outPtsRWr.transpose()
+		, cout , "outPtsRWr");	
+	printEigenMathematica( fitErrLA.transpose()
+		, cout , "fitErrLA");	
+	printEigenMathematica( fitErrEl.transpose()
+		, cout , "fitErrEl");	
+	printEigenMathematica( fitErrUA.transpose()
+		, cout , "fitErrUA");	
+**/
 	/// inPts ///
 	//(a) for human
 /*
 	printEigenMathematica( inPtsRWr.transpose(), cout
-		, "inPtsRWr"+ reachCtr);	
+		, "inPtsRWr"+ phaseS);	
 	printEigenMathematica( inPtsRTh.transpose(), cout
-		, "inPtsRTh"+ reachCtr);	
+		, "inPtsRTh"+ phaseS);	
 	printEigenMathematica( inPtsRPi.transpose(), cout
-		, "inPtsRPi"+ reachCtr);	
+		, "inPtsRPi"+ phaseS);	
 	printEigenMathematica( inPtsRLA.transpose(), cout
-		, "inPtsRLA"+ reachCtr);	
+		, "inPtsRLA"+ phaseS);	
 	printEigenMathematica( inPtsREl.transpose(), cout
-		, "inPtsREl"+ reachCtr);	
+		, "inPtsREl"+ phaseS);	
 	printEigenMathematica( inPtsRUA.transpose(), cout
-		, "inPtsRUA"+ reachCtr);	
+		, "inPtsRUA"+ phaseS);	
 	printEigenMathematica( inPtsRSh.transpose(), cout
-		, "inPtsRSh"+ reachCtr);	
+		, "inPtsRSh"+ phaseS);	
 	printEigenMathematica( inPtsRCh.transpose(), cout
-		, "inPtsRCh"+ reachCtr);	
+		, "inPtsRCh"+ phaseS);	
 	printEigenMathematica( inPtsMCh.transpose(), cout
-		, "inPtsMCh"+ reachCtr);	
+		, "inPtsMCh"+ phaseS);	
 	printEigenMathematica( inPtsLCh.transpose(), cout
-		, "inPtsLCh"+ reachCtr);	
+		, "inPtsLCh"+ phaseS);	
+		
+		
 	// (1) outPts
 	printEigenMathematica( outPtsRWr.transpose(), cout
-		, "outPtsRWr"+ reachCtr);	
+		, "inPtsRWrEF"+ phaseS);	
 	printEigenMathematica( outPtsRTh.transpose(), cout
-		, "outPtsRTh"+ reachCtr);	
+		, "inPtsRThEF"+ phaseS);	
 	printEigenMathematica( outPtsRPi.transpose(), cout
-		, "outPtsRPi"+ reachCtr);	
+		, "inPtsRPiEF"+ phaseS);	
 	printEigenMathematica( outPtsRLA.transpose(), cout
-		, "outPtsRLA"+ reachCtr);	
+		, "inPtsRLAEF"+ phaseS);	
 	printEigenMathematica( outPtsREl.transpose(), cout
-		, "outPtsREl"+ reachCtr);	
+		, "inPtsRElEF"+ phaseS);	
 	printEigenMathematica( outPtsRUA.transpose(), cout
-		, "outPtsRUA"+ reachCtr);	
-*/
+		, "inPtsRUAEF"+ phaseS);	*/
+
 
 		/************************************************/
 		/**		 A.1 Finding Nominal Plane Fit 		**/ 
@@ -270,7 +333,6 @@ int main(int argc, char **argv) {
 			,	pDipXAlongRows(reachCtr-1,0) = bfp.getPlaneDipX()
 			,	pTiltYAlongRows(reachCtr-1,0) = bfp.getPlaneTiltY();
 
-cout <<"here"<<endl;
 	/*** Bayesian linear regression Model  ***/ 				
 
 	///**** 		nominal Plane Parameters 		***///
@@ -279,7 +341,7 @@ cout <<"here"<<endl;
 			  const term + start position (x,y,z) + PC1 normalized
 			  + travelled distance + target position (x,y,z) 		**/
 
-	/* input matrix X for the linear model XW=y */
+	/* input matrix X for the linear model XW=y 
 
 	int inXdim =  1 + 3 * nMarkers + nMarkers / 3;
 	//m.n
@@ -320,15 +382,17 @@ cout <<"here"<<endl;
 	//d.n
 	MatrixXd inYmatplAngModel = MatrixXd::Zero(3,1);
 	inYmatplAngModel = v3sAlongRows.transpose();
-cout <<"here"<<endl;
-	/** Build Bayesian linear regression model of PlaneNtoZ	**/
+*/
+
+
+	/** Build Bayesian linear regression model of PlaneNtoZ
 	//Likelihood
 	vector<double> ALiPlNtoZ = findALi(inXmatplAngModel
 			, inYmatplAngModel);
 	cout << "ALiPlNtoZ: " << endl;
 	for (int i = 0; i < ALiPlNtoZ.size(); i++) 
 		cout << ALiPlNtoZ[i] << endl;
-	/** Evidence **/
+	// Evidence //
 	vector<double> AEvPlNtoZ = findAEv(inXmatplAngModel
 			, inYmatplAngModel);
 	cout << "AEvPlNtoZ: " << endl;
@@ -352,17 +416,15 @@ cout <<"here"<<endl;
 	MatrixXd trainEplaneNToZEv = 
 		( planeAngleToZAlongRows.topRows(reachCtr) 
 		- planeAngleToZhatEv).cwiseAbs();
-	cout << "trainEplaneNToZEv mean = " 
-			 << trainEplaneNToZEv.mean() << endl;
+
+	**/
 
 
-
-
-	/** output vector y(n.1) predictions **/
+	/** output vector y(n.1) predictions 
 	MatrixXd planeV3hatLi = 
 		predictY(inXmatplAngModel, ALiPlNtoZ);
 
-	/** training error **/
+	// training error 
 	MatrixXd planeAngleToZhatLi = MatrixXd::Zero(reachCtr,1);
 	for (int i = 0; i < reachCtr; i++) {
 		Vector3d planeV3 = planeV3hatLi.col(i);
@@ -375,10 +437,17 @@ cout <<"here"<<endl;
 	MatrixXd trainEplaneNToZ = 
 		(planeAngleToZAlongRows.topRows(reachCtr) 
 		- planeAngleToZhatLi).cwiseAbs();
+
+**/
+
+
+	/* MATHEMATICA OUTPUT: 	
+
+	cout << "trainEplaneNToZEv mean = " 
+			 << trainEplaneNToZEv.mean() << endl;
+
 	cout << "trainEplaneNToZ mean = " 
 			 << trainEplaneNToZ.mean() << endl;
-
-	/* MATHEMATICA OUTPUT: 	*/
 	// Plane angles
 	//printEigenMathematica( EfAlphaAlongRows.topRows(reachCtr)
 	//	, cout, "EfAlphaAlongRows");	
@@ -394,20 +463,18 @@ cout <<"here"<<endl;
 	printEigenMathematica( planeAngleToZhatLi.transpose()
 		, cout, "planeAngleToZhatLi");	
 	printEigenMathematica( trainEplaneNToZ
-		, cout, "trainEplaneNToZ");	
-/* LR 	Ev model */
+		, cout, "trainEplaneNToZ");	*/
+
+/* LR 	Ev model 
 	printEigenMathematica( planeAngleToZhatEv.transpose()
 		, cout, "planeAngleToZhatEv");	
 	printEigenMathematica( trainEplaneNToZEv
 		, cout, "trainEplaneNToZEv");	
+*/
 
+	/*** END-Bayesian linear regression Model  		
+***/ 		
 
-
-	/*** END-Bayesian linear regression Model  ***/ 				
-	printEigenMathematica( inPts.transpose(), cout
-		, "inPts");	
-	printEigenMathematica( efPts.transpose(), cout
-		, "efPts");	
 
 	return 0;
 }

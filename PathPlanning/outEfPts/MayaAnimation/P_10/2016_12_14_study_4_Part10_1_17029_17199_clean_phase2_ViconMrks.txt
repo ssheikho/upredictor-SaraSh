@@ -1,0 +1,3 @@
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_12_14_study_4_Part10_1/2016_12_14_study_4_Part10_1_17029_17199_clean_phase2.csv*)
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  basic_string::substr: __pos (which is 18446744073709551615) > this->size() (which is 2077)

@@ -1,0 +1,4 @@
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_11_24_study_4_Part3_2/2016_11_24_study_4_Part3_2_33217_33636_clean_phase1.csv*)
+(* /home/sara/Dropbox/Reaching Study/Gilwoo_Automated_v2/csv_only_manual_inspection/2016_11_24_study_4_Part3_2/2016_11_24_study_4_Part3_2_33217_33636_clean_pha.csv*)
+terminate called after throwing an instance of 'std::invalid_argument'
+  what():  stoi

@@ -17,11 +17,14 @@ DikProblem::DikProblem (ForwardKin<double> &fk
 	, std::vector<double> jointMaxAngles
 	, bool use_quaternions
 	, Eigen::MatrixXd inPts	
+	, string phase
 	) : _fk(fk)
 	, _jointMinAngles(jointMinAngles)
 	, _jointMaxAngles(jointMaxAngles)	
 	, _use_quaternions(use_quaternions)
 	, _inPts(inPts)
+	, _phase(phase)
+
 	, _nPts(inPts.cols())
 	, _inPRPi(_inPts.block(Markers::RPi,0,3,_nPts))
 	, _inPRTh(_inPts.block(Markers::RTh,0,3,_nPts))
@@ -90,6 +93,7 @@ DikProblem::DikProblem (ForwardKin<double> &fk
 	, _lvelPiWam(Eigen::MatrixXd::Zero(3,_nPts))
 	,	_AngularVWrWam(Eigen::MatrixXd::Zero(3,_nPts))
 	//OUT-scaled VECTORS on the robot
+	, _outThetasWam (Eigen::MatrixXd::Zero(7,_nPts))
 	,	_outShoToUaVsWam(Eigen::MatrixXd::Zero(3,_nPts))
 	, _outShoToElVsWam(Eigen::MatrixXd::Zero(3,_nPts))
 	, _outElToWrVsWam(Eigen::MatrixXd::Zero(3,_nPts))
@@ -338,106 +342,106 @@ void DikProblem::setOutPtsR () {
 //(a) for human
 void DikProblem::printInPtsH()	{
 	printEigenMathematica	(_inPRPi.transpose(),
-		cout, "inPtsRPi");	
+		cout, "inPtsRPi" + _phase);	
 	printEigenMathematica	(_inPRTh.transpose(),
-		cout, "inPtsRTh");	
+		cout, "inPtsRTh" + _phase);	
 	printEigenMathematica	(_inPRWr.transpose(),
-		cout, "inPtsRW");	
+		cout, "inPtsRW" + _phase);	
 	printEigenMathematica	(_inPRLA.transpose()
-		, cout, "inPtsRLA");	
+		, cout, "inPtsRLA" + _phase);	
 	printEigenMathematica	(_inPREl.transpose()
-		, cout, "inPtsREl");	
+		, cout, "inPtsREl" + _phase);	
 	printEigenMathematica	(_inPRUA.transpose()
-		, cout, "inPtsRUA");	
+		, cout, "inPtsRUA" + _phase);	
 	printEigenMathematica	(_inPRSh.transpose()
-		, cout, "inPtsRSh");	
+		, cout, "inPtsRSh" + _phase);	
 	printEigenMathematica	(_inPRCh.transpose()
-		, cout, "inPtsRCh");	
+		, cout, "inPtsRCh" + _phase);	
 	printEigenMathematica	(_inPMCh.transpose()
-		, cout, "inPtsMCh");	
+		, cout, "inPtsMCh" + _phase);	
 	printEigenMathematica	(_inPLCh.transpose()
-		, cout, "inPtsLCh");	
+		, cout, "inPtsLCh" + _phase);	
 	printEigenMathematica	(_inPLSh.transpose()
-		, cout, "inPtsLSh");	
+		, cout, "inPtsLSh" + _phase);	
 }
 
 //(b) inPts wam, i.e. scaled to wam
 void DikProblem::printPtsR()	{
 	printEigenMathematica( _pEeWam.transpose()
-		, cout, "inPtsEeWam");	
+		, cout, "inPtsEeWam" + _phase);	
 	printEigenMathematica( _pPiWam.transpose()
-		, cout, "inPtsRPiWam");	
+		, cout, "inPtsRPiWam" + _phase);	
 	printEigenMathematica( _pThWam.transpose()
-		, cout, "inPtsRThWam");	
+		, cout, "inPtsRThWam" + _phase);	
 	printEigenMathematica( _pWrWam.transpose()
-		, cout, "inPtsRWWam");	
+		, cout, "inPtsRWWam" + _phase);	
 	printEigenMathematica( _pLaWam.transpose()
-		, cout, "inPtsRLAWam");	
+		, cout, "inPtsRLAWam" + _phase);	
 	printEigenMathematica( _pElWam.transpose()
-		, cout, "inPtsRElWam");	
+		, cout, "inPtsRElWam" + _phase);	
 	printEigenMathematica( _pUaWam.transpose()
-		, cout, "inPtsRUAWam");	
+		, cout, "inPtsRUAWam" + _phase);	
 	printEigenMathematica( _pShWam.transpose()
-		, cout, "inPtsRShWam");	
+		, cout, "inPtsRShWam" + _phase);	
 }
 
 //(c). inVecs Robot
 void DikProblem::printVecsR()	{
 	printEigenMathematica( _shoToUaVsWam.transpose()
-		, cout, "shoToUaVsWam");	
+		, cout, "shoToUaVsWam" + _phase);	
 	printEigenMathematica( _elOffsetVsWam.transpose()
-		, cout, "elOffsetVsWam");	
+		, cout, "elOffsetVsWam" + _phase);	
 	printEigenMathematica( _wOffsetVsWam.transpose()
-		, cout, "wOffsetVsWam");	
+		, cout, "wOffsetVsWam" + _phase);	
 	printEigenMathematica( _laToWrVsWam.transpose()
-		, cout, "laToWrVsWam");	
+		, cout, "laToWrVsWam" + _phase);	
 	printEigenMathematica( _elToWrVsWam.transpose()
-		, cout, "elToWrVsWam");	
+		, cout, "elToWrVsWam" + _phase);	
 	printEigenMathematica( _wrToEeVsWam.transpose()
-		, cout, "wrToEeVsWam");	
+		, cout, "wrToEeVsWam" + _phase);	
 
 	printEigenMathematica( _shoToElVsWam.transpose()
-		, cout, "shoToElVsWam");	
+		, cout, "shoToElVsWam" + _phase);	
 	printEigenMathematica( _shoToLaVsWam.transpose()
-		, cout, "shoToLaVsWam");	
+		, cout, "shoToLaVsWam" + _phase);	
 	printEigenMathematica( _shoToWrVsWam.transpose()
-		, cout, "shoToWrVsWam");	
+		, cout, "shoToWrVsWam" + _phase);	
 	printEigenMathematica( _shoToThVsWam.transpose()
-		, cout, "shoToThVsWam");	
+		, cout, "shoToThVsWam" + _phase);	
 	printEigenMathematica( _shoToPiVsWam.transpose()
-		, cout, "shoToPiVsWam");	
+		, cout, "shoToPiVsWam" + _phase);	
 	printEigenMathematica(_shoToEeVsWam.transpose()
-		, cout, "shoToEeVsWam");	
+		, cout, "shoToEeVsWam" + _phase);	
 /*
 	//Orientation as mathematica matrices:
 	// Chest
 	printEigenMathematica(_rMatsCh
-		, cout, "rMatsCh");	
+		, cout, "rMatsCh" + _phase);	
 	printEigenMathematica(_xyzEulersCh.transpose()
-		, cout, "xyzEulersCh");	
+		, cout, "xyzEulersCh" + _phase);	
 	//chest in Maya frame
 	printEigenMathematica(_rMatsChInMaya
-		, cout, "rMatsChInMaya");	
+		, cout, "rMatsChInMaya" + _phase);	
 	printEigenMathematica(_xyzEulersChInMaya.transpose()
-		, cout, "xyzEulersChInMaya");	
+		, cout, "xyzEulersChInMaya" + _phase);	
 	// Ebow
 	printEigenMathematica(_rMatsEl
-		, cout, "rMatsEl");	
+		, cout, "rMatsEl" + _phase);	
 	printEigenMathematica(_xyzEulersEl.transpose()
-		, cout, "xyzEulersEl");	
+		, cout, "xyzEulersEl" + _phase);	
 
 	// end-effectors
 	printEigenMathematica(_rMatsEe
-		, cout, "rMatsEe");	
+		, cout, "rMatsEe" + _phase);	
 	printEigenMathematica(_xyzEulersEe.transpose()
 		, cout, "xyzEulersEe");
 
 	printEigenMathematica(_rMatsEeLocal
-		, cout, "rMatsEeLocalFch");	
+		, cout, "rMatsEeLocalFch" + _phase);	
 	printEigenMathematica(_xyzEulersEeLocal.transpose()
 		, cout, "xyzEulersEeLocal");
 	printEigenMathematica(_rMatsEeLocalFvicon
-		, cout, "rMatsEeLocalFviconFch");	
+		, cout, "rMatsEeLocalFviconFch" + _phase);	
 	printEigenMathematica(_xyzEulersEeLocalFvicon.transpose()
 		, cout, "xyzEulersEeLocalFvicon");
 */
