@@ -1,6 +1,9 @@
+cmake_minimum_required(VERSION 3.5)
 project(PathPlanning)
 
 include(${CMAKE_CURRENT_LIST_DIR}/../ProjectIncludes.cmake.in)
+
+find_package(Ceres REQUIRED)
 #set(CMAKE_BUILD_TYPE Debug)
 
 #FIND_PACKAGE(OpenCL)
@@ -25,7 +28,7 @@ set(Path_Planning_src
 )
 
 include_directories(
-
+	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB
 	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit
 	../EllipseFit
@@ -50,7 +53,17 @@ include_directories(
 	/usr/include/opencv2
 	/home/justin/Research/ThirdParty/Ceres/ceres-solver/config
 	/home/justin/Research/ThirdParty/Ceres/ceres-solver/include
-	#/usr/include/atk-1.0
+	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/glfw-3.1.1/src/
+#	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/CERES/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config/ceres/internal
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include/ceres
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include/ceres/internal
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/internal/ceres
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/scripts
+
 	#/usr/include/cairo
 	#/usr/include/gdk-pixbuf-2.0
 	#/usr/include/glib-2.0
@@ -63,8 +76,8 @@ include_directories(
 )
 
 link_directories(
-/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredictor/upredictor/uPredictor/EllipseFit/CMakeFiles/EllipseFit.dir/
 
+	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
 	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCCamera/
@@ -76,7 +89,16 @@ link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCUtil/
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/dart/lib
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/libfreenect2/lib/
-
+	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/glfw-3.1.1/src/
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/CERES/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include/ceres
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config/ceres/internal
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/internal/ceres
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/scripts
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include/ceres/internal
 	/usr/lib/x86_64-linux-gnu/
 	/usr/local/cuda-8.0/lib64
 )
@@ -100,7 +122,7 @@ target_link_libraries(PathPlanning
 	#dart
 	alglib
 	ubcutil
-	
+
 	opencv_calib3d
 	opencv_contrib
 	opencv_core

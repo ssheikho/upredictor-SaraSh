@@ -552,3 +552,415 @@ make[1]: Leaving directory '/home/sara/Dropbox/Reaching Study/GitRepo/ReachPredi
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_09e16/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_09e16.dir/build.make CMakeFiles/cmTC_09e16.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_09e16.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_09e16.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_09e16
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09e16.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_09e16.dir/CheckIncludeFile.c.o  -o cmTC_09e16 -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86572/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_86572.dir/build.make CMakeFiles/cmTC_86572.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86572.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_86572.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_86572
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86572.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_86572.dir/CheckFunctionExists.c.o  -o cmTC_86572 -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_59ecd/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_59ecd.dir/build.make CMakeFiles/cmTC_59ecd.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59ecd.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_59ecd.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_59ecd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59ecd.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_59ecd.dir/src.cxx.o  -o cmTC_59ecd -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f2dd1/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f2dd1.dir/build.make CMakeFiles/cmTC_f2dd1.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2dd1.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_f2dd1.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f2dd1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2dd1.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_f2dd1.dir/CheckIncludeFile.c.o  -o cmTC_f2dd1 -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fb7f6/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_fb7f6.dir/build.make CMakeFiles/cmTC_fb7f6.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb7f6.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_fb7f6.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fb7f6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb7f6.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_fb7f6.dir/CheckFunctionExists.c.o  -o cmTC_fb7f6 -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_29dbc/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_29dbc.dir/build.make CMakeFiles/cmTC_29dbc.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_29dbc.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_29dbc.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_29dbc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29dbc.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_29dbc.dir/src.cxx.o  -o cmTC_29dbc -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_54cbf/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_54cbf.dir/build.make CMakeFiles/cmTC_54cbf.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54cbf.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_54cbf.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_54cbf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54cbf.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_54cbf.dir/CheckIncludeFile.c.o  -o cmTC_54cbf -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6bdd5/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_6bdd5.dir/build.make CMakeFiles/cmTC_6bdd5.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bdd5.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6bdd5.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6bdd5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6bdd5.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6bdd5.dir/CheckFunctionExists.c.o  -o cmTC_6bdd5 -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_29c55/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_29c55.dir/build.make CMakeFiles/cmTC_29c55.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_29c55.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_29c55.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_29c55
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29c55.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_29c55.dir/src.cxx.o  -o cmTC_29c55 -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e701a/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e701a.dir/build.make CMakeFiles/cmTC_e701a.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e701a.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_e701a.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e701a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e701a.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_e701a.dir/CheckIncludeFile.c.o  -o cmTC_e701a -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d8c78/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d8c78.dir/build.make CMakeFiles/cmTC_d8c78.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8c78.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d8c78.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d8c78
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8c78.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_d8c78.dir/CheckFunctionExists.c.o  -o cmTC_d8c78 -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6e45a/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_6e45a.dir/build.make CMakeFiles/cmTC_6e45a.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6e45a.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_6e45a.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_6e45a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e45a.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_6e45a.dir/src.cxx.o  -o cmTC_6e45a -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a30f1/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a30f1.dir/build.make CMakeFiles/cmTC_a30f1.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a30f1.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_a30f1.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a30f1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a30f1.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a30f1.dir/CheckIncludeFile.c.o  -o cmTC_a30f1 -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_68465/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_68465.dir/build.make CMakeFiles/cmTC_68465.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_68465.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_68465.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_68465
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68465.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_68465.dir/CheckFunctionExists.c.o  -o cmTC_68465 -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_26993/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_26993.dir/build.make CMakeFiles/cmTC_26993.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_26993.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_26993.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_26993
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26993.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_26993.dir/src.cxx.o  -o cmTC_26993 -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2c2c7/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_2c2c7.dir/build.make CMakeFiles/cmTC_2c2c7.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c2c7.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_2c2c7.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2c2c7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c2c7.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_2c2c7.dir/CheckIncludeFile.c.o  -o cmTC_2c2c7 -rdynamic 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0747b/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_0747b.dir/build.make CMakeFiles/cmTC_0747b.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0747b.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0747b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0747b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0747b.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_0747b.dir/CheckFunctionExists.c.o  -o cmTC_0747b -rdynamic -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a5ae7/fast"
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a5ae7.dir/build.make CMakeFiles/cmTC_a5ae7.dir/build
+make[2]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a5ae7.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_a5ae7.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a5ae7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5ae7.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_a5ae7.dir/src.cxx.o  -o cmTC_a5ae7 -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[2]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3fee7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3fee7.dir/build.make CMakeFiles/cmTC_3fee7.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3fee7.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_3fee7.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3fee7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fee7.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3fee7.dir/CheckIncludeFile.c.o  -o cmTC_3fee7 -rdynamic 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f28ce/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f28ce.dir/build.make CMakeFiles/cmTC_f28ce.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f28ce.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f28ce.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f28ce
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f28ce.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f28ce.dir/CheckFunctionExists.c.o  -o cmTC_f28ce -rdynamic -lpthread 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5f4d6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5f4d6.dir/build.make CMakeFiles/cmTC_5f4d6.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5f4d6.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_5f4d6.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5f4d6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f4d6.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_5f4d6.dir/src.cxx.o  -o cmTC_5f4d6 -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_87b3c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_87b3c.dir/build.make CMakeFiles/cmTC_87b3c.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_87b3c.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_87b3c.dir/CheckIncludeFile.c.o   -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_87b3c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87b3c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_87b3c.dir/CheckIncludeFile.c.o  -o cmTC_87b3c -rdynamic 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_30dd6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30dd6.dir/build.make CMakeFiles/cmTC_30dd6.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_30dd6.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_30dd6.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_30dd6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30dd6.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_30dd6.dir/CheckFunctionExists.c.o  -o cmTC_30dd6 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test GFLAGS_IN_GOOGLE_NAMESPACE succeeded with the following output:
+Change Dir: /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f9122/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f9122.dir/build.make CMakeFiles/cmTC_f9122.dir/build
+make[1]: Entering directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f9122.dir/src.cxx.o
+/usr/bin/c++     -DGFLAGS_IN_GOOGLE_NAMESPACE   -o CMakeFiles/cmTC_f9122.dir/src.cxx.o -c /home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f9122
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9122.dir/link.txt --verbose=1
+/usr/bin/c++    -DGFLAGS_IN_GOOGLE_NAMESPACE    CMakeFiles/cmTC_f9122.dir/src.cxx.o  -o cmTC_f9122 -rdynamic /usr/lib/x86_64-linux-gnu/libgflags.so -lpthread 
+make[1]: Leaving directory '/home/thib/catkin_ws/src/upredictor-SaraSh/EllipseFit/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <gflags/gflags.h>
+     int main(int argc, char * argv[]) {
+       google::ParseCommandLineFlags(&argc, &argv, true);
+       return 0;
+     }

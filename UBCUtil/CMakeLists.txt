@@ -28,6 +28,11 @@ include_directories(
 	#/usr/include/nvidia-361
 	/usr/include/opencv
 	../Linux/Third-Party/libfreenect2/include/libfreenect2
+        ${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/CERES/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	
 )
 
 add_library(

@@ -59,7 +59,7 @@ int main(int argc, char **argv) {
 	
 	
 	string fileName = argv[1];
-//	cout << "(* " << fileName << "*)" << endl;
+	cout << "(* " << fileName << "*)" << endl;
 
 	/************************************************/
 	/*** Wam IK SOLVER 
@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
 	int nMarkers = wSMarkers.size();
 	
 	/*** (H). Human motion from vicon data**/
-	/********************************************/
+	/*******************************************
 
 	
 
@@ -177,8 +177,10 @@ int main(int argc, char **argv) {
 
 
 	// (H1).END- Read & copy input CSV data into Eigen
+*/
+
 	/*** (2) ELLIPSE fitted model of Human motion **/
-	/***************************************************
+	/****************************************************/
 
 
 	string fileNameH = 
@@ -218,7 +220,7 @@ int main(int argc, char **argv) {
 	// positions in meter
 	MatrixXd inPts = 0.01 
 		*inPtsAlongRows.transpose();
-*/
+
 /***************************************************/
 /**
 "RWristX",	"RWristY",	"RWristZ" 			0

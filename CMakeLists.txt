@@ -1,5 +1,5 @@
 project(uPredictor)
-
+cmake_minimum_required(VERSION 3.5)
 include(${CMAKE_CURRENT_LIST_DIR}/ProjectIncludes.cmake.in)
 set(CMAKE_BUILD_TYPE Debug)
 

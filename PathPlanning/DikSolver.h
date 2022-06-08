@@ -15,6 +15,9 @@
 #include <cmath>
 #include "ceres/ceres.h"
 #include "ceres/rotation.h"
+
+#include "ceres/solver.h"
+
 #include "gflags/gflags.h"
 #include "glog/logging.h"
 
@@ -962,7 +965,7 @@ cout << "finalErrPt: " << finalErrPt << endl;
 				SetSolverOptionsFromFlags(
 					DIKProblem, &options);
 				options.minimizer_progress_to_stdout = false;
-		 	 	Solver::Summary summary;
+		 	 	ceres::Solver::Summary summary;
 				Solve(options, &problem, &summary);
 //				computeFitErrPtsRAt(DIKProblem, i, true);
 

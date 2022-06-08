@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/PathPlanning.dir/PathPlanning.o"
-  "CMakeFiles/PathPlanning.dir/DikProblem.o"
+  "CMakeFiles/PathPlanning.dir/PathPlanning.cpp.o"
+  "CMakeFiles/PathPlanning.dir/DikProblem.cpp.o"
   "PathPlanning.pdb"
   "PathPlanning"
 )

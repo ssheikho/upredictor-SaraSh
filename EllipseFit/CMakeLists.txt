@@ -5,8 +5,9 @@ cmake_minimum_required(VERSION 2.8)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-#include(${CMAKE_CURRENT_LIST_DIR}/../ProjectIncludes.cmake.in)
+include(${CMAKE_CURRENT_LIST_DIR}/../ProjectIncludes.cmake.in)
 
+find_package(Ceres REQUIRED)
 
 #FIND_PACKAGE(OpenCL)
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
@@ -34,15 +35,9 @@ set(ellipse_fit_src
 
 )
 
-
-add_executable(
-	EllipseFit
-	${ellipse_fit_src}
-)
-
 include_directories(
 
-	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB
+	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
 	${CMAKE_CURRENT_SOURCE_DIR}/../PathPlanning
 	../UBCCamera
 	../UBCColorTrackCUDA
@@ -62,8 +57,15 @@ include_directories(
 	/usr/include/eigen3
 	/usr/include/opencv
 	/usr/include/opencv2
-	/home/justin/Research/ThirdParty/Ceres/ceres-solver/config
-	/home/justin/Research/ThirdParty/Ceres/ceres-solver/include
+	#/home/justin/Research/ThirdParty/Ceres/ceres-solver/config
+	#/home/justin/Research/ThirdParty/Ceres/ceres-solver/include
+#	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/Ceres/ceres-solver/config
+#	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/Ceres/ceres-solver/include
+#	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/CERES/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty//glfw-3.1.1/src
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
 	#/usr/include/atk-1.0
 	#/usr/include/cairo
 	#/usr/include/gdk-pixbuf-2.0
@@ -78,6 +80,7 @@ include_directories(
 
 link_directories(
 
+
 	${CMAKE_CURRENT_SOURCE_DIR}/../ALGLIB/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCCamera/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCColorTrackCUDA/
@@ -87,7 +90,11 @@ link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCKinectGUI/
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCUtil/
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/dart/lib
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/glfw-3.1.1/src/
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/libfreenect2/lib/
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
 
 	../UBCCamera/
 	../UBCColorTrackCUDA/
@@ -98,10 +105,14 @@ link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../UBCUtil/
 	../Linux/Third-Party/dart/lib
 	../Linux/Third-Party/libfreenect2/lib/
-	#/usr/lib/x86_64-linux-gnu/
-	#/usr/local/cuda-8.0/lib64
+	/usr/lib/x86_64-linux-gnu/
+	/usr/local/cuda-8.0/lib64
 )
 
+add_executable(
+	EllipseFit
+	${ellipse_fit_src}
+)
 
 target_link_libraries(EllipseFit
 	#UBColorTrackCuda
@@ -109,7 +120,6 @@ target_link_libraries(EllipseFit
 	#ubckinectgui
 	#ubckinect
 	#ubccamera
-
 	#dart
 	alglib
 
@@ -134,7 +144,7 @@ target_link_libraries(EllipseFit
 	opencv_video
 	opencv_videostab
 
-	glfw
+	glfw3
 	GL
 	GLEW
 	GLU
@@ -155,7 +165,10 @@ target_link_libraries(EllipseFit
 	gflags
 	ceres
 
+
+
 	#ubcgui
 )
+
 
 set_property(TARGET EllipseFit PROPERTY CXX_STANDARD 11)
