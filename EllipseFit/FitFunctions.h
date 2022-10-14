@@ -2,6 +2,7 @@
 #define FIT_FUNCTIONS_H
 
 #include <Eigen/Core>
+//#include <Eigen>
 
 //Points are assumed to be 1 pt per column in Cartesian format 2D
 Eigen::MatrixXd buildConicConstraintMat(Eigen::MatrixXd inPts);

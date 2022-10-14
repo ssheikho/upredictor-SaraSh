@@ -5,7 +5,9 @@
 #include "TypeRecipient.h"
 #include "ValueListener.h"
 
-#include <opencv/cv.hpp>
+#include <opencv2/opencv_modules.hpp>
+#include <opencv2/opencv.hpp>
+//#include <opencv2/cv.hpp>
 
 class ImageChannelProvider;
 

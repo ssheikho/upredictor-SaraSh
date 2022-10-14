@@ -555,7 +555,7 @@ mat == AngleAxisf(ea_i[0], Vector3f::UnitZ())
 
 
 			// offset joint orientations 
-			//			 chest and base offset at zero
+			// chest and base offset at zero
 			Mat3  
 				rMatViconInCh0 = Mat3::Zero(3,3)
 				, rMatChInBase0 = Mat3::Zero(3,3);

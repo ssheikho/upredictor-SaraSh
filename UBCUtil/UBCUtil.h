@@ -12,7 +12,13 @@
 	#include "FakeWindowsTypes.h"
 #endif
 
-#include <opencv/cv.h>
+//#include <opencv/cvc.h>
+
+#include <opencv2/opencv_modules.hpp>
+#include <opencv2/opencv.hpp>
+#include "opencv2/core/core_c.h"
+#include "opencv2/videoio/legacy/constants_c.h"
+#include "opencv2/highgui/highgui_c.h"
 
 #include <Eigen/Core>
 

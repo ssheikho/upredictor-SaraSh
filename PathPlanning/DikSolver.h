@@ -5,6 +5,7 @@
 #include "BasicFormulas.h"
 #include "SpatialJacobian.h"
 #include "DikProblem.h"
+#include "DikProblemFixedBase.h"
 #include "DifferentialIKErrorTerm.h"
 #include "qBaseErrorTerm.h"
 #include "UBCUtil.h"
@@ -40,7 +41,7 @@ using ceres::Solve;
 using ceres::Solver;
 using ceres::CauchyLoss;
 
-DEFINE_double(fitErrNtolerance,  0.00001 , "fit error toleramce from DikProb m.");
+DEFINE_double(fitErrNtolerance,  0.0000001 , "fit error toleramce from DikProb m.");
  
 DEFINE_string(trust_region_strategy, "levenberg_marquardt",
               "Options are: levenberg_marquardt, dogleg.");
@@ -70,11 +71,11 @@ DEFINE_bool(use_quaternions, true, "If true, uses quaternions to represent "
 DEFINE_bool(use_local_parameterization, true, "For quaternions, use a local "
             "parameterization.");
 DEFINE_bool(robustify, true, "Use a robust loss function.");
-DEFINE_double(eta, 1e-10, "Default value for eta. Eta determines the "
+DEFINE_double(eta, 1e-15, "Default value for eta. Eta determines the "
              "accuracy of each linear solve of the truncated newton step. "
              "Changing this parameter can affect solve performance.");
 DEFINE_int32(num_threads, 1, "Number of threads.");
-DEFINE_int32(num_iterations, 100, "Number of iterations.");
+DEFINE_int32(num_iterations, 1000, "Number of iterations.");
 DEFINE_double(max_solver_time, 1e32, "Maximum solve time in seconds.");
 DEFINE_bool(nonmonotonic_steps, true, "Trust region algorithm can use"
             " nonmonotic steps.");
@@ -159,6 +160,15 @@ namespace ceres {
 			= FLAGS_inner_iterations;
 		options->max_num_consecutive_invalid_steps = 20;
 	}
+	
+	void SetSolverOptionsFromFlags(
+		Solver::Options* options) {
+
+		SetMinimizerOptions(options);
+		SetLinearSolver(options);
+//		SetOrdering(DIKProblem,options);
+	}
+
 
 	void SetSolverOptionsFromFlags(
 		DikProblem* DIKProblem
@@ -409,9 +419,180 @@ namespace ceres {
 
 
 
+void BuildProblemFixedBase (
+		DikProblemFixedBase* DIKProblemFixedBase
+		, Problem* problem) {		
+		
+		const int theta_block_size =
+			DIKProblemFixedBase->theta_block_size();
+
+		
+
+
+		ForwardKin<double> &wam = 
+			DIKProblemFixedBase->getWam();
+		size_t  nJoints = wam.getNJoints();
+
+		// Position measurements 
+		
+		// Observations = [u_1, u_2, ... , u_n],
+		// where each u_i is nMarkers * 3 dimensional,
+		// the x, y and z positions of each marker at t_i
+		const int nObservations = 
+			DIKProblemFixedBase->nObservations();
+		Eigen::MatrixXd
+			shToUaVs = DIKProblemFixedBase->shoToUaVsWam(),
+			elOffsetVs = DIKProblemFixedBase->elOffsetVsWam(),
+			wrOffsetVs = DIKProblemFixedBase->wrOffsetVsWam(),
+			laToWrVs = DIKProblemFixedBase->laToWrVsWam(),
+			shoToWrVs = DIKProblemFixedBase->shoToWrVsWam();
+		//info mat -> inverse of covariance (x y z)T
+		Eigen::Matrix<double, 3, 3> 
+			iMatShToUa =
+				varianceSolve(shToUaVs).inverse(),
+			iMatElOffset = 
+				varianceSolve(elOffsetVs).inverse(),
+			iMatWrOffset = 
+				varianceSolve(wrOffsetVs).inverse(),
+			iMatLaToWr = varianceSolve(laToWrVs).inverse(),
+			iMatShToWr = varianceSolve(shoToWrVs).inverse();
+		
+		double* thetas = 
+			DIKProblemFixedBase->mutable_thetas();
+		for (int i = 0; i < nObservations; i++)	{
+    			// Each observation correponds to a theta 
+    			// which is identified theta_index()[i]
+   			double* theta = thetas + theta_block_size * i;
+  
+			// Each Residual block takes a theta 
+			// as input and outputs a 3*nMarkers 
+    			//  dimensional residual. 
+   			CostFunction* cfPositionFixedBase;
+			cfPositionFixedBase = 
+		  		DifferentialPositionConstraintFixedBase::Create (
+					wam, 
+					shToUaVs.col(i),
+					elOffsetVs.col(i), 
+					wrOffsetVs.col(i),	
+					laToWrVs.col(i),
+					shoToWrVs.col(i), 
+					iMatShToUa, 
+					iMatElOffset, 
+					iMatWrOffset, 
+					iMatLaToWr, 
+					iMatShToWr);
+
+    	// If enabled use Huber's loss function.
+    	LossFunction* loss_function = FLAGS_robustify 
+				? new HuberLoss(0.5) : NULL;
+			problem->AddResidualBlock(cfPositionFixedBase,
+				loss_function, theta);
+		
+
+  	}
+    	// Set the limit for the theta parameter at  
+	// position index in the thetas_i parameter block 
+
+		std::vector<double> jointMinAngles = 
+			DIKProblemFixedBase->jointMinAngles();
+		std::vector<double> jointMaxAngles = 
+			DIKProblemFixedBase->jointMaxAngles();
+
+		for (int i = 0; i < nObservations; ++i) {
+   	 		double* theta = thetas + theta_block_size * i;
+			for (int joint = 0; joint < nJoints &&
+				joint < theta_block_size; joint++) {
+				problem->SetParameterLowerBound(theta, joint
+					, jointMinAngles[joint]);
+				problem->SetParameterUpperBound(theta, joint
+					, jointMaxAngles[joint]);
+			}
+		}	
+	}
 
 
 
+	void BuildProblemFixedBaseAt (
+		DikProblemFixedBase* DIKProblemFixedBase
+		, Problem* problem, int index) {		
+		const int theta_block_size =
+			DIKProblemFixedBase->theta_block_size();
+		double* thetas = DIKProblemFixedBase->mutable_thetas();
+		
+
+		ForwardKin<double> &wam = DIKProblemFixedBase->getWam();
+		size_t  nJoints = wam.getNJoints();
+
+		// Position measurement at t(i)
+		Eigen::MatrixXd
+			shToUaVs = DIKProblemFixedBase->shoToUaVsWam(),
+			elOffsetVs = DIKProblemFixedBase->elOffsetVsWam(),
+			wrOffsetVs = DIKProblemFixedBase->wrOffsetVsWam(),
+			laToWrVs = DIKProblemFixedBase->laToWrVsWam(),
+			shoToWrVs = DIKProblemFixedBase->shoToWrVsWam();
+		//info mat -> inverse of covariance (x y z)T
+		Eigen::Matrix<double, 3, 3> 
+			iMatShToUa = varianceSolve(shToUaVs).inverse(),
+			iMatElOffset = 
+				varianceSolve(elOffsetVs).inverse()
+			, iMatWrOffset =
+				varianceSolve(wrOffsetVs).inverse()
+			, iMatLaToWr = varianceSolve(laToWrVs).inverse()
+			, iMatShToWr = 
+				varianceSolve(shoToWrVs).inverse();
+
+   		CostFunction* cfPositionFixedBase;
+		cfPositionFixedBase = 
+	  		DifferentialPositionConstraintFixedBase::Create (
+					wam, 
+					shToUaVs.col(index),
+					elOffsetVs.col(index), 
+					wrOffsetVs.col(index),	
+					laToWrVs.col(index),
+				  shoToWrVs.col(index), 
+					iMatShToUa, 
+					iMatElOffset, 
+					iMatWrOffset, 
+					iMatLaToWr, 
+					iMatShToWr);
+			
+
+    		// If enabled use Huber's loss function.
+    		LossFunction* loss_function = FLAGS_robustify 
+    			? new HuberLoss(0.5) : NULL;
+    		// Each observation correponds to a theta which is
+    		// identified by theta_index()[i]
+   		double *theta = thetas + theta_block_size * index
+			, *thetaPrev = 
+				thetas + theta_block_size * (index-1);
+
+//				for (int j = 0; j < qBase_block_size; j++)	
+//					*qbase++ = *qbasePrev++;
+//				for (int j = 0; j < theta_block_size; j++)	
+//					*theta++ = *thetaPrev++;
+
+
+		problem->AddResidualBlock(cfPositionFixedBase,
+			loss_function, theta);
+  	
+   		// Set the limit for the theta parameter  
+		//  at position index in the thetas_i 
+		// parameter block 
+		std::vector<double> jointMinAngles = 
+			DIKProblemFixedBase->jointMinAngles();
+		std::vector<double> jointMaxAngles = 
+			DIKProblemFixedBase->jointMaxAngles();
+  		double* thetas_i = 
+  			thetas + theta_block_size * index;
+			for (int joint = 0; joint < nJoints &&
+				joint < theta_block_size; joint++) {
+				problem->SetParameterLowerBound(thetas_i, joint
+					, jointMinAngles[joint]);
+				problem->SetParameterUpperBound(thetas_i, joint
+					, jointMaxAngles[joint]);
+			}		
+
+	}
 
 
 
@@ -664,7 +845,6 @@ namespace ceres {
 */
 		return outPtsWam;
 	}
-	
 	void printOutPtsWam (DikProblem* DIKProblem,	
 		MatrixXd rMatsCh ) {
 		const int nObservations = 
@@ -709,7 +889,171 @@ namespace ceres {
 		printEigenMathematica( outUaVsWam.transpose()
 			, cout, "outUaVsWam" + phase);			
 	}	 
+		
+	MatrixXd outPtsWamFixedBaseAt (
+		DikProblemFixedBase* DIKProblemFixedBase
+		, int index) {
+
+		//(0). initialize Optimizer parameters;
+		const int nMarkers = 
+			DIKProblemFixedBase->nMarkers();
+
+		//(0).θs -  WAM JOINTS ORIENTATIONS
+		//	A(θ1), A(θ2), ..., A(θ_Njoints) 
+		ForwardKin<double> &wam = DIKProblemFixedBase->getWam();
+		size_t  nJoints = wam.getNJoints();
+
+		MatrixXd origin = MatrixXd::Zero(4,1)
+			, wamShtoUaTrans = MatrixXd ::Zero(4,1)
+			, wamElToLaTrans = MatrixXd::Zero(4,1)
+			, wamElToWrTrans =  MatrixXd::Zero(4,1);
+		origin << 0.0, 0.0, 0.0, 1.0;
+		wamShtoUaTrans << (0.0), (0.0)
+			, (0.55), (1.0);
+		wamElToLaTrans << 0.0, 0.0, (0.3/2.0), 1.0;
+		wamElToWrTrans << 0.0, 0.0, 0.3, 1.0;
+
+		const int theta_block_size =
+			DIKProblemFixedBase->theta_block_size();
+		double* thetas = 
+			DIKProblemFixedBase->mutable_thetas();
+	 	double* theta_i = thetas 
+	 		+ theta_block_size * index;
+		Eigen::Map<const Eigen::Matrix<double, 7, 1> > 
+			theta_Vi(theta_i);
+		wam.setThetaVect(theta_Vi);
+
+		//(1).	estimate marker poitions w.r.t.  
+		// fixed base frame
+		//"A(θ1) * A(θ2) * vUA": -> pUa(i)				
+		Vec3 outShoToUaViWamInBase = homToCart(
+			wam.getMat(2) * wamShtoUaTrans);
+		//"A(θ1) * A(θ2) * A(θ3) * Origin": -> pEl(i)		
+		Vec3 outShoToElViWamInBase = homToCart(
+			wam.getMat(3) * origin);
+		//"A(θ1) * A(θ2) * A(θ3) * Origin": -> pLa(i)		
+		Vec3 outShoToLaViWamInBase = homToCart(
+			wam.getMat(4) * origin);
+		//"A(θ1) * A(θ2) * ...* A(θ5) * Origin"
+		//				: -> pW(i)				
+		Vec3 outShoToWrViWamInBase = homToCart(
+			wam.getMat(5) * origin);
+		//"A(θ1)*A(θ2)* ...* A(θ7) * Origin"
+		//				: -> pEe(i)				
+		Vec3 outShoToEeViWamInBase = homToCart(
+			wam.getMat(7) * origin);
+		
+			
+		//(2). estimated marker poition in
+		// the camera frame is the same as in
+		// the base frame since rotBaseFixedinVicon = IDENTITY
+	/*	
+		// a constant rotation offset
+		Mat3 rotBaseInCh =
+			Mat3::Zero(3,3);
+		rotBaseInCh(0,2) = 1.0;
+		rotBaseInCh(1,1) = -1.0;
+		rotBaseInCh(2,0) = 1.0;	
+		
+		Vec3 zAxis = Vec3::Zero(3,1);
+		zAxis(2,0) = 1.0;
+		double dotProduct = 
+			rMatsCh_i.col(0).dot(zAxis);
+		//i.e. x of chest pointing down
+		if (dotProduct < 0.0)	{
+			rotBaseInCh(0,2) = -1.0;
+			rotBaseInCh(2,0) = -1.0;	
+		}	
+		Vec3 outShoToUaViWam = 
+			rotBaseInCh * outShoToUaViWamInBase;
+	
+		Vec3 outShoToElViWam = 
+			rotBaseInCh * outShoToElViWamInBase;
+			
+		Vec3 outShoToLaViWam = 
+			rotBaseInCh * outShoToLaViWamInBase;
+					
+		Vec3 outShoToWrViWam = 	
+			rotBaseInCh * outShoToWrViWamInBase;
+							
+		Vec3 outShoToEeViWam =
+			rotBaseInCh * outShoToEeViWamInBase; 
+	*/
+		
+		// out pts WAM in Chest
+		Vec3 outShWam = 
+			DIKProblemFixedBase->pShWam().col(index);
+
+		MatrixXd outPtsWam = MatrixXd::Zero(nMarkers*3,1);
+
+		outPtsWam.block(Markers::RSh,0,3,1)
+			= outShWam;
+		outPtsWam.block(Markers::RUA,0,3,1)
+			=	outShWam + outShoToUaViWamInBase;
+		outPtsWam.block(Markers::REl,0,3,1)
+			= outShWam + outShoToElViWamInBase;
+		outPtsWam.block(Markers::RLA,0,3,1)
+			=	outShWam + outShoToLaViWamInBase;
+		outPtsWam.block(Markers::RWr,0,3,1)
+			=	outShWam + outShoToWrViWamInBase;
+		outPtsWam.block(Markers::RTh,0,3,1)
+			=	outShWam + outShoToEeViWamInBase;
+		outPtsWam.block(Markers::RPi,0,3,1)
+			=	outShWam + outShoToEeViWamInBase;
+		return outPtsWam;
+	}
+	
+		
+	void printOutPtsWamFixedBase (
+		DikProblemFixedBase* DIKProblemFixedBase) {
+		const int nObservations = 
+			DIKProblemFixedBase->nObservations();
+		const int nMarkers = 
+			DIKProblemFixedBase->nMarkers();
+		string phase = DIKProblemFixedBase->phase();
+		MatrixXd outShWam = DIKProblemFixedBase->pShWam()
+			, outUaVsWam = MatrixXd::Zero(3,nObservations)
+			, outElVsWam = MatrixXd::Zero(3,nObservations)
+			, outLaVsWam = MatrixXd::Zero(3,nObservations)
+			, outWrVsWam = MatrixXd::Zero(3,nObservations)
+			, outEeVsWam = MatrixXd::Zero(3,nObservations);
+
+
+		MatrixXd outPtsWam_i 
+			= MatrixXd::Zero(nMarkers*3,1);
+		
+		//outPts in vicon frame
+		for (int i = 0; i < nObservations; i++)	{
+	
+			outPtsWam_i = outPtsWamFixedBaseAt 
+				(DIKProblemFixedBase,i);		
+			outUaVsWam.col(i) = 
+				outPtsWam_i.block(Markers::RUA,0,3,1);
+			outElVsWam.col(i) = 
+				outPtsWam_i.block(Markers::REl,0,3,1);
+			outLaVsWam.col(i) = 
+				outPtsWam_i.block(Markers::RLA,0,3,1);
+			outWrVsWam.col(i) = 
+				outPtsWam_i.block(Markers::RWr,0,3,1);
+			outEeVsWam.col(i) = 
+				outPtsWam_i.block(Markers::RTh,0,3,1);
+		}
+
+		printEigenMathematica( outEeVsWam.transpose()
+			, cout, "outEeVsWam" + phase);	
+		printEigenMathematica( outWrVsWam.transpose()
+			, cout, "outWrVsWam" + phase);	
+		printEigenMathematica( outLaVsWam.transpose()
+			, cout, "outLaVsWam" + phase);	
+		printEigenMathematica( outElVsWam.transpose()
+			, cout, "outElVsWam" + phase);	
+		printEigenMathematica( outUaVsWam.transpose()
+			, cout, "outUaVsWam" + phase);			
+	}	 
 		 
+		 
+	
+	
 	//Compute fit error at t(i)
 	MatrixXd computeFitErrPtsRAt(
 		DikProblem* DIKProblem, int index
@@ -839,6 +1183,143 @@ namespace ceres {
 
 	}
 
+	//Compute fit error at t(i)
+	MatrixXd computeFitErrPtsRFixedBaseAt(
+		DikProblemFixedBase* DIKProblemFixedBase
+		, int index) {
+
+		//  outVecsWam predictions
+		const int nMarkers = DIKProblemFixedBase->nMarkers();
+		MatrixXd outMarkerPtsWam_i =
+			MatrixXd ::Zero(nMarkers*3,1);
+		outMarkerPtsWam_i = 
+			outPtsWamFixedBaseAt(DIKProblemFixedBase
+			, index);
+
+		Vec3 
+			outShWam = 
+				DIKProblemFixedBase->pShWam().col(index),
+			outShoToUaViWam = outMarkerPtsWam_i.block(
+				Markers::RUA,0,3,1) - outShWam,
+			outShoToElViWam = outMarkerPtsWam_i.block(
+				Markers::REl,0,3,1) - outShWam,
+			outShoToLaViWam = outMarkerPtsWam_i.block(
+				Markers::RLA,0,3,1) - outShWam,
+			outShoToWrViWam = outMarkerPtsWam_i.block(
+				Markers::RWr,0,3,1)- outShWam,
+			outShoToEeViWam = outMarkerPtsWam_i.block(
+				Markers::RTh,0,3,1)- outShWam;
+
+		//Compute fit Error
+		MatrixXd fitErrMarkerPts = 
+			MatrixXd::Zero(nMarkers*3,1);
+
+		Vec3 fitErrUA = 
+			DIKProblemFixedBase->shoToUaVsWam().col(index)
+			- outShoToUaViWam;
+		fitErrMarkerPts.block(Markers::RUA,0,3,1)
+			= fitErrUA;
+
+		Vec3 fitErrEl = 
+			(DIKProblemFixedBase->shoToElVsWam().col(index)
+			- outShoToElViWam);
+		fitErrMarkerPts.block(Markers::REl,0,3,1) 
+			= fitErrEl;
+
+		Vec3 fitErrLA = 
+			(DIKProblemFixedBase->shoToLaVsWam().col(index)
+			- outShoToLaViWam);
+		fitErrMarkerPts.block(Markers::RLA,0,3,1) 
+			= fitErrLA;
+
+		Vec3 fitErrWr = 
+			(DIKProblemFixedBase->shoToWrVsWam().col(index)
+			- outShoToWrViWam);
+		fitErrMarkerPts.block(Markers::RWr,0,3,1)
+			= fitErrWr;
+
+		Vec3 fitErrEe = (DIKProblemFixedBase->shoToEeVsWam()
+				.col(index) - outShoToEeViWam);
+		fitErrMarkerPts.block(
+			Markers::RTh,0,3,1) =	fitErrEe;
+
+/*
+		printEigenMathematica(fitErrUA.transpose()
+			, cout, "fitErrUA"+to_string(index));	
+		printEigenMathematica(fitErrEl.transpose()
+			, cout, "fitErrEl"+to_string(index));	
+		printEigenMathematica(fitErrLA.transpose()
+			, cout, "fitErrLA"+to_string(index));	
+		printEigenMathematica(fitErrWr.transpose()
+			, cout, "fitErrWr"+to_string(index));	
+		printEigenMathematica(fitErrEe.transpose()
+			, cout, "fitErrEe"+to_string(index));	
+*/
+		return fitErrMarkerPts;
+	}
+
+
+
+	void computeFitErrPtsRFixedBase (
+		DikProblemFixedBase* DIKProblemFixedBase) {
+
+		const int nObservations = 
+			DIKProblemFixedBase->nObservations();
+		const int nMarkers = DIKProblemFixedBase->nMarkers();
+
+		//Fit Errors between scaled inVecs & OutVecs of WAM
+		MatrixXd fitErrMarkerPts =
+ 			MatrixXd::Zero(3*nMarkers,nObservations);
+		MatrixXd fitErrMarkerPts_i =
+ 			MatrixXd::Zero(3*nMarkers,1);
+		
+		for (int i = 0; i < nObservations; i++)	{
+			fitErrMarkerPts_i = 
+				computeFitErrPtsRFixedBaseAt(
+					DIKProblemFixedBase
+					, i);
+			fitErrMarkerPts.col(i) = fitErrMarkerPts_i;
+
+		}
+		
+		//Compute fit error 
+		MatrixXd 
+			fitErrUA = fitErrMarkerPts.block(
+				Markers::RUA,0,3,nObservations),
+			fitErrEl = fitErrMarkerPts.block(
+				Markers::REl,0,3,nObservations),
+			fitErrLA = fitErrMarkerPts.block(
+				Markers::RLA,0,3,nObservations),
+			fitErrWr = fitErrMarkerPts.block(
+				Markers::RWr,0,3,nObservations),
+			fitErrEe = fitErrMarkerPts.block(
+				Markers::RTh,0,3,nObservations);
+
+
+		cout << "fitErrUAMean = " 
+			 << fitErrUA.colwise().norm().mean() << endl;
+		cout << "fitErrElMean = " 
+			 << fitErrEl.colwise().norm().mean() << endl;
+		cout << "fitErrLAMean = " 
+			 << fitErrLA.colwise().norm().mean() << endl;
+		cout << "fitErrWrMean = " 
+			 << fitErrWr.colwise().norm().mean() << endl;
+		cout << "fitErrEeMean = " 
+			 << fitErrEe.colwise().norm().mean() << endl;
+
+		printEigenMathematica(fitErrUA.transpose()
+			, cout, "fitErrUA" + DIKProblemFixedBase->phase());	
+		printEigenMathematica(fitErrEl.transpose()
+			, cout, "fitErrEl"+ DIKProblemFixedBase->phase());	
+		printEigenMathematica(fitErrLA.transpose()
+			, cout, "fitErrLA"+ DIKProblemFixedBase->phase());	
+		printEigenMathematica(fitErrWr.transpose()
+			, cout, "fitErrWr"+ DIKProblemFixedBase->phase());	
+		printEigenMathematica(fitErrEe.transpose()
+			, cout, "fitErrEe"+ DIKProblemFixedBase->phase());	
+
+	}
+	
 	
 	void SolveProblemFPrevPt(
 		DikProblem* DIKProblem) {
@@ -979,6 +1460,141 @@ cout << "finalErrPt: " << finalErrPt << endl;
 }
 
 
+
+
+
+	void SolveProblemFPrevPtFixedBase(
+		DikProblemFixedBase* DIKProblemFixedBase) {
+
+		const int theta_block_size =
+			DIKProblemFixedBase->theta_block_size();
+		double* thetas = DIKProblemFixedBase->mutable_thetas();
+
+		
+		const int nObservations = 
+			DIKProblemFixedBase->nObservations();
+		const int nMarkers = 
+			DIKProblemFixedBase->nMarkers();
+		MatrixXd fitErrMarkerPts_i = 
+			MatrixXd::Zero(3*nMarkers,1);
+		double fitErrUANorm_i = 0.0;
+
+		//Max optimizer step size 
+		int startErrPt = 0;
+		while (fitErrUANorm_i < 0.00001 
+			&& startErrPt < nObservations-5)	{
+			startErrPt++;
+
+			fitErrMarkerPts_i = computeFitErrPtsRFixedBaseAt(
+				DIKProblemFixedBase, startErrPt);
+			fitErrUANorm_i = fitErrMarkerPts_i.block(
+				Markers::RUA,0,3,1).norm();
+			}
+
+
+		//Min optimizer step size 
+		fitErrUANorm_i	=	0.0;
+		int finalErrPt = nObservations-1;
+		while (fitErrUANorm_i < 0.00001 
+			&& finalErrPt > 0)	{
+		
+			fitErrMarkerPts_i = computeFitErrPtsRFixedBaseAt(
+				DIKProblemFixedBase, finalErrPt);
+			fitErrUANorm_i = fitErrMarkerPts_i.block(
+				Markers::RUA,0,3,1).norm();
+			finalErrPt--;
+		}
+
+
+cout << "startErrPt: " << startErrPt << endl;
+cout << "finalErrPt: " << finalErrPt << endl;
+
+		for (int i = 2; i < finalErrPt; i++)	{	
+	 		 	double* theta_i = 
+	 		 		thetas + theta_block_size * i;
+				
+				fitErrMarkerPts_i = 
+					computeFitErrPtsRFixedBaseAt(
+					DIKProblemFixedBase, i);
+				fitErrUANorm_i = fitErrMarkerPts_i.block(
+				Markers::RUA,0,3,1).norm();
+
+				//A- SOLVE Pt_i FROM Pt_(i-1)	
+				//Max optimizer step size 
+				int stepSize = i;
+				while (fitErrUANorm_i > 0.001 
+					&& stepSize > i-5 && stepSize > -1)	{		
+					stepSize--;
+
+					double* theta_iMone = thetas + 
+						theta_block_size * (stepSize);
+					for (int j = 0; j < theta_block_size; j++)	
+						*theta_i++ = *theta_iMone++;
+				
+					Problem problem;
+					BuildProblemFixedBaseAt(
+						DIKProblemFixedBase, &problem, i);
+			 		Solver::Options options;
+					SetSolverOptionsFromFlags(&options);
+					options.minimizer_progress_to_stdout = false;
+			 	 	Solver::Summary summary;
+					Solve(options, &problem, &summary);
+
+					fitErrMarkerPts_i = 
+						computeFitErrPtsRFixedBaseAt(
+						DIKProblemFixedBase, i);
+					fitErrUANorm_i = fitErrMarkerPts_i.block(
+					Markers::RUA,0,3,1).norm();
+				}
+		}
+
+
+
+
+
+
+
+		for (int i = nObservations-1; 
+			i > startErrPt; i--)	{	
+			double* theta_i = 
+			 	thetas + theta_block_size * i;
+			
+			fitErrMarkerPts_i = 
+				computeFitErrPtsRFixedBaseAt(
+				DIKProblemFixedBase, i);
+			fitErrUANorm_i = fitErrMarkerPts_i.block(
+				Markers::RUA,0,3,1).norm();
+
+		  int stepSize = i;
+			while (fitErrUANorm_i > 0.01 
+				&& stepSize < i+5
+				&& stepSize < nObservations) {		
+														
+				stepSize++;
+				double* theta_iPone = thetas + 
+					theta_block_size * (stepSize);
+				for (int j = 0; j < theta_block_size; j++)	
+					*theta_i++ = *theta_iPone++;
+
+				Problem problem;
+				BuildProblemFixedBaseAt(
+					DIKProblemFixedBase, &problem, i);
+		 		Solver::Options options;
+				SetSolverOptionsFromFlags(&options);
+				options.minimizer_progress_to_stdout = false;
+		 	 	ceres::Solver::Summary summary;
+				Solve(options, &problem, &summary);
+//				computeFitErrPtsRAt(DIKProblem, i, true);
+
+
+				fitErrMarkerPts_i = 
+					computeFitErrPtsRFixedBaseAt(
+					DIKProblemFixedBase, i);
+				fitErrUANorm_i = fitErrMarkerPts_i.block(
+				Markers::RUA,0,3,1).norm();
+			}
+	}
+}
 
 
 
@@ -1359,7 +1975,33 @@ FN
 		}
 		return 	outThetasWam;
 	}
+/*
+	Eigen::MatrixXd getOutThetasWamFixedBase(
+		DikProblemFixedBase* DIKProblemFixedBase) {
 
+		const int nObservations = 
+			DIKProblemFixedBase->nObservations();
+		Eigen::MatrixXd outThetasWam = 
+			Eigen::MatrixXd::Zero(7,nObservations);
+
+		ForwardKin<double> &wam = DIKProblemFixedBase->getWam();
+
+		const int theta_block_size =
+			DIKProblemFixedBase->theta_block_size();
+		double* thetas = DIKProblemFixedBase->mutable_thetas();
+		size_t  nJoints = wam.getNJoints();
+
+		for (int i = 0; i < nObservations; i++)	{
+   	 		double* theta_i 
+   	 			= thetas + theta_block_size * i;
+    			Eigen::Map<const Eigen::Matrix
+    				<double, 7, 1> > theta_Vi(theta_i);
+			outThetasWam.col(i) = theta_Vi;
+		}
+		return 	outThetasWam;
+	}
+
+*/
 	void SolveOrientationProblemAt(DikProblem* DIKProblem
 		, int index) {
 		Problem problem;
@@ -1417,6 +2059,8 @@ FN
 
 	}
 
+	
+	
 
 	void SolveProblem(DikProblem* DIKProblem) {
 		Problem problem;
@@ -1426,13 +2070,48 @@ FN
 //		std::cout << "(* " << std::endl;
 		options.minimizer_progress_to_stdout = false;
  	 	Solver::Summary summary;
-  	Solve(options, &problem, &summary);
-//  	std::cout << summary.FullReport() << std::endl;
+  		Solve(options, &problem, &summary);
+//  		std::cout << summary.FullReport() << std::endl;
 //		std::cout << "*) " << std::endl;
 		computeFitErrPtsR(DIKProblem);
 
 	}
+	
+	void SolveProblemAtFixedBase(
+		DikProblemFixedBase* DIKProblemFixedBase
+		, int index) {
+		
+		Problem problem;
+		BuildProblemFixedBaseAt(
+			DIKProblemFixedBase, &problem, index);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(&options);
+//		std::cout << "(* " << std::endl;
+		options.minimizer_progress_to_stdout = false;
+ 	 	Solver::Summary summary;
+  		Solve(options, &problem, &summary);
+	 	std::cout << summary.FullReport() << std::endl;
+//		std::cout << "*) " << std::endl;
+//		computeFitErrPtsRAt(DIKProblem, index, false);
 
+	}
+	
+	void SolveProblemFixedBase(
+		DikProblemFixedBase* DIKProblemFixedBase) {
+		Problem problem;
+		BuildProblemFixedBase(DIKProblemFixedBase, &problem);
+ 		Solver::Options options;
+		SetSolverOptionsFromFlags(&options);
+//		std::cout << "(* " << std::endl;
+		options.minimizer_progress_to_stdout = false;
+ 	 	Solver::Summary summary;
+  		Solve(options, &problem, &summary);
+//  		std::cout << summary.FullReport() << std::endl;
+//		std::cout << "*) " << std::endl;
+		computeFitErrPtsRFixedBase(DIKProblemFixedBase);
+
+	}
+	
 
 Eigen::MatrixXd FitEllipseModel(
 	Eigen::MatrixXd inPts) {

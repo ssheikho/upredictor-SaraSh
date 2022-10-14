@@ -108,7 +108,7 @@ std::pair<MatrixXd, MatrixXd> KmeansCluster
 					 distance : (Xmat.row(i) - Wmeans.row(j)).norm();
 
 			}
-			nPerCluster(Y(i,0)) = nPerCluster(Y(i,0)) + 1;
+			//nPerCluster(Y(i,0)) = nPerCluster(Y(i,0)) /*+ 1.0*/;
 			sumPerCluster.row(Y(i,0)) = sumPerCluster.row(Y(i,0))
 		  	+ Xmat.row(i);
 		}

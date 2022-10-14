@@ -1,4 +1,4 @@
-# Install script for directory: /home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1
+# Install script for directory: /home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,22 +32,32 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/include/GLFW" FILES_MATCHING REGEX "/glfw3\\.h$" REGEX "/glfw3native\\.h$")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw" TYPE FILE FILES
-    "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3Config.cmake"
-    "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3ConfigVersion.cmake"
+    "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3Config.cmake"
+    "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3ConfigVersion.cmake"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw/glfwTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw/glfwTargets.cmake"
-         "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets.cmake")
+         "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw/glfwTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -56,22 +66,21 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw" TYPE FILE FILES "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw" TYPE FILE FILES "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw" TYPE FILE FILES "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/glfw" TYPE FILE FILES "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/CMakeFiles/Export/lib/cmake/glfw/glfwTargets-noconfig.cmake")
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3.pc")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/glfw3.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/cmake_install.cmake")
-  include("/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/examples/cmake_install.cmake")
-  include("/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/tests/cmake_install.cmake")
-  include("/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/docs/cmake_install.cmake")
+  include("/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/src/cmake_install.cmake")
+  include("/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/examples/cmake_install.cmake")
+  include("/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/tests/cmake_install.cmake")
 
 endif()
 
@@ -83,5 +92,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/thib/catkin_ws/src/upredictor-SaraSh/ThirdParty/glfw-3.1.1/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sara/Documents/upredictor-SaraSh/ThirdParty/glfw-3.1.1/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

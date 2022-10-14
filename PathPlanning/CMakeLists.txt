@@ -23,6 +23,7 @@ set(Path_Planning_src
 	#BasicFormulas.cpp
 	PathPlanning.cpp
 	DikProblem.cpp
+	DikProblemFixedBase.cpp
 	
 	${CMAKE_CURRENT_SOURCE_DIR}/../EllipseFit/
 )
@@ -49,8 +50,9 @@ include_directories(
 	../Linux/Third-Party/libfreenect2/include/libfreenect2
 	/usr/include
 	/usr/include/eigen3
-	/usr/include/opencv
-	/usr/include/opencv2
+	#/usr/include/opencv
+	#/usr/include/opencv2
+	/usr/include/opencv4
 	/home/justin/Research/ThirdParty/Ceres/ceres-solver/config
 	/home/justin/Research/ThirdParty/Ceres/ceres-solver/include
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/glfw-3.1.1/src/
@@ -70,6 +72,8 @@ include_directories(
 	#/usr/include/gtk-3.0
 	#/usr/include/pango-1.0
 	#/usr/lib/x86_64-linux-gnu/glib-2.0/include/
+	
+	${CERES_INCLUDE_DIRS}
 	${OpenCL_INCLUDE_DIRS}
 	${GTK_INCLUDE_DIRS}
 	/usr/local/cuda-8.0/include
@@ -123,24 +127,26 @@ target_link_libraries(PathPlanning
 	alglib
 	ubcutil
 
+	
 	opencv_calib3d
-	opencv_contrib
+#	opencv_contrib
 	opencv_core
 	opencv_features2d
 	opencv_flann
-	opencv_gpu
+#	opencv_gpu
 	opencv_highgui
 	opencv_imgproc
-	opencv_legacy
+#	opencv_legacy
 	opencv_ml
 	opencv_objdetect
-	opencv_ocl
+#	opencv_ocl
 	opencv_photo
 	opencv_stitching
 	opencv_superres
-	opencv_ts
+#	opencv_ts
 	opencv_video
 	opencv_videostab
+
 
 	#glfw
 	GL
@@ -153,10 +159,12 @@ target_link_libraries(PathPlanning
 	#OpenCL
 
 	${OpenCL_LIBRARIES}
+	${OpenCV_LIBRARIES}
 	#freenect2
 
 	pthread
 	${GTK_LDFLAGS}
+	${CERES_LIBRARIES}
 
 	glog
 	gflags
@@ -165,4 +173,4 @@ target_link_libraries(PathPlanning
 	#ubcgui
 )
 
-set_property(TARGET PathPlanning PROPERTY CXX_STANDARD 11)
+set_property(TARGET PathPlanning PROPERTY CXX_STANDARD 14)

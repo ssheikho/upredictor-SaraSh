@@ -6,6 +6,8 @@
 #include "SpatialJacobian.h"
 #include "ForwardKin.h"
 #include "DikProblem.h"
+#include "DikProblemFixedBase.h"
+
 #include "DikSolver.h"
 #include "MayaAnimation.h"
 
@@ -97,8 +99,8 @@ int main(int argc, char **argv) {
  		{"x", "y", "z"};
 	std::vector<std::string> wSMarkers =	
 	{	
-   "RWristX",	"RWristY",	"RWristZ" 
-	,	"RThumbX",	"RThumbY",	"RThumbZ" 
+   	"RWristX",	"RWristY",	"RWristZ" 
+	, "RThumbX",	"RThumbY",	"RThumbZ" 
 	, "RLArmX",	"RLArmY",	"RLArmZ"		
 	, "RElbX",	"RElbY",	"RElbZ"				
 	, "RUArmX",	"RUArmY",	"RUArmZ"		
@@ -236,9 +238,9 @@ int main(int argc, char **argv) {
 	, "RPinkieX",	"RPinkieY",	"RPinkieZ" 30
 	};
 **/
-
+/*
 	// (H2).  Animation
-	// 			- key vicon marker Positions in MB
+	// - key vicon marker Positions in MB
 
 	// inpts in MotionBuilder frame
 	MatrixXd inPtsAlongRowsMB = 
@@ -246,8 +248,8 @@ int main(int argc, char **argv) {
 			::getInPtsInMbFrame(inPtsAlongRows);
 	MatrixXd inPtsMB = inPtsAlongRowsMB.transpose();
 	// add key to inPts marker positions
-//	cout <<" Start inPts in MotionBuilder frame"<< endl;
-/*		*/
+	// cout <<" Start inPts in MotionBuilder frame"<< endl;
+
 	int mkr = 30;
 	std::string marker_i = wSMarkers[mkr].substr(
 		0, ((unsigned)(wSMarkers[mkr].length())));
@@ -258,27 +260,31 @@ int main(int argc, char **argv) {
 	if (phase == 1)	
 		cout << "# Frames " << startF-1 << "-" << endF << endl;
 		
-//	MotionBuilderAnimation::keyAddSingleMarker(
-//		inPtsMkr_i, startF, marker_i);
-//		cout << "\n" << endl;
+	//MotionBuilderAnimation::keyAddSingleMarker(
+		//inPtsMkr_i, startF, marker_i);
+		//cout << "\n" << endl;
 	
 	MotionBuilderAnimation::keyAdd(
 		inPtsMB, startF, wSMarkers);
 
-//	cout <<" END inPts in MotionBuilder frame"<< endl;
+	//cout <<" END inPts in MotionBuilder frame"<< endl;
 	
-/*
+*/
 
 	// (H3). Print Human motion from vicon (inPts)
 	//				& Scaled human motion to WAM (inPtsWam)
+/*
 	DikProblem *dIkProb =
 		new DikProblem	(wam, jointMinAngles,
 			jointMaxAngles, use_quaternions, 
 			inPts, phaseS);
-
+			
+	DikProblemFixedBase *dIkProbFixedBase =
+		new DikProblemFixedBase	(wam, jointMinAngles,
+			jointMaxAngles, inPts, phaseS);
  	// (H3.1). Get human arm joint ORIENTATIONS 
- 	//					from vicon inPts in VICON Frame - 
- 	//							Rj_i
+ 	// from vicon inPts in VICON Frame - 
+ 	// Rj_i
  	
 
 	// chest orientation
@@ -292,7 +298,8 @@ int main(int argc, char **argv) {
 		, cout, "rMatsCh" + phaseS);
 	printEigenMathematica(xyzEulersCh.transpose()
 		, cout, "xyzEulersCh" + phaseS);
-
+*/		
+/*
 	// in MAYA ChestFrame_0
 	Eigen::MatrixXd rMatsChInChF = MayaAnimation::
 		buildChRotReferentialsInChF(dIkProb);
@@ -346,22 +353,58 @@ int main(int argc, char **argv) {
 		new DikProblem	(wam, jointMinAngles,
 			jointMaxAngles, use_quaternions, 
 			inPtsInChest, phaseS+"inCh");
+			*/
+			
+	// (H4). Transform (inPts) &  (inPtsWam) to Base Frame
+	Mat3 rMatViconWrtBase = 
+			Eigen::MatrixXd::Zero(3,3);
+		rMatViconWrtBase(0,0) = -1.0;
+		rMatViconWrtBase(1,1) = 1.0;
+		rMatViconWrtBase(2,2) = -1.0;
+		
+	MatrixXd
+		inPtsInBase = MatrixXd::Zero(nMarkers,nPts);
 
-*/
+	for (int i = 0; i < nPts; i++) {	
+		//inPts in Base frame
+		for (size_t j = 0; j < nMarkers; ){	
+			inPtsInBase.block(j,i,3,1) = 
+				rMatViconWrtBase * inPts.block(j,i,3,1);
+
+			j = j+3;
+		}
+	}
+	
+	DikProblem *dIkProb =
+		new DikProblem	(wam, jointMinAngles,
+			jointMaxAngles, use_quaternions, 
+			inPts, phaseS);
+
+	DikProblemFixedBase *dIkProbFixedBase =
+		new DikProblemFixedBase	(wam, jointMinAngles,
+			jointMaxAngles, inPtsInBase, phaseS);
+
 
 	/*** (IK). WAM InverseKinematics from Human motion **/
-	/******************************************************
+	/********************************************************/
 
 	// (IK1). inverse position in chest frame
 
 
 	// A. In Human Chest Frame
-	cout << "(*IK solution in Human Chest Frame*)" << endl;
+	cout << "(*IK solution in WAM BASE Frame*)" << endl;
 	
 	cout << "(*(1) SolveProblemAt*)" << endl;
 	for (int i = 1; i < nPts; i++)
-		ceres::SolveProblemAt(dIkProbInChest, i);
-	computeFitErrPtsR(dIkProbInChest);
+		ceres::SolveProblemAtFixedBase(dIkProbFixedBase, i);
+	computeFitErrPtsRFixedBase(dIkProbFixedBase);
+	
+	printOutPtsWamFixedBase (dIkProbFixedBase);
+
+//	for (int i = 1; i < nPts; i++)
+//		ceres::SolveProblemAt(dIkProb, i);
+//	computeFitErrPtsR(dIkProb);
+/*
 	Eigen::MatrixXd 
 		outThetasWamInChest = 
 			ceres::getOutThetasWam(dIkProbInChest),
@@ -376,16 +419,33 @@ int main(int argc, char **argv) {
 	printEigenMathematica(xyzEulersBaseInChest
 		.transpose(), cout, "xyzEulersBase"+ phaseS
 		 + "inCh" + "SolveProbAt");
-		
+	
+*/
+
+
+/*		
 	cout << "(*(2) SolveProblem*)" << endl;
-	ceres::SolveProblem(dIkProbInChest);
-	//	computeFitErrPtsR(dIkProbInChest);
-	outThetasWamInChest = 
-		ceres::getOutThetasWam(dIkProbInChest);
-	outQuatsBaseInChest = 
-		ceres::getOutQuatsBase(dIkProbInChest);
-	xyzEulersBaseInChest = MayaAnimation::
-		getBaseEulerAngles (dIkProbInChest);
+//	ceres::SolveProblem(dIkProb);
+//	computeFitErrPtsR(dIkProb);
+	
+	ceres::SolveProblemFixedBase(dIkProbFixedBase);
+	computeFitErrPtsRFixedBase(dIkProbFixedBase);
+//	printOutPtsWamFixedBase (dIkProbFixedBase);
+	
+//	for (int i = 1; i < nPts; i++)
+//		ceres::SolveProblemAtFixedBase(dIkProbFixedBase, i);
+//	computeFitErrPtsRFixedBase(dIkProbFixedBase);
+	
+//	printOutPtsWamFixedBase (dIkProbFixedBase);
+
+	
+	Eigen::MatrixXd 
+		outThetasWamInChest = 
+			ceres::getOutThetasWam(dIkProbInChest),
+		outQuatsBaseInChest = 
+			ceres::getOutQuatsBase(dIkProbInChest),
+		xyzEulersBaseInChest = MayaAnimation::
+			getBaseEulerAngles (dIkProbInChest);
 
 	printEigenMathematica(outThetasWamInChest, cout
 		, "outThetasWam"+ phaseS + "inCh" + "SolveProb");
@@ -394,17 +454,23 @@ int main(int argc, char **argv) {
 	printEigenMathematica(xyzEulersBaseInChest.transpose()
 		, cout, "xyzEulersBase"+ phaseS+"inCh"+"SolveProb");
 
-
+*/
 	cout << "(*(3) SolveProblemFPrevPt*)" << endl;
-	ceres::SolveProblemFPrevPt(dIkProbInChest);
-	computeFitErrPtsR(dIkProbInChest);
+	ceres::SolveProblemFPrevPtFixedBase(dIkProbFixedBase);					
+	computeFitErrPtsRFixedBase(dIkProbFixedBase);
+	/* INCLUDE*/
+	
+//	ceres::SolveProblemFPrevPt(dIkProb);
+//	computeFitErrPtsR(dIkProb);
+/*
 //	ceres::SolveProblemFNextPt(dIkProbInChest);
-	outThetasWamInChest = 
-		ceres::getOutThetasWam(dIkProbInChest);
-	outQuatsBaseInChest = 
-		ceres::getOutQuatsBase(dIkProbInChest);
-	xyzEulersBaseInChest = MayaAnimation::
-		getBaseEulerAngles (dIkProbInChest);
+//	Eigen::MatrixXd 
+		outThetasWamInChest = 
+			ceres::getOutThetasWam(dIkProbInChest);
+		outQuatsBaseInChest = 
+			ceres::getOutQuatsBase(dIkProbInChest);
+		xyzEulersBaseInChest = MayaAnimation::
+			getBaseEulerAngles (dIkProbInChest);
 	printEigenMathematica(outThetasWamInChest
 		, cout, "outThetasWam"+ phaseS+"inCh" 
 		+	"SolveProbFPrevPt");
@@ -414,20 +480,41 @@ int main(int argc, char **argv) {
 	printEigenMathematica(xyzEulersBaseInChest.transpose()
 		, cout, "xyzEulersBaseInChest"+ phaseS+"inCh"
 		+	"SolveProbFPrevPt");
+	cout << "(*(3) SolveProblemFPrevPt*)" << endl;
+	ceres::SolveProblemFPrevPt(dIkProbInChest);
+	computeFitErrPtsR(dIkProbInChest);
+//	ceres::SolveProblemFNextPt(dIkProbInChest);
+//	Eigen::MatrixXd 
+		outThetasWamInChest = 
+			ceres::getOutThetasWam(dIkProbInChest);
+		outQuatsBaseInChest = 
+			ceres::getOutQuatsBase(dIkProbInChest);
+		xyzEulersBaseInChest = MayaAnimation::
+			getBaseEulerAngles (dIkProbInChest);
+	printEigenMathematica(outThetasWamInChest
+		, cout, "outThetasWam"+ phaseS+"inCh" 
+		+	"SolveProbFPrevPt");
+	printEigenMathematica(outQuatsBaseInChest
+		, cout, "outQuatsBase"+ phaseS+"inCh"
+		+	"SolveProbFPrevPt");
+	printEigenMathematica(xyzEulersBaseInChest.transpose()
+		, cout, "xyzEulersBaseInChest"+ phaseS+"inCh"
+		+	"SolveProbFPrevPt");		
 		
-
+*/		
+		
+/*
 	cout << "(*(4) SolveProblem2*)" << endl;
 	ceres::SolveProblem(dIkProbInChest);
 	//	computeFitErrPtsR(dIkProbInChest);
-	outThetasWamInChest = 
-		ceres::getOutThetasWam(dIkProbInChest);
-	outQuatsBaseInChest = 
-		ceres::getOutQuatsBase(dIkProbInChest);
+//	outThetasWamInChest = 
+//		ceres::getOutThetasWam(dIkProbInChest);
+//	outQuatsBaseInChest = 
+//		ceres::getOutQuatsBase(dIkProbInChest);
 	printEigenMathematica(outThetasWamInChest, cout
 		, "outThetasWam"+ phaseS + "inCh" + "SolveProb2");
 	printEigenMathematica(outQuatsBaseInChest, cout
 		, "outQuatsBase"+ phaseS + "inCh" + "SolveProb2");
-		
 
 	Eigen::MatrixXd  rMatsBase = MayaAnimation::
 		buildBaseRotReferentials(dIkProbInChest);
@@ -441,10 +528,11 @@ int main(int argc, char **argv) {
 		*(180.0/M_PI), cout, "xyzEulersBaseInDeg"
 			+ phaseS+"inCh");
 
-	ceres::printOutPtsWam(dIkProbInChest,rMatsCh);
+*/
+//	ceres::printOutPtsWam(dIkProbInChest,rMatsCh);
 
-**/
-/*
+
+	/*
 	// B. In Vicon Frame
 	cout << "solution in Vicon Frame" << endl;
 	for (int i = 1; i < nPts; i++)

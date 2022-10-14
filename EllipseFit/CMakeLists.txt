@@ -57,15 +57,24 @@ include_directories(
 	/usr/include/eigen3
 	/usr/include/opencv
 	/usr/include/opencv2
+	/usr/include/opencv4
 	#/home/justin/Research/ThirdParty/Ceres/ceres-solver/config
 	#/home/justin/Research/ThirdParty/Ceres/ceres-solver/include
 #	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/Ceres/ceres-solver/config
 #	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/Ceres/ceres-solver/include
 #	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/CERES/include
 	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty//glfw-3.1.1/src
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	
+	#${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-bin/include
+	#${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-bin/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/lib
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0
+	#${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
+	#${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
+	#${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	
 	#/usr/include/atk-1.0
 	#/usr/include/cairo
 	#/usr/include/gdk-pixbuf-2.0
@@ -75,6 +84,7 @@ include_directories(
 	#/usr/lib/x86_64-linux-gnu/glib-2.0/include/
 	${OpenCL_INCLUDE_DIRS}
 	${GTK_INCLUDE_DIRS}
+	${CERES_INCLUDE_DIRS}
 	/usr/local/cuda-8.0/include
 )
 
@@ -92,9 +102,10 @@ link_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/dart/lib
 	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/glfw-3.1.1/src/
 	${CMAKE_CURRENT_SOURCE_DIR}/../Linux/Third-Party/libfreenect2/lib/
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/config
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/include
-	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver/lib
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/config
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/include
+	${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/ceres-solver-2.1.0/lib
 
 	../UBCCamera/
 	../UBCColorTrackCUDA/
@@ -126,21 +137,21 @@ target_link_libraries(EllipseFit
 	ubcutil
 	
 	opencv_calib3d
-	opencv_contrib
+#	opencv_contrib
 	opencv_core
 	opencv_features2d
 	opencv_flann
-	opencv_gpu
+#	opencv_gpu
 	opencv_highgui
 	opencv_imgproc
-	opencv_legacy
+#	opencv_legacy
 	opencv_ml
 	opencv_objdetect
-	opencv_ocl
+#	opencv_ocl
 	opencv_photo
 	opencv_stitching
 	opencv_superres
-	opencv_ts
+#	opencv_ts
 	opencv_video
 	opencv_videostab
 
@@ -155,12 +166,13 @@ target_link_libraries(EllipseFit
 	#OpenCL
 
 	${OpenCL_LIBRARIES}
+	${OpenCV_LIBRARIES}
 	#freenect2
 
 	pthread
 
 	${GTK_LDFLAGS}
-
+	${CERES_LIBRARIES}
 	glog
 	gflags
 	ceres
@@ -171,4 +183,4 @@ target_link_libraries(EllipseFit
 )
 
 
-set_property(TARGET EllipseFit PROPERTY CXX_STANDARD 11)
+set_property(TARGET EllipseFit PROPERTY CXX_STANDARD 14)

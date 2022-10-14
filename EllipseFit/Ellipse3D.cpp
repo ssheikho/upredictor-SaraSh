@@ -165,14 +165,16 @@ MatrixXd Ellipse3D::findThetas() {
 
 
 MatrixXd Ellipse3D::ellipticalInterpolator (size_t sliceN){ 
-	MatrixXd thetas(1,sliceN);
+	Eigen::MatrixXd thetas = Eigen::MatrixXd::Zero(1,sliceN);
 	double sliceSize = (M_PI * 2.0)/double(sliceN);
 
 	for (double i = 0; i < sliceN; i++)
-		thetas(0,i) = i * sliceSize;
+	//	thetas(0,i) = sliceSize;
+		//(double)(i * sliceSize);
 
-	MatrixXd retPts3d = getPointAtThetasH(thetas);
-	return retPts3d;
+	//Eigen::MatrixXd retPts3d = 
+	return _ellipse.getPointAtThetasH(thetas);
+	//return retPts3d;
 }
 
 

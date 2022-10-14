@@ -1,7 +1,10 @@
 #ifndef IMAGE_CHANNEL_PROVIDER_H
 #define IMAGE_CHANNEL_PROVIDER_H
 
-#include <opencv/cv.hpp>
+
+#include <opencv2/opencv_modules.hpp>
+#include <opencv2/opencv.hpp>
+//#include <opencv/cv.hpp>
 
 class ImageChannelProvider {
 public:
